@@ -1,0 +1,111 @@
+.container{
+	
+	.boxsizing(@value){
+		-webkit-box-sizing: @value;
+		-moz-box-sizing: @value;
+		box-sizing: @value;
+	}
+
+	.defaultstyle{
+		background-color:rgb(59,58,54);
+		color: white;
+	}
+
+	min-height: 100vh;
+
+	.header{
+		boxsizing: ;
+		background-color:rgb(59,58,54);
+
+		.hauteur{
+			height: 50px;
+		}
+
+		position: relative;
+
+		svg{
+			width: 100%;
+			.hauteur;
+			display: inline-block;
+			
+			path{
+				stroke: black;
+			}
+		}
+		.social{
+			position: absolute;
+			right: 30px;
+			top: 0;
+
+			ul{
+				font-size: 0;
+
+				li{
+					display: inline-block;
+					vertical-align: middle;
+					font-size: 1.5rem;
+
+					a{
+						display: block;
+						width: 50px;
+						.hauteur;
+						
+						margin: 0 10px;
+						border: 1px solid black;
+						transition: all 0.8s ease;
+
+						&:hover{
+							.defaultstyle;
+						}
+
+						span{
+							margin: 50%;
+							transform: translateX(-50%) translateY(-50%);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.menu{
+		.defaultstyle;
+		width: inherit;
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		transition: all 1s ease;
+
+		ul{
+			font-size: 0;
+
+			li{
+				border: 1px solid black;
+				font-size: 1rem;
+				display: block;
+				text-align: center;
+
+				a{
+					display: block;
+					padding: 20px;
+
+					.fullMenu{
+						display: none;
+					}
+				}
+			}
+		}
+
+		&:hover{
+			.defaultstyle;
+			.reduceMenu{
+				display: none;
+			}
+			.fullMenu{
+				display: block;
+			}
+			
+		}
+	}
+}
