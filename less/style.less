@@ -1,5 +1,5 @@
 .container{
-	
+
 	.boxsizing(@value){
 		-webkit-box-sizing: @value;
 		-moz-box-sizing: @value;
@@ -9,23 +9,22 @@
 	.defaultstyle{
 		background-color:rgb(59,58,54);
 		color: white;
+		border: 1px solid black;
 	}
 
 	min-height: 100vh;
 
 	.header{
-		boxsizing: ;
-		background-color:rgb(59,58,54);
-
-		.hauteur{
-			height: 50px;
-		}
-
-		position: relative;
+		.defaultstyle;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
 
 		svg{
 			width: 100%;
-			.hauteur;
+			height: 50px;
+			background-color: gray;
 			display: inline-block;
 			
 			path{
@@ -47,8 +46,8 @@
 
 					a{
 						display: block;
+						height: 50px;
 						width: 50px;
-						.hauteur;
 						
 						margin: 0 10px;
 						border: 1px solid black;
@@ -80,21 +79,26 @@
 		ul{
 			font-size: 0;
 
-			li{
-				border: 1px solid black;
-				font-size: 1rem;
-				display: block;
-				text-align: center;
-
-				a{
+			&:nth-child(2){
+				
+				li{
+					border: 1px solid black;
+					font-size: 1rem;
 					display: block;
-					padding: 20px;
+					text-align: center;
 
-					.fullMenu{
-						display: none;
+					a{
+						display: block;
+						padding: 20px;
+
+						.fullMenu{
+							display: none;
+						}
 					}
 				}
 			}
+
+			
 		}
 
 		&:hover{
@@ -107,5 +111,15 @@
 			}
 			
 		}
+	}
+
+	.footer{
+		.defaultstyle;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		/*Temporaire*/
+		height: 150px;
 	}
 }
