@@ -36,10 +36,6 @@
 	
 	$traitementList = [
 		"register" => "users", "login" => "users", "logout" => "users",
-		"create_product" => "product", "edit_product" => "product", "remove_product" => "product",
-		"product_single" => "comments",
-		"create_category" => "category", "products" => "category",
-		"create_facture" => "facture", "panier" => "facture"
 	];
 	
 	if(isset($_GET['page'], $traitementList[$_GET['page']]))
