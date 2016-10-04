@@ -1,18 +1,49 @@
-<header class="header">
-	<svg>
-		
-	</svg>
-	<nav class="social">
-		<ul>
-			<li>
-				<a href="#"><span class="fa fa-facebook"></span></a>
-			</li>
-			<li>
-				<a href="#"><span class="fa fa-twitter"></a></span>
-			</li>
-			<li>
-				<a href="#"><span class="fa fa-envelope-o"></a></span>
-			</li>
-		</ul>
-	</nav>
+<header class="header clearfix">
+	<div class="headerContainer">
+		<a class="logo-green" href="index.php?page=home"><img src="public/images/logo.png"></a>
+		<nav class="nav">
+			<ul>
+				<li>
+					<a class="link-header" href="index.php?page=products"><i class="fa fa-hand-peace-o" aria-hidden="true"></i> Nos produits</a>
+				</li>
+				<li>
+					<div class="loginContainer">
+		                <a class="link-header loginButton" href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> <span>Login</span><em></em></a>
+		                <div style="clear:both"></div>
+		                <div class="loginBox">                
+		                   
+		                    <form method="POST" class="loginForm" action="index.php?page=login">
+		                        <fieldset class="body">
+		                            <input type="hidden" name="action" value="login">
+		                            <div>
+		                                <label for="login">Login</label>
+		                                <input type="text" placeholder="Login" name="login" id="login"/>
+		                            </div>
+
+		                            <div>
+		                                <label for="password">Mot de passe</label>
+		                                <input type="password" placeholder="Mot de passe" name="pwd" class="password" />
+		                            </div>
+		                            <button type="submit" class="login" value="Entrer">entrer</button>
+		                            <label for="checkbox"><input type="checkbox" class="checkbox" />Se souvenir de moi</label>
+		                        </fieldset>
+		                        <span><a href="#">Mot de passe oublié?</a></span>
+		                    </form>
+		               
+		               	</div>		
+		            </div>
+				</li>
+				<li>
+					<a class="link-header" href="index.php?page=register"><i class="fa fa-hdd-o" aria-hidden="true"></i> S'enregistrer</a>
+				</li>
+				<li>
+					<form id="form_search">
+						<input type="hidden" value="recherche" name="page">
+						<input class="search" autofocus type="search" placeholder="Entrez un mot-clé" name="search" onfocus="this.value = this.value;" value="<?=$search?>">
+						<input type="submit" style="display:none">
+					</form>
+				</li>
+			</ul>
+		</nav>
+	</div>
 </header>
