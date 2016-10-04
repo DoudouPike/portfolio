@@ -1,0 +1,30 @@
+<div class="comments_form">
+	<h2>Ajoutez un commentaire <?= $_SESSION["login"] ?> :</h2>
+	<form method="POST">
+		<ul>
+			<li>
+				<label for="note">Note </label>
+				<select name="note" id="note">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>/5
+			</li>
+			<li>
+				<input type="text" name="title" placeholder="Titre">
+			</li>
+			<li>
+				<textarea name="content" placeholder="Contenu" maxlength="255"></textarea>
+			</li>
+			<li>
+				<input type="submit" value="Commenter">
+			</li>
+			<input type="hidden" name="id_product" value="<?= $product->getId() ?>">
+			<input type="hidden" name="action" value="create_comment">
+		</ul>
+		
+		
+	</form>
+</div>
