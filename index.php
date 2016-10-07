@@ -11,7 +11,7 @@
 	
 	$error = '';
 	$page = "home";
-	$access = ["about", "register", "login", "portfolio", "mine"];
+	$access = ["about", "portfolio", "mine", "contact", "register", "login"];
 	$accessIn = ["about", "contact", "portfolio", "mine", "logout", "dashboard"];
 	$accessAdmin = ["about", "contact", "portfolio", "mine", "logout", "dashboard"];
 	
