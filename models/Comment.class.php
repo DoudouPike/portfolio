@@ -4,16 +4,14 @@ class Comment
 {
 	//Propriétés
 	private $id;
-	private $note;
-	private $title;
-	private $content;
-	private $id_product;
+	private $id_project;
 	private $id_user;
+	private $content;
+	private $date;
 
 	private $db;
 	private $user;
-	private $product;
-	private $gRate;
+	private $project;
 	
 	public function __construct($db)
 	{
@@ -26,26 +24,22 @@ class Comment
 	{
 		return $this->id;
 	}
-	public function getNote()
-	{
-		return $this->note;
-	}
-	public function getTitle()
-	{
-		return $this->title;
-	}
 	public function getContent()
 	{
 		return $this->content;
 	}
-	public function getProduct()
+	public function getDate()
 	{
-		if (!$this->product)
+		return $this->date;
+	}
+	public function getProject()
+	{
+		if (!$this->project)
 		{
-			$productManager = new ProductManager($this->db);
-			$this->product = $productManager->findById($this->id_product);
+			$projectManager = new ProjectManager($this->db);
+			$this->project = $projectManager->findById($this->id_project);
 		}
-		return $this->product;
+		return $this->project;
 	}
 	public function getUser()
 	{
@@ -58,21 +52,6 @@ class Comment
 	}
 
 		//Set
-	public function setNote($note)
-	{
-		if(empty($note) || strlen($note) != 1 || $note < 1 || $note > 5)
-			throw new Exception("La note doit être comprise entre 1 et 5");
-		else
-			$this->note = $note;
-	
-	}
-	public function setTitle($title)
-	{
-		if(empty($title) || strlen($title) < 1 || strlen($title) > 31)
-			throw new Exception("Le titre doit être compris entre 2 et 31 caractères");
-		else
-			$this->title = $title;
-	}
 	public function setContent($content)
 	{
 		if(empty($content) || strlen($content) < 1 || strlen($content) > 1023)
@@ -80,10 +59,10 @@ class Comment
 		else
 			$this->content = $content;
 	}
-	public function setProduct(Product $product)
+	public function setProject(Project $project)
 	{
-		$this->id_product = $product->getId();
-		$this->product = $product;
+		$this->id_project = $project->getId();
+		$this->project = $project;
 	}
 	public function setUser(User $user)
 	{

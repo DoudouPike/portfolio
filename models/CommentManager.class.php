@@ -6,31 +6,10 @@ class CommentManager
 	{
 		$this->db = $db;
 	}
-	public function findNoteByProduct(Product $product)
+	public function findByProject(Project $project)
 	{
 		$list = [];
-		$query = "SELECT note FROM comments WHERE id_product='".$product->getId()."'";
-		$res = mysqli_query($this->db, $query);
-		while ($note = mysqli_fetch_object($res, "Comment", [$this->db]))
-			$list[] = $note;
-		if(!empty($list))
-		{
-			for($i = 0; $i < sizeof($list) ; $i++)
-			{ 
-				$note = $list[$i];
-				$noteTab[] = $note->getNote();
-			}
-
-			$gNote_float = array_sum($noteTab) / sizeof($list);
-			$gNote = round($gNote_float);
-
-			return $gNote;
-		}
-	}
-	public function findByProduct(Product $product)
-	{
-		$list = [];
-		$query = "SELECT * FROM comments WHERE id_product='".$product->getId()."' ORDER BY id DESC";
+		$query = "SELECT * FROM comments WHERE id_project='".$project->getId()."' ORDER BY id DESC";
 		$res = mysqli_query($this->db, $query);
 		while ($comment = mysqli_fetch_object($res, "Comment", [$this->db]))
 			$list[] = $comment;
@@ -71,27 +50,26 @@ class CommentManager
 		}
 	}
 
-	public function create(Product $product, User $user, $note, $title, $content)
+	public function create(Project $project, User $user, $content, $date)
 	{
 		$comment = new Comment($this->db);
-		$comment->setNote($note);
-		$comment->setTitle($title);
 		$comment->setContent($content);
-		$comment->setProduct($product);
+		$comment->setProject($project);
 		$comment->setUser($user);
 
-		$note = intval($comment->getNote());
-		$title = mysqli_real_escape_string($this->db, $comment->getTitle());
 		$content = mysqli_real_escape_string($this->db, $comment->getContent());
-		$id_product = $comment->getProduct()->getId();
+		$id_project = $comment->getProject()->getId();
 		$id_user = $comment->getUser()->getId();
-		$query = "INSERT INTO comments (note, title, content, id_product, id_user) VALUES('".$note."', '".$title."', '".$content."', '".$id_product."','".$id_user."')";
-		$res = mysqli_query($this->db, $query);
-		if (!$res)
-			throw new Exception("Erreur interne > ".mysqli_error($this->db));
-		$id = mysqli_insert_id($this->db);
-		
-		return $this->findById($id);
+
+		if(isset($_SESSION["id"]) && $_SESSION["admin"] === "1")
+		{
+			$query = "INSERT INTO comments (content, id_project, id_user) VALUES('".$content."', '".$id_project."','".$id_user."')";
+			$res = mysqli_query($this->db, $query);
+			if (!$res)
+				throw new Exception("Erreur interne > ".mysqli_error($this->db));
+			$id = mysqli_insert_id($this->db);
+			return $this->findById($id);
+		}
 	}
 }
 ?>
