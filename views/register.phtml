@@ -1,60 +1,17 @@
-<form class="registerForm clearfix" method="post">
-	<div class="shippingAddress">
-		<input type="hidden" name="action" value="register">
-		<h2 class="registerTitle">MES COORDONNEES :</h2>
+<form method="post">
+	<input type="hidden" name="action" value="register">
+	<input type="text" name="login" placeholder="Pseudo" >
+	<input type="email" name="email" placeholder="Email" >
+	<input type="password" name="pwd" placeholder="Mot de passe" >
+	<input type="password" name="pwd2" placeholder="Confirmation mot de passe" >
+	<input type="submit" value="S'enregistrer" >
 		
-		<label>Prénom</label>
-		<input type="text" placeholder="Prénom" name="firstname" />
-		
-		<label>Nom de famille</label>
-		<input type="text" placeholder="Nom de famille" name="lastname" />
-		
-		<label>Adresse</label>
-		<input type="text" placeholder="Adresse" name="address" />
-		
-		<label>Code postal</label>
-		<input type="text" placeholder="Code postal" name="zip" />
-		
-		<label>Ville</label>
-		<input type="text" placeholder="Ville" name="city" />
-		
-		<label>Numéro de téléphone</label>
-		<input type="text" placeholder="Numéro de téléphone" name="phone" />
-		
-		<label>Adresse e-mail</label>
-		<input type="email" placeholder="Adresse e-mail" name="email" />
-		
-		<label>Date de naissance</label>
-		<input type="date" name="birthdate">
-		
-		<label for="choixSexe">Vous êtes : </label>
-		<select name="gender" id="choixSexe">
-			<option value="none" selected>Sélectionnez votre sexe</option>
-			<option value="0">Une femme</option>
-			<option value="1">Un homme</option>
-		</select>
-	</div>
-	
-	<div class="myAccount">
-		<h2 class="registerTitle">MON COMPTE :</h2>
-		
-		<label>Pseudo</label>
-		<input type="text" placeholder="Choisissez un pseudo" name="login" />
-		
-		<label>Choisissez un mot de passe</label>
-		<input type="password" placeholder="Choisissez un mot de passe" name="pwd" />
-		
-		<label>Confirmez votre mot de passe</label>
-		<input type="password" placeholder="Confirmez votre mot de passe" name="pwd2" />
-		
-		<div class="clearfix checkbox">
-			<div class="majority">
-				<label for="majority">j'ai 18 ans ou plus, et j'accepte les <a class="userAgreement" href="http://www.apple.com/legal/internet-services/itunes/fr/terms.html" target="_blank">conditions d'utilisation.</a></label>
-			</div>
-			<div class="majority">
-				<input type="checkbox" name="majority" value="majority" id="majority"/>
-			</div>
+	<!-- <div class="clearfix checkbox">
+		<div class="majority">
+			<label for="majority">j'ai 18 ans ou plus, et j'accepte les <a class="userAgreement" href="http://www.apple.com/legal/internet-services/itunes/fr/terms.html" target="_blank">conditions d'utilisation.</a></label>
 		</div>
-		<button class="registerButton" type="submit" value="register">S'enregistrer</button>
-	</div>
+		<div class="majority">
+			<input type="checkbox" name="majority" value="majority" id="majority"/>
+		</div>
+	</div> -->
 </form>

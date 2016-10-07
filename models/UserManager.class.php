@@ -59,16 +59,16 @@ class UserManager
 		}
 	}
 
-	public function create($login, $password, $email)
+	public function create($login, $email, $password)
 	{
-		$user = new User($this -> db);
-		$user -> setLogin($login);
-		$user -> setPassword($password);
-		$user -> setEmail($email);
+		$user = new User($this->db);
+		$user->setLogin($login);
+		$user->setPassword($password);
+		$user->setEmail($email);
 
-		$login = mysqli_real_escape_string($this->db, $user -> getLogin());
+		$login = mysqli_real_escape_string($this->db, $user->getLogin());
 		$password = $user -> getPassword();
-		$email = mysqli_real_escape_string($this->db, $user -> getEmail());
+		$email = mysqli_real_escape_string($this->db, $user->getEmail());
 
 		$query = "INSERT INTO users (login, password, email) VALUES('".$login."', '".$password."', '".$email."')";
 		$res = mysqli_query($this->db, $query);

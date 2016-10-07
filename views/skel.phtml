@@ -9,8 +9,10 @@
 		<link rel="stylesheet" type="text/css" href="public/styles/style.min.css">
 	</head>
 	<body>
-		<nav class="nav menu"><?php require('controllers/menu.php'); ?></nav>
-		<nav class="nav panel"><?php require('controllers/panel.php'); ?></nav>
-		<main class="main"><?php require('controllers/content.php'); ?></main>
+		<div class="container">
+			<nav class="nav menu"><?php require('controllers/menu.php'); ?></nav>
+			<main class="main"><?php require('controllers/content.php'); ?></main>
+			<nav class="nav panel"><?php require('controllers/panel.php'); ?></nav>
+		</div>
 	</body>
 </html>
