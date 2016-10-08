@@ -32,9 +32,15 @@ class User
 	{
 		return $this->email;
 	}
-	public function getPassword()
+	public function initPassword($password1, $password2)
 	{
-		return $this->pwd;
+		if ($password1 != $password2)
+			throw new Exception("Les mots de passe ne correspondent pas");
+		$this->password = password_hash($password1, PASSWORD_BCRYPT);
+	}
+	public function verifPassword($password)
+	{
+		return password_verify($password, $this->password);
 	}
 	public function getAdmin()
 	{
@@ -87,8 +93,9 @@ class User
 	}
 	public function setAdmin($admin)
 	{
-		if($gender < 0 || $gender > 1)
-			throw new Exception("Erreur interne");
+		$values = ["0", "1"];
+		if(!in_array($admin, $values))
+			throw new Exception("Valeur de Admin invalide");
 		else
 			$this->admin = $admin;
 	}
