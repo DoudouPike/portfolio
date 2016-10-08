@@ -18,7 +18,7 @@ if(isset($_POST['action']))
 			{
 				throw new Exception("Les mots de passe ne correspondent pas");
 			}
-			$user = $manager -> create($_POST['login'], $_POST['pwd'], $_POST['firstname'], $_POST['lastname'], $_POST['address'], $_POST['zip'], $_POST['city'], $_POST['phone'], $_POST['email'], $_POST['birthdate'], $_POST['gender']);
+			$user = $manager -> create($_POST['login'], $_POST['email'], $_POST['pwd']);
 			header('Location: index.php?page=login');
 			exit;
 		}
