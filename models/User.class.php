@@ -32,15 +32,9 @@ class User
 	{
 		return $this->email;
 	}
-	public function initPassword($password1, $password2)
+	public function getHash()
 	{
-		if ($password1 != $password2)
-			throw new Exception("Les mots de passe ne correspondent pas");
-		$this->password = password_hash($password1, PASSWORD_BCRYPT);
-	}
-	public function verifPassword($password)
-	{
-		return password_verify($password, $this->password);
+		return $this->password;
 	}
 	public function getAdmin()
 	{
@@ -70,26 +64,29 @@ class User
 			$this->login = $login;
 		}
 	}
-	public function setPassword($pwd)
-	{
-		if (empty($pwd))
-			throw new Exception("Mot de passe vide");
-		else if (strlen($pwd) < 6)
-			throw new Exception("Mot de passe trop court");
-		else if (strlen($pwd) > 255)
-			throw new Exception("Mot de passe trop long");
-		else
-		{
-			$hash = password_hash($pwd, PASSWORD_BCRYPT, ["cost"=>12]);
-			$this->pwd = $hash;
-		}
-	}
 	public function setEmail($email)
 	{
 		if (empty($email) || strlen($email) > 63 || !filter_var($email, FILTER_VALIDATE_EMAIL))
 			throw new Exception("Adresse email invalide");
 		else
 			$this->email = $email;
+	}
+	public function initPassword($pwd, $pwd2)
+	{
+		if(empty($pwd))
+			throw new Exception("Mot de passe vide");
+		elseif(strlen($pwd) < 6)
+			throw new Exception("Mot de passe trop court");
+		elseif(strlen($pwd) > 255)
+			throw new Exception("Mot de passe trop long");
+		elseif($pwd != $pwd2)
+			throw new Exception("Les mots de passe ne correspondent pas");
+		else
+			$this->password = password_hash($pwd, PASSWORD_BCRYPT);
+	}
+	public function verifPassword($password)
+	{
+		return password_verify($password, $this->password);
 	}
 	public function setAdmin($admin)
 	{

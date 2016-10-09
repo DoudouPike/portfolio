@@ -7,46 +7,44 @@ if(isset($_GET['page']) && $_GET['page'] == 'logout') {
 
 if(isset($_POST['action']))
 {
-	$manager = new UserManager($db);
 	$action = $_POST['action'];
 	
 	if($action == 'register' && isset($_POST['login'], $_POST['email'], $_POST['pwd'],$_POST['pwd2']))
 	{
+		$manager = new UserManager($db);
 		try
 		{
-
-			if($_POST['pwd'] !== $_POST['pwd2'])
-			{
-				throw new Exception("Les mots de passe ne correspondent pas");
-			}
-			$user = $manager -> create($_POST['login'], $_POST['email'], $_POST['pwd']);
+			$user = $manager->create($_POST['login'], $_POST['email'], $_POST['pwd'], $_POST['pwd2']);
 			header('Location: index.php?page=login');
 			exit;
 		}
 		catch(Exception $e)
 		{
-			$error = $e -> getMessage();
+			$error = $e->getMessage();
 		}
 
 	}
-	elseif($action == 'login' && isset($_POST['login'], $_POST['password']))
+	elseif($action == 'login' && isset($_POST['login'], $_POST['pwd']))
 	{
 		$manager = new UserManager($db);
 		$user = $manager->findByLogin($_POST['login']);
-		if ($user)
+		try
 		{
-			if ($user->verifPassword($_POST['password']))
-			{
-				$_SESSION['id'] = $user->getId();
-				$_SESSION['user'] = $user;
-				header('Location: index.php?page=home');
-				exit;
-			}
-			else
-				$_SESSION['error'] = 'Mauvais mot de passe';
+			if(!$user)
+				throw new Exception("Utilisateur introuvable");
+				
+			if(!$user->verifPassword($_POST['pwd']))
+				throw new Exception("Mot de passe incorrect");
+
+			$_SESSION['id'] = $user->getId();
+			$_SESSION['user'] = $user;
+			header('Location: index.php?page=home');
+			exit;
 		}
-		else
-			$_SESSION['error'] = 'Utilisateur introuvable';
+		catch(Exception $e)
+		{
+			$error = $e->getMessage();
+		}
 	}
 }	
 ?>

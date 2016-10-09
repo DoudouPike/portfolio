@@ -6,20 +6,6 @@ class UserManager
 	{
 		$this->db = $db;
 	}
-
-	public function findByLogin($login)
-	{
-		$login = $this->db->quote($login);
-		$query = "SELECT * FROM user WHERE login=".$login;
-		$res = $this->db->query($query, PDO::FETCH_CLASS, "User");
-		if ($res)
-		{
-			$user = $res->fetch();
-			return $user;
-		}
-		else
-			throw new Exception("Internal Server Error > ".$this->db->errorInfo()[2]);
-	}
 	public function findById($id)
 	{
 		$id = intval($id);
@@ -72,18 +58,18 @@ class UserManager
 		}
 	}
 
-	public function create($login, $email, $password)
+	public function create($login, $email, $pwd, $pwd2)
 	{
 		$user = new User($this->db);
 		$user->setLogin($login);
 		$user->setEmail($email);
-		$user->setPassword($password);
+		$user->initPassword($pwd, $pwd2);
 
 		$login = mysqli_real_escape_string($this->db, $user->getLogin());
 		$email = mysqli_real_escape_string($this->db, $user->getEmail());
-		$password = $user -> getPassword();
+		$hash = mysqli_real_escape_string($this->db, $user -> getHash());
 
-		$query = "INSERT INTO users (login, email, password) VALUES('".$login."', '".$email."', '".$password."')";
+		$query = "INSERT INTO users (login, email, password) VALUES('".$login."', '".$email."', '".$hash."')";
 		$res = mysqli_query($this->db, $query);
 		if (!$res)
 				throw new Exception("Erreur interne > ".mysqli_error($this->db));
