@@ -1,5 +1,6 @@
 <?php 
-if(isset($_GET['page']) && $_GET['page'] == 'logout') {
+if(isset($_GET['page']) && $_GET['page'] == 'logout')
+{
 	session_destroy();
 	header('Location: index.php');
 	exit;

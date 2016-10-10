@@ -71,8 +71,15 @@ class UserManager
 
 		$query = "INSERT INTO users (login, email, password) VALUES('".$login."', '".$email."', '".$hash."')";
 		$res = mysqli_query($this->db, $query);
+
 		if (!$res)
-				throw new Exception("Erreur interne > ".mysqli_error($this->db));
+		{
+			if(mysqli_errno($this->db) === 1062)
+				throw new Exception("Pseudo ou Email déjà utilisé");
+			else
+				throw new Exception("Contactez moi, code d'erreur :".mysqli_errno($this->db));
+		}
+
 		$id = mysqli_insert_id($this->db);
 		return $this->findById($id);
 	}

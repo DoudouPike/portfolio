@@ -53,16 +53,14 @@ class User
 	//Set
 	public function setLogin($login)
 	{
-		if (empty($login))
+		if(empty($login))
 			throw new Exception("Login vide");
-		else if (strlen($login) < 4)
+		elseif(strlen($login) < 4)
 			throw new Exception("Login trop court");
-		else if (strlen($login) > 31)
+		elseif(strlen($login) > 31)
 			throw new Exception("Login trop long");
 		else
-		{
 			$this->login = $login;
-		}
 	}
 	public function setEmail($email)
 	{
