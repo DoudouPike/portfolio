@@ -17,7 +17,7 @@ class UserManager
 	public function findByLogin($login)
 	{
 		$login = mysqli_real_escape_string($this->db, $login);
-		$query = "SELECT * FROM users WHERE login='".$login."'";
+		$query = "SELECT * FROM users WHERE login='".$login."' OR email='".$login."'";
 		$res = mysqli_query($this->db, $query);
 		$user = mysqli_fetch_object($res, "User", [$this->db]);
 		return $user;
