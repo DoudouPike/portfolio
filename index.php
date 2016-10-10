@@ -35,7 +35,7 @@
 	}
 	
 	$traitementList = [
-		"register" => "users", "login" => "users", "logout" => "users",
+		"register" => "users", "login" => "users", "logout" => "users", "dashboard" => "users"
 	];
 	
 	if(isset($_GET['page'], $traitementList[$_GET['page']]))

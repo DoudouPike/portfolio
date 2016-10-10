@@ -1,6 +1,4 @@
-<fieldset class="comments_bloc">
-	<legend class="author"><?= htmlentities($comments->getUser()->getLogin()) ?> <span class="note">- <?= htmlentities($comments->getNote()) ?>/5</span></legend>
-	<h5><?= htmlentities($comments->getTitle()) ?></h5>
+<fieldset>
+	<legend class="author"><?= htmlentities($comments->getUser()->getLogin()) ?></legend>
 	<p><?= htmlentities($comments->getContent()) ?></p>
-	<?php require("controllers/comments_admin.php"); ?>
 </fieldset>

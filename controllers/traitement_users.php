@@ -32,14 +32,53 @@ if(isset($_POST['action']))
 		try
 		{
 			if(!$user)
-				throw new Exception("Utilisateur introuvable");
-				
+				throw new Exception("Utilisateur introuvable");	
 			if(!$user->verifPassword($_POST['pwd']))
 				throw new Exception("Mot de passe incorrect");
 
 			$_SESSION['id'] = $user->getId();
-			$_SESSION['user'] = $user;
+			$_SESSION['user'] = $user->getLogin();
 			header('Location: index.php?page=home');
+			exit;
+		}
+		catch(Exception $e)
+		{
+			$error = $e->getMessage();
+		}
+	}
+	elseif($action == 'update' && isset($_POST['email']))
+	{
+		$manager = new UserManager($db);
+		$user = $manager->findById($_SESSION['id']);
+		try
+		{
+			if(!$user)
+				throw new Exception("Vous n'êtes plus connecté");
+			
+			$user->setEmail($_POST['email']);
+			$update = $manager->save($user);
+			header('Location: index.php?page=dashboard');
+			exit;
+		}
+		catch(Exception $e)
+		{
+			$error = $e->getMessage();
+		}
+	}
+	elseif($action == 'newPwd' && isset($_POST['actualPwd'], $_POST['newPwd'], $_POST['newPwd2']))
+	{
+		$manager = new UserManager($db);
+		$user = $manager->findById($_SESSION['id']);
+		try
+		{
+			if(!$user)
+				throw new Exception("Vous n'êtes plus connecté");
+			if(!$user->verifPassword($_POST['actualPwd']))
+				throw new Exception("Mot de passe incorrect");
+
+			$user->initPassword($_POST['newPwd'], $_POST['newPwd2']);
+			$newPwd = $manager->save($user);
+			header('Location: index.php?page=dashboard');
 			exit;
 		}
 		catch(Exception $e)

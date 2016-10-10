@@ -20,9 +20,10 @@ class CommentManager
 		$list = [];
 		$query = "SELECT * FROM comments WHERE id_user='".$user->getId()."'";
 		$res = mysqli_query($this->db, $query);
-		while ($comment = mysqli_fetch_object($res, "Comment", [$this->db]))
-			$list[] = $comment;
-		return $list;
+		if($res)
+			while ($comment = mysqli_fetch_object($res, "Comment", [$this->db]))
+				$list[] = $comment;
+			return $list;
 	}
 	public function findById($id)
 	{

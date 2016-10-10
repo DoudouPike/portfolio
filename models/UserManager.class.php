@@ -28,18 +28,18 @@ class UserManager
 	}
 	public function save(User $user)
 	{
-		$password = mysqli_real_escape_string($this->db, $user -> getPassword());
+		$password = mysqli_real_escape_string($this->db, $user -> getHash());
 		$email = mysqli_real_escape_string($this->db, $user -> getEmail());
 		$admin = mysqli_real_escape_string($this->db, $user -> getAdmin());
 		$id_user = $user->getId();
 
-		if((isset($_SESSION["id"]) && $id_user === $_SESSION["id"]) || (isset($_SESSION["admin"]) && $_SESSION["admin"] === "1"))
+		if(isset($_SESSION["id"]) && ($id_user === $_SESSION["id"] || $admin === "1"))
 		{
-			$query = "UPDATE users SET password='".$password."', email='".$email."', admin='".$admin."' WHERE id='".$id_user."'";
+			$query = "UPDATE users SET email='".$email."', password='".$password."', admin='".$admin."' WHERE id='".$id_user."'";
 			$res = mysqli_query($this->db, $query);
 			if (!$res)
 				throw new Exception("Erreur interne > ".mysqli_error($this->db));
-			return $this->findById($id);
+			return $this->findById($id_user);
 
 		}
 	}
