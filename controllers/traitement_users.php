@@ -37,7 +37,9 @@ if(isset($_POST['action']))
 				throw new Exception("Mot de passe incorrect");
 
 			$_SESSION['id'] = $user->getId();
-			$_SESSION['user'] = $user->getLogin();
+			$_SESSION['login'] = $user->getLogin();
+			if($user->getAdmin() == "1")
+				$_SESSION['admin'] = $user->getAdmin();
 			header('Location: index.php?page=home');
 			exit;
 		}

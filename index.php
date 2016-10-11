@@ -13,13 +13,13 @@
 	$page = "home";
 	$access = ["about", "portfolio", "mine", "contact", "register", "login"];
 	$accessIn = ["about", "contact", "portfolio", "mine", "logout", "dashboard"];
-	$accessAdmin = ["about", "contact", "portfolio", "mine", "logout", "dashboard"];
+	$accessAdmin = ["about", "contact", "portfolio", "mine", "logout", "dashboard", "notes_admin", "prods_admin", "projects_admin"];
 	
 	if(isset($_GET['page']))
 	{
 		if(isset($_SESSION['id']))
 		{
-			if(isset($_SESSION['admin']) && ($_SESSION['admin'] == "1") && in_array($_GET['page'], $accessAdmin))
+			if(isset($_SESSION['admin']) && in_array($_GET['page'], $accessAdmin))
 			{
 				$page = $_GET['page'];
 			}
