@@ -33,11 +33,17 @@ class CommentManager
 		$comment = mysqli_fetch_object($res, "Comment", [$this->db]);
 		return $comment;
 	}
-	public function find($id)
+	public function findAll()
 	{
-		return $this->findById($id);
+		$list = [];
+		$query = "SELECT * FROM comments";
+		$res = mysqli_query($this->db, $query);
+		while($comments = mysqli_fetch_object($res, "Comment", [$this->db]))
+		{
+			$list[] = $comments;
+		}
+		return $list;	
 	}
-
 	public function remove(Comment $comment)
 	{
 		$id_comment = $comment->getId();
