@@ -13,7 +13,7 @@
 	$page = "home";
 	$access = ["about", "portfolio", "mine", "contact", "register", "login"];
 	$accessIn = ["about", "contact", "portfolio", "mine", "logout", "dashboard"];
-	$accessAdmin = ["about", "contact", "create_note", "portfolio", "dashboard", "logout", "mine", "notes", "edit_note", "prods_admin", "projects_admin"];
+	$accessAdmin = ["about", "contact", "create_note", "portfolio", "dashboard", "logout", "mine", "notes", "delete_note", "edit_note", "prods_admin", "projects_admin"];
 	
 	if(isset($_GET['page']))
 	{
@@ -36,7 +36,7 @@
 	
 	$traitementList = [
 		"register" => "users", "login" => "users", "logout" => "users", "dashboard" => "users",
-		"create_note" => "notes", "edit_note" => "notes"
+		"create_note" => "notes", "delete_note" => "notes", "edit_note" => "notes"
 	];
 	
 	if(isset($_GET['page'], $traitementList[$_GET['page']]))

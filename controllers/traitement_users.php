@@ -12,10 +12,10 @@ if(isset($_POST['action']))
 	
 	if($action == 'register' && isset($_POST['login'], $_POST['email'], $_POST['pwd'],$_POST['pwd2']))
 	{
-		$manager = new UserManager($db);
+		$userManager = new UserManager($db);
 		try
 		{
-			$user = $manager->create($_POST['login'], $_POST['email'], $_POST['pwd'], $_POST['pwd2']);
+			$user = $userManager->create($_POST['login'], $_POST['email'], $_POST['pwd'], $_POST['pwd2']);
 			header('Location: index.php?page=login');
 			exit;
 		}
@@ -27,8 +27,8 @@ if(isset($_POST['action']))
 	}
 	elseif($action == 'login' && isset($_POST['login'], $_POST['pwd']))
 	{
-		$manager = new UserManager($db);
-		$user = $manager->findByLogin($_POST['login']);
+		$userManager = new UserManager($db);
+		$user = $userManager->findByLogin($_POST['login']);
 		try
 		{
 			if(!$user)
@@ -50,15 +50,18 @@ if(isset($_POST['action']))
 	}
 	elseif($action == 'update' && isset($_POST['email']))
 	{
-		$manager = new UserManager($db);
-		$user = $manager->findById($_SESSION['id']);
+		$userManager = new UserManager($db);
 		try
 		{
+			$user = $userManager->findById($_SESSION['id']);
 			if(!$user)
 				throw new Exception("Vous n'êtes plus connecté");
 			
 			$user->setEmail($_POST['email']);
-			$update = $manager->save($user);
+			$user = $userManager->save($user);
+			if(!$user)
+				throw new Exception("Erreur interne");
+				
 			header('Location: index.php?page=dashboard');
 			exit;
 		}
@@ -69,17 +72,20 @@ if(isset($_POST['action']))
 	}
 	elseif($action == 'newPwd' && isset($_POST['actualPwd'], $_POST['newPwd'], $_POST['newPwd2']))
 	{
-		$manager = new UserManager($db);
-		$user = $manager->findById($_SESSION['id']);
+		$userManager = new UserManager($db);
 		try
 		{
+			$user = $userManager->findById($_SESSION['id']);
 			if(!$user)
 				throw new Exception("Vous n'êtes plus connecté");
 			if(!$user->verifPassword($_POST['actualPwd']))
 				throw new Exception("Mot de passe incorrect");
 
 			$user->initPassword($_POST['newPwd'], $_POST['newPwd2']);
-			$newPwd = $manager->save($user);
+			$user = $userManager->save($user);
+			if(!$user)
+				throw new Exception("Erreur interne");
+				
 			header('Location: index.php?page=dashboard');
 			exit;
 		}

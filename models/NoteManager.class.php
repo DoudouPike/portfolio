@@ -39,7 +39,7 @@ class NoteManager
 	public function remove(Note $note)
 	{
 		$id = $note->getId();
-		if (isset($_SESSION["admin"]))
+		if(isset($_SESSION["admin"]))
 		{
 			$query = "DELETE FROM notes WHERE id='".$id."'";
 			$res = mysqli_query($this->db, $query);
