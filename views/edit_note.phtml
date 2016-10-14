@@ -1,0 +1,9 @@
+<h2>Editer la note <?= $note->getId() ?></h2>
+<form method="POST">
+	<input type="hidden" name="action" value="edit">
+	<input type="hidden" name="id" value="<?= $note->getId() ?>">
+	<textarea name="content"><?= htmlentities($note->getContent()) ?></textarea>
+	<input type="radio" name="active" value="0" id="hide" <?= $hide ?>><label for="hide">Cacher</label>
+	<input type="radio" name="active" value="1" id="show" <?= $show ?>><label for="show">Afficher</label>
+	<input type="submit" value="Editer">
+</form>

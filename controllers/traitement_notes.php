@@ -9,18 +9,43 @@ if(isset($_POST["action"]))
 	{
 		if(isset($_POST['content'], $_POST['active'], $_SESSION['id'], $_SESSION['admin']))
 		{
-			var_dump($_POST);
 			try
 			{
 				$user = $userManager->findById($_SESSION['id']);
 				if (!$user)
 					throw new Exception("Vous n'êtes plus connecté");
 
-				$note = $noteManager->create($_POST['content'],$_POST['active']);
+				$create = $noteManager->create($_POST['content'],$_POST['active']);
 				if (!$note)
 					throw new Exception("Erreur interne");
+				header('Location: index.php?admin&page=notes#'.$note->getId().'');
+				exit;
 				
-				header('Location: index.php?admin&page=notes');
+			}
+			catch (Exception $exception)
+			{
+				$error = $exception->getMessage();
+			}
+		}
+	}
+	elseif($action == "edit")
+	{
+		var_dump($_POST);
+		if(isset($_POST['id'], $_POST['content'], $_POST['active'], $_SESSION['admin']))
+		{
+			try
+			{
+				$user = $userManager->findById($_SESSION['id']);
+				if (!$user)
+					throw new Exception("Vous n'êtes plus connecté");
+
+				$note = $noteManager->findById($_POST['id']);
+				$note->setContent($_POST['content']);
+				$note->setActive($_POST['active']);
+				$save = $noteManager->save($note);
+				if (!$note)
+					throw new Exception("Erreur interne");
+				header('Location: index.php?admin&page=notes#'.$note->getId().'');
 				exit;
 				
 			}

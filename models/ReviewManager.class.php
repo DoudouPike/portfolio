@@ -58,7 +58,6 @@ class ReviewManager
 			return $this->findById($id);
 		}
 	}
-
 	public function remove(Review $review)
 	{
 		$id = $review->getId();

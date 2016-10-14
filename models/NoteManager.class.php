@@ -25,6 +25,17 @@ class NoteManager
 		}
 		return $list;	
 	}
+	public function findActive()
+	{
+		$list = [];
+		$query = 'SELECT * FROM notes WHERE active="1"';
+		$res = mysqli_query($this->db, $query);
+		while($notes = mysqli_fetch_object($res, "Note", [$this->db]))
+		{
+			$list[] = $notes;
+		}
+		return $list;	
+	}
 	public function remove(Note $note)
 	{
 		$id = $note->getId();
@@ -36,7 +47,20 @@ class NoteManager
 				throw new Exception("Erreur interne > ".mysqli_error($this->db));
 		}
 	}
-
+	public function save(Note $note)
+	{
+		$content = mysqli_real_escape_string($this->db, $note->getContent());
+		$active = mysqli_real_escape_string($this->db, $note->getActive());
+		$id = $note -> getId();
+		if(isset($_SESSION["id"], $_SESSION["admin"]))
+		{
+			$query = "UPDATE notes SET content='".$content."', active='".$active."' WHERE id=".$id."";
+			$res = mysqli_query($this->db, $query);
+			if (!$res)
+				throw new Exception("Erreur interne > ".mysqli_error($this->db));
+			return $this->findById($id);
+		}
+	}
 	public function create($content, $active)
 	{
 		$note = new Note($this->db);
