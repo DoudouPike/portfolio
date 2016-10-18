@@ -1,6 +1,5 @@
 <?php
-
-$noteManager = new noteManager($db);
+$noteManager = new NoteManager($db);
 
 if(isset($_GET['admin']))
 	$notes = $noteManager->findAll();

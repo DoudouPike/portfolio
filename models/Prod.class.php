@@ -1,6 +1,6 @@
 <?php
 
-class User
+class Prod
 {
 	//Propriétés
 	private $id;
@@ -28,9 +28,9 @@ class User
 	{
 		return $this->title;
 	}
-	public function getDecription()
+	public function getDescription()
 	{
-		return $this->decription;
+		return $this->description;
 	}
 	public function getImage()
 	{
@@ -61,16 +61,16 @@ class User
 		else
 			$this->title = $title;
 	}
-	public function setDecription($decription)
+	public function setDescription($description)
 	{
-		if(empty($decription))
+		if(empty($description))
 			throw new Exception("Description vide");
-		elseif(strlen($decription) < 4)
+		elseif(strlen($description) < 4)
 			throw new Exception("Description trop court");
-		elseif(strlen($decription) > 4095)
+		elseif(strlen($description) > 4095)
 			throw new Exception("Description trop long");
 		else
-			$this->decription = $decription;
+			$this->description = $description;
 	}
 	public function setClient($client)
 	{
@@ -82,11 +82,8 @@ class User
 			$this->client = $client;
 	}
 	public function setImage($image)
-	{
-		if(!empty($image) && !filter_var($image, FILTER_VALIDATE_URL))
-			throw new Exception("Url image invalide");
-		else
-			$this->image = $image;
+	{		
+		$this->image = $image;
 	}
 	public function setUrl($url)
 	{

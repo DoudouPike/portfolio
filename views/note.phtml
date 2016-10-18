@@ -1,5 +1,4 @@
 <div id="<?= $notes[$i]->getId() ?>">
-	<p>#<?= $notes[$i]->getId() ?></p>
 	<p><?= htmlentities($notes[$i]->getContent()) ?></p>
 	<p>Visibilité : <?= $active ?></p>
 	<div><?php require("controllers/note_admin.php"); ?></div>

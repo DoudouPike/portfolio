@@ -1,7 +1,7 @@
 <h2>Créer une nouvelle note :</h2>
 <form method="POST">
 	<input type="hidden" name="action" value="create">
-	<textarea name="content"><?= $content ?></textarea>
+	<textarea name="content" placeholder="contenu"><?= $content ?></textarea>
 	<input type="radio" name="active" value="0" id="hide" checked><label for="hide">Cacher</label>
 	<input type="radio" name="active" value="1" id="show"><label for="show">Afficher</label>
 	<input type="submit" value="Créer">

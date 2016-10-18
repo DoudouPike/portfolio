@@ -1,0 +1,13 @@
+<h2>Créer une nouvelle réalisation :</h2>
+<form method="POST">
+	<input type="hidden" name="action" value="create">
+	<input type="text" name="title" value="<?= htmlentities($title) ?>" placeholder="titre">
+	<textarea name="description" placeholder="description"><?= htmlentities($description) ?></textarea>
+	<input type="url" name="url" value="<?= htmlentities($url) ?>" placeholder="url">
+	<input type="text" name="image" value="<?= htmlentities($image) ?>" placeholder="image.jpg">
+	<input type="text" name="client" value="<?= htmlentities($client) ?>" placeholder="client">
+
+ 	<input type="text" name="date" placeholder="date" id="datepicker" value="<?= htmlentities($date) ?>">
+	<input type="hidden" name="altFormat" id="altFormat">
+	<input type="submit" id="send" value="Ajouter réalisation">
+</form>

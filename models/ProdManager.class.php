@@ -95,9 +95,9 @@ class ProdManager
 		$client = mysqli_real_escape_string($this->db, $prod->getClient());
 		$date = mysqli_real_escape_string($this->db, $prod->getDate());
 		
-		if(isset($_SESSION["id"]) && $_SESSION["admin"] === "1")
+		if(isset($_SESSION["admin"]))
 		{
-			$query = "INSERT INTO prods (title, description, image, url, client, date) VALUES('".$title."', '".$description."', '".$image."', '".$url."', '".$client."'' '".$date."')";
+			$query = "INSERT INTO prods (title, description, image, url, client, date) VALUES('".$title."', '".$description."', '".$image."', '".$url."', '".$client."', '".$date."')";
 			$res = mysqli_query($this->db, $query);
 			if (!$res)
 				throw new Exception("Erreur interne > ".mysqli_error($this->db));
