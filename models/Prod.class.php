@@ -87,15 +87,18 @@ class Prod
 	}
 	public function setUrl($url)
 	{
-		if(!empty($url) && !filter_var($url, FILTER_VALIDATE_URL))
+		if(empty($url) && !filter_var($url, FILTER_VALIDATE_URL))
 			throw new Exception("Url invalide");
 		else
 			$this->url = $url;
 	}
 	public function setDate($date)
 	{
-		// /!\
-		$this->date = $date;
+		$tab = explode("-", $date);
+		if(!checkdate($tab[1], $tab[2], $tab[0]))
+			throw new Exception("Date invalide");
+		else			
+			$this->date = $date;
 	}
 }
 ?>

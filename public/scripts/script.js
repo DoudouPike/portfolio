@@ -5,6 +5,7 @@ $(document).ready(function(){
 		altField: '#altFormat'
 	});
     $('#send').click(function(){
-        $('#datepicker').datepicker($.datepicker.regional['fr'], 'option', 'dateFormat', 'dd/mm/yy');
+    	$('#datepicker').datepicker($.datepicker.regional['fr']);
+        // $('#datepicker').datepicker($.datepicker.regional['fr'], 'option', 'dateFormat', 'dd/mm/yy');
     });
 });
