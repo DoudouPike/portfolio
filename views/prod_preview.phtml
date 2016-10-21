@@ -1,7 +1,0 @@
-<div id="<?= $prods[$i]->getId() ?>">
-	<a href="index.php?page=prod&id=<?= $prods[$i]->getId() ?>">
-		<img src="public/images/prods/<?= htmlentities($prods[$i]->getImage()) ?>" alt="">
-		<p><?= htmlentities($prods[$i]->getTitle()) ?></p>
-	</a>
-	<div><?php require("controllers/prod_admin.php"); ?></div>
-</div>

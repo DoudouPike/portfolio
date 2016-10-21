@@ -11,9 +11,9 @@
 	
 	$error = '';
 	$page = "home";
-	$access = ["about", "portfolio", "mine", "contact", "register", "login"];
-	$accessIn = ["about", "contact", "portfolio", "mine", "logout", "dashboard"];
-	$accessAdmin = ["about", "contact", "create_note", "create_prod", "portfolio", "dashboard", "logout", "mine", "notes", "delete_note", "edit_note", "prods", "prods_admin", "projects_admin"];
+	$access = ["about", "contact", "login", "mine", "portfolio", "register",];
+	$accessIn = ["about", "contact", "dashboard", "logout", "mine", "portfolio",];
+	$accessAdmin = ["about", "contact", "create_note", "create_prod", "create_project", "dashboard", "delete_note", "delete_prod", "edit_note", "edit_prod", "logout", "mine", "notes", "portfolio", "prods", "prods_admin", "projects", "projects_admin"];
 	
 	if(isset($_GET['page']))
 	{
@@ -35,9 +35,10 @@
 	}
 	
 	$traitementList = [
-		"register" => "users", "login" => "users", "logout" => "users", "dashboard" => "users",
+		"dashboard" => "users", "login" => "users", "logout" => "users", "register" => "users",
 		"create_note" => "notes", "delete_note" => "notes", "edit_note" => "notes",
-		"create_prod" => "prods"
+		"create_prod" => "prods", "delete_prod" => "prods", "edit_prod" => "prods",
+		"create_project" => "projects"
 	];
 	
 	if(isset($_GET['page'], $traitementList[$_GET['page']]))

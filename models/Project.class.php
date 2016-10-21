@@ -1,11 +1,12 @@
 <?php
 
-class User
+class Project
 {
 	//Propriétés
 	private $id;
 	private $title;
 	private $content;
+	private $abstract;
 	private $image;
 	private $url;
 	private $date;
@@ -35,6 +36,10 @@ class User
 	{
 		return $this->content;
 	}
+	public function getAbstract()
+	{
+		return $this->abstract;
+	}
 	public function getImage()
 	{
 		return $this->image;
@@ -46,6 +51,11 @@ class User
 	public function getDate()
 	{
 		return $this->date;
+	}
+	public function getFormatedDate()
+	{
+		$date = new DateTime($this->date);
+		return $date->format('d/m/Y');
 	}
 	public function getLastDate()
 	{
@@ -97,12 +107,22 @@ class User
 			$this->content = $content;
 		}
 	}
+	public function setAbstract($abstract)
+	{
+		if(empty($abstract))
+			throw new Exception("Résumé vide");
+		else if(strlen($abstract) < 4)
+			throw new Exception("Résumé trop court");
+		else if(strlen($abstract) > 1023)
+			throw new Exception("Résumé trop long");
+		else
+		{
+			$this->abstract = $abstract;
+		}
+	}
 	public function setImage($image)
 	{
-		if(!empty($image) && !filter_var($image, FILTER_VALIDATE_URL))
-			throw new Exception("Url image invalide");
-		else
-			$this->image = $image;
+		$this->image = $image;
 	}
 	public function setUrl($url)
 	{
@@ -113,8 +133,12 @@ class User
 	}
 	public function setDate($date)
 	{
-		// /!\
-		$this->date = $date;
+		$tab = explode("/", $date);
+		if(!checkdate($tab[1], $tab[0], $tab[2]))
+			throw new Exception("Date invalide");
+		else			
+			$date = $tab[2].'-'.$tab[1].'-'.$tab[0];
+			$this->date = $date;
 	}
 }
 ?>

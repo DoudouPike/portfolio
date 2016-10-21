@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 19 Octobre 2016 à 15:11
+-- Généré le :  Ven 21 Octobre 2016 à 14:39
 -- Version du serveur :  5.7.9
 -- Version de PHP :  5.6.16
 
@@ -50,20 +50,14 @@ CREATE TABLE IF NOT EXISTS `notes` (
   `content` varchar(512) COLLATE utf8_bin NOT NULL,
   `active` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Contenu de la table `notes`
 --
 
 INSERT INTO `notes` (`id`, `content`, `active`) VALUES
-(1, 'ModifiÃ©e x2 (affichÃ©e) -- PremiÃ¨re note ! (cachÃ©e)', 1),
-(9, 'Test ancre', 1),
-(10, 'ca', 1),
-(11, 'ca', 1),
-(12, '512', 0),
-(13, 'caca', 0),
-(14, 'CACA', 0);
+(15, 'Note modifiÃ©e', 0);
 
 -- --------------------------------------------------------
 
@@ -88,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `prods` (
 --
 
 INSERT INTO `prods` (`id`, `title`, `description`, `image`, `date`, `url`, `client`) VALUES
-(1, 'PremiÃ¨re prod', 'description', 'public/images/prods/', '2016-10-31', 'http://doudoupike.fr', 'client');
+(1, 'PremiÃ¨re prod (modifiÃ©e)', 'description', 'public/images/prods/', '2016-10-20', 'http://doudoupike.fr', 'client');
 
 -- --------------------------------------------------------
 
@@ -101,6 +95,7 @@ CREATE TABLE IF NOT EXISTS `projects` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(63) COLLATE utf8_bin NOT NULL,
   `content` varchar(4095) COLLATE utf8_bin NOT NULL,
+  `abstract` varchar(1023) COLLATE utf8_bin NOT NULL,
   `image` varchar(255) COLLATE utf8_bin NOT NULL,
   `url` varchar(255) COLLATE utf8_bin NOT NULL,
   `date` date NOT NULL,

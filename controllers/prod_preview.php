@@ -1,9 +1,12 @@
 <?php
 $prodManager = new ProdManager($db);
-$prods = $prodManager->findAll();
+$tabs = $prodManager->findAll();
 
-for ($i=0; $i < sizeof($prods); $i++)
+for ($i=0; $i < sizeof($tabs); $i++)
 {
-	require('views/prod_preview.phtml');
+	if(isset($_GET['admin']))
+		require('views/prod_preview_admin.phtml');
+	else
+		require('views/prod_preview.phtml');
 }
 ?>

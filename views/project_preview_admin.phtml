@@ -1,0 +1,8 @@
+<div id="<?= $tabs[$i]->getId() ?>" style="background-image:<?= htmlentities($tabs[$i]->getImage()) ?>">
+	<p><?= htmlentities($tabs[$i]->getTitle()) ?></p>
+	<p><?= htmlentities($tabs[$i]->getAbstract()) ?></p>
+	<a href="#">Voir les reviews de ce projet</a>
+	<a href="#">Voir les commentaires de ce projet</a>
+	
+	<div><?php require('controllers/buttons_admin.php'); ?></div>
+</div>

@@ -5,7 +5,7 @@ if(isset($_POST["action"]))
 
 	if($action == 'create')
 	{
-		if(isset($_POST['content'], $_POST['active'], $_SESSION['id'], $_SESSION['admin']))
+		if(isset($_POST['content'], $_POST['active'], $_SESSION['id'], $_SESSION['id'], $_SESSION['admin']))
 		{
 			$userManager = new UserManager($db);
 			$noteManager = new NoteManager($db);
@@ -30,7 +30,7 @@ if(isset($_POST["action"]))
 	}
 	elseif($action == "edit")
 	{
-		if(isset($_POST['id'], $_POST['content'], $_POST['active'], $_SESSION['admin']))
+		if(isset($_POST['id'], $_POST['content'], $_POST['active'], $_SESSION['id'], $_SESSION['admin']))
 		{
 			$userManager = new UserManager($db);
 			$noteManager = new NoteManager($db);
@@ -58,7 +58,7 @@ if(isset($_POST["action"]))
 	}
 	elseif($action == "delete")
 	{
-		if(isset($_POST['id'], $_SESSION['admin']))
+		if(isset($_POST['id'], $_SESSION['id'], $_SESSION['admin']))
 		{
 			$userManager = new UserManager($db);
 			$noteManager = new NoteManager($db);

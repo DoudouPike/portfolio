@@ -48,6 +48,11 @@ class Prod
 	{
 		return $this->date;
 	}
+	public function getFormatedDate()
+	{
+		$date = new DateTime($this->date);
+		return $date->format('d/m/Y');
+	}
 
 	//Set
 	public function setTitle($title)
@@ -94,10 +99,11 @@ class Prod
 	}
 	public function setDate($date)
 	{
-		$tab = explode("-", $date);
-		if(!checkdate($tab[1], $tab[2], $tab[0]))
+		$tab = explode("/", $date);
+		if(!checkdate($tab[1], $tab[0], $tab[2]))
 			throw new Exception("Date invalide");
 		else			
+			$date = $tab[2].'-'.$tab[1].'-'.$tab[0];
 			$this->date = $date;
 	}
 }

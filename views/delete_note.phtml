@@ -1,7 +1,9 @@
 <h2>Supprimer une note</h2>
-<p>Supprimer la note #<?= $note->getId() ?></p>
+<p>Supprimer la note #<?= $note->getId() ?> ?</p>
+<p>Contenu : <?= $note->getContent() ?></p>
 <form method="POST">
 	<input type="hidden" name="action" value="delete">
 	<input type="hidden" name="id" value="<?= $note->getId() ?>">
 	<input type="submit" value="Supprimer">
 </form>
+<a href="index.php?admin&page=notes#<?= $note->getId() ?>">Annuler</a>

@@ -55,7 +55,7 @@ class ProdManager
 		$client = mysqli_real_escape_string($this->db, $prod->getClient());
 		$date = mysqli_real_escape_string($this->db, $prod->getDate());
 		$id = $prod -> getId();
-		if(isset($_SESSION["id"]) && $_SESSION["admin"] === "1")
+		if(isset($_SESSION["admin"]))
 		{
 			$query = "UPDATE prods SET title='".$title."', description='".$description."', image='".$image."', url='".$url."', client='".$client."', date='".$date."' WHERE id=".$id."";
 			$res = mysqli_query($this->db, $query);
@@ -68,7 +68,7 @@ class ProdManager
 	public function remove(Prod $prod)
 	{
 		$id = $prod->getId();
-		if(isset($_SESSION["id"]) && $_SESSION["admin"] === "1")
+		if(isset($_SESSION["admin"]))
 		{
 			$query = "DELETE FROM prods WHERE id='".$id."'";
 			$res = mysqli_query($this->db, $query);

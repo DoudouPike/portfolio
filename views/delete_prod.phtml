@@ -1,0 +1,8 @@
+<h2>Supprimer une réalisation</h2>
+<p>Supprimer la réalisation "<?= $prod->getTitle() ?>" ?</p>
+<form method="POST">
+	<input type="hidden" name="action" value="delete">
+	<input type="hidden" name="id" value="<?= $prod->getId() ?>">
+	<input type="submit" value="Supprimer">
+</form>
+<a href="index.php?admin&page=prods#<?= $prod->getId() ?>">Annuler</a>

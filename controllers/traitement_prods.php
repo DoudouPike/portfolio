@@ -5,7 +5,7 @@ if(isset($_POST["action"]))
 
 	if($action == 'create')
 	{
-		if(isset($_POST['title'], $_POST['description'], $_POST['image'], $_POST['url'], $_POST['date'], $_POST['altFormat'], $_SESSION['admin']))
+		if(isset($_POST['title'], $_POST['description'], $_POST['image'], $_POST['client'], $_POST['url'], $_POST['date'], $_SESSION['id'], $_SESSION['admin']))
 		{
 			$userManager = new UserManager($db);
 			$prodManager = new ProdManager($db);
@@ -15,7 +15,7 @@ if(isset($_POST["action"]))
 				if (!$user)
 					throw new Exception("Vous n'êtes plus connecté");
 
-				$prod = $prodManager->create($_POST['title'], $_POST['description'], $_POST['image'], $_POST['url'], $_POST['client'], $_POST['altFormat']);
+				$prod = $prodManager->create($_POST['title'], $_POST['description'], $_POST['image'], $_POST['url'], $_POST['client'], $_POST['date']);
 				if(!$prod)
 					throw new Exception("Erreur interne");
 				header('Location: index.php?admin&page=prods#'.$prod->getId().'');
@@ -30,7 +30,7 @@ if(isset($_POST["action"]))
 	}
 	elseif($action == "edit")
 	{
-		if(isset($_POST['id'], $_POST['content'], $_POST['active'], $_SESSION['admin']))
+		if(isset($_POST['id'], $_POST['title'], $_POST['description'], $_POST['image'], $_POST['url'], $_POST['client'], $_POST['date'], $_SESSION['id'], $_SESSION['admin']))
 		{
 			$userManager = new UserManager($db);
 			$prodManager = new ProdManager($db);
@@ -40,13 +40,17 @@ if(isset($_POST["action"]))
 				if (!$user)
 					throw new Exception("Vous n'êtes plus connecté");
 
-				$note = $prodManager->findById($_POST['id']);
-				$note->setContent($_POST['content']);
-				$note->setActive($_POST['active']);
-				$note = $prodManager->save($note);
-				if(!$note)
+				$prod = $prodManager->findById($_POST['id']);
+				$prod->setTitle($_POST['title']);
+				$prod->setDescription($_POST['description']);
+				$prod->setImage($_POST['image']);
+				$prod->setUrl($_POST['url']);
+				$prod->setClient($_POST['client']);
+				$prod->setDate($_POST['date']);
+				$prod = $prodManager->save($prod);
+				if(!$prod)
 					throw new Exception("Erreur interne");
-				header('Location: index.php?admin&page=notes#'.$note->getId().'');
+				header('Location: index.php?admin&page=prods#'.$prod->getId().'');
 				exit;
 				
 			}
@@ -58,7 +62,7 @@ if(isset($_POST["action"]))
 	}
 	elseif($action == "delete")
 	{
-		if(isset($_POST['id'], $_SESSION['admin']))
+		if(isset($_POST['id'], $_SESSION['id'], $_SESSION['admin']))
 		{
 			$userManager = new UserManager($db);
 			$prodManager = new ProdManager($db);
@@ -68,15 +72,15 @@ if(isset($_POST["action"]))
 				if(!$user)
 					throw new Exception("Vous n'êtes plus connecté");
 
-				$note = $prodManager->findById($_POST['id']);
-				if(!$note)
-					throw new Exception("Cette note n'existe pas");
+				$prod = $prodManager->findById($_POST['id']);
+				if(!$prod)
+					throw new Exception("Cette réalisation n'existe pas");
 
-				$delete = $prodManager->remove($note);
+				$delete = $prodManager->remove($prod);
 				if($delete != null)
 					throw new Exception("Erreur interne");
 
-				header('Location: index.php?admin&page=notes');
+				header('Location: index.php?admin&page=prods');
 				exit;
 			}
 			catch (Exception $exception)
