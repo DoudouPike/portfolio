@@ -1,4 +1,2 @@
-<fieldset>
-	<legend class="author"><?= htmlentities($comments->getUser()->getLogin()) ?></legend>
-	<p><?= htmlentities($comments->getContent()) ?></p>
-</fieldset>
+<p><?= htmlentities($comments->getUser()->getLogin()) ?></p>
+<p><?= htmlentities($comments->getContent()) ?></p>

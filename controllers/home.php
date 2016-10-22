@@ -1,3 +1,6 @@
 <?php
-require('views/home.phtml');
+if(isset($_GET['admin']))
+	require('views/home_back.phtml');
+else
+	require('views/home.phtml');
 ?>

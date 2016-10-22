@@ -1,7 +1,7 @@
 <?php
 
 	session_start();
-	$db = mysqli_connect("localhost", "root", "toQwEu192", "portfolio");
+	$db = mysqli_connect("localhost", "root", "root", "portfolio");
 	
 	$empty = "";
 	function __autoload($className)
@@ -13,7 +13,7 @@
 	$page = "home";
 	$access = ["about", "contact", "login", "mine", "portfolio", "register",];
 	$accessIn = ["about", "contact", "dashboard", "logout", "mine", "portfolio",];
-	$accessAdmin = ["about", "contact", "create_note", "create_prod", "create_project", "dashboard", "delete_note", "delete_prod", "edit_note", "edit_prod", "logout", "mine", "notes", "portfolio", "prods", "prods_admin", "projects", "projects_admin"];
+	$accessAdmin = ["about", "comments", "contact", "create_note", "create_prod", "create_project", "dashboard", "delete_note", "delete_prod", "edit_note", "edit_prod", "logout", "mine", "notes", "portfolio", "prods", "prods_admin", "projects", "projects_admin"];
 	
 	if(isset($_GET['page']))
 	{
