@@ -13,7 +13,7 @@
 	$page = "home";
 	$access = ["about", "contact", "login", "mine", "portfolio", "register",];
 	$accessIn = ["about", "contact", "dashboard", "logout", "mine", "portfolio",];
-	$accessAdmin = ["about", "comments", "contact", "create_note", "create_prod", "create_project", "dashboard", "delete_note", "delete_prod", "edit_note", "edit_prod", "logout", "mine", "notes", "portfolio", "prods", "prods_admin", "projects", "projects_admin"];
+	$accessAdmin = ["about", "comments", "contact", "create_note", "create_prod", "create_project", "dashboard", "delete_note", "delete_prod", "edit_note", "edit_prod", "logout", "mine", "notes", "portfolio", "prods", "prods_admin", "projects", "projects_admin", "reviews"];
 	
 	if(isset($_GET['page']))
 	{

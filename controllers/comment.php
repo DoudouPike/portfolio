@@ -19,25 +19,36 @@ if(isset($_GET['page']))
 			require("views/empty.phtml");
 		}
 	}
-	elseif($_GET['page'] == "comments")
+	elseif(isset($_GET['id']) && $_GET['page'] == "comments")
 	{
-		$commentManager = new CommentManager($db);
-		$list = $commentManager->findByProject($project);
-		if($list)
+		$projectManager = new ProjectManager($db);
+		$project = $projectManager->findById($_GET['id']);
+
+		if($project)
 		{
-			for ($i=0; $i < sizeof($list) ; $i++)
-			{ 
-				$comment = $list[$i];
-				require("views/comments.phtml");
+			$commentManager = new CommentManager($db);
+			$list = $commentManager->findByProject($project);
+			if($list)
+			{
+				for ($i=0; $i < sizeof($list) ; $i++)
+				{ 
+					$comment = $list[$i];
+					require("views/comments.phtml");
+				}
+			}
+			else
+			{
+				$empty = "Aucun commentaire pour ce projet";
+				require("views/empty.phtml");
 			}
 		}
 		else
 		{
-			$empty = "Aucun commentaire pour ce produit";
-			require("views/empty.phtml");
+			$error = "Ce projet n'existe pas.";
+			require("controllers/error.php");
 		}
 	}
-	elseif($_GET['page'] == "project")
+	elseif(isset($_GET['id']) && $_GET['page'] == "mine")
 	{
 		var_dump("A FAIRE !");
 	}
