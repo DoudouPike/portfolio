@@ -61,7 +61,7 @@ class ProjectManager
 			$res = mysqli_query($this->db, $query);
 			if (!$res)
 				throw new Exception("Erreur interne > ".mysqli_error($this->db));
-			return $this->findById($id_project);
+			return $this->findById($id);
 		}
 	}
 

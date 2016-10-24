@@ -1,0 +1,10 @@
+<h2>Supprimer une nouvelle</h2>
+<p>Supprimer la nouvelle #<?= $review->getId() ?> ?</p>
+<p>Titre : <?= $review->getTitle() ?></p>
+<p>Contenu : <?= $review->getContent() ?></p>
+<form method="POST">
+	<input type="hidden" name="action" value="delete">
+	<input type="hidden" name="id" value="<?= $review->getId() ?>">
+	<input type="submit" value="Supprimer">
+</form>
+<a href="index.php?admin&page=projects#<?= $review->getProject()->getId() ?>">Annuler</a>

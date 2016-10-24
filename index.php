@@ -13,7 +13,7 @@
 	$page = "home";
 	$access = ["about", "contact", "login", "mine", "portfolio", "register",];
 	$accessIn = ["about", "contact", "dashboard", "logout", "mine", "portfolio",];
-	$accessAdmin = ["about", "comments", "contact", "create_note", "create_prod", "create_project", "dashboard", "delete_note", "delete_prod", "edit_note", "edit_prod", "logout", "mine", "notes", "portfolio", "prods", "prods_admin", "projects", "projects_admin", "reviews"];
+	$accessAdmin = ["about", "comments", "contact", "create_note", "create_prod", "create_project", "create_review", "dashboard", "delete_note", "delete_prod", "delete_project", "delete_review","edit_note", "edit_prod", "edit_project", "edit_review","logout", "mine", "notes", "portfolio", "prods", "prods_admin", "projects", "projects_admin", "reviews"];
 	
 	if(isset($_GET['page']))
 	{
@@ -38,7 +38,8 @@
 		"dashboard" => "users", "login" => "users", "logout" => "users", "register" => "users",
 		"create_note" => "notes", "delete_note" => "notes", "edit_note" => "notes",
 		"create_prod" => "prods", "delete_prod" => "prods", "edit_prod" => "prods",
-		"create_project" => "projects"
+		"create_project" => "projects", "delete_project" => "projects", "edit_project" => "projects",
+		"create_review" => "reviews", "delete_review" => "reviews", "edit_review" => "reviews"
 	];
 	
 	if(isset($_GET['page'], $traitementList[$_GET['page']]))

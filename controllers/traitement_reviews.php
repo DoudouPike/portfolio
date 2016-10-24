@@ -5,18 +5,23 @@ if(isset($_POST["action"]))
 
 	if($action == 'create')
 	{
-		if(isset($_POST['title'], $_POST['content'], $_POST['abstract'], $_POST['image'], $_POST['url'], $_POST['date'], $_SESSION['id'], $_SESSION['admin']))
+		if(isset($_POST['id_project'], $_POST['title'], $_POST['content'], $_SESSION['id'], $_SESSION['admin']))
 		{
 			$userManager = new UserManager($db);
 			$projectManager = new ProjectManager($db);
+			$reviewManager = new ReviewManager($db);
 			try
 			{
 				$user = $userManager->findById($_SESSION['id']);
-				if (!$user)
+				if(!$user)
 					throw new Exception("Vous n'êtes plus connecté");
-
-				$project = $projectManager->create($_POST['title'], $_POST['content'], $_POST['abstract'], $_POST['image'], $_POST['url'], $_POST['date']);
+				
+				$project = $projectManager->findById($_POST['id_project']);
 				if(!$project)
+					throw new Exception("Le projet n'existe pas");
+	
+				$review = $reviewManager->create($project, $_POST['title'], $_POST['content']);
+				if(!$review)
 					throw new Exception("Erreur interne");
 				header('Location: index.php?admin&page=projects#'.$project->getId().'');
 				exit;
@@ -30,27 +35,23 @@ if(isset($_POST["action"]))
 	}
 	elseif($action == "edit")
 	{
-		if(isset($_POST['id'], $_POST['title'], $_POST['content'], $_POST['abstract'], $_POST['image'], $_POST['url'], $_POST['date'], $_SESSION['id'], $_SESSION['admin']))
+		if(isset($_POST['id'], $_POST['title'], $_POST['content'], $_SESSION['id'], $_SESSION['admin']))
 		{
 			$userManager = new UserManager($db);
-			$projectManager = new ProjectManager($db);
+			$reviewManager = new ReviewManager($db);
 			try
 			{
 				$user = $userManager->findById($_SESSION['id']);
 				if (!$user)
 					throw new Exception("Vous n'êtes plus connecté");
 
-				$project = $projectManager->findById($_POST['id']);
-				$project->setTitle($_POST['title']);
-				$project->setContent($_POST['content']);
-				$project->setAbstract($_POST['abstract']);
-				$project->setImage($_POST['image']);
-				$project->setUrl($_POST['url']);
-				$project->setDate($_POST['date']);
-				$project = $projectManager->save($project);
-				if(!$project)
+				$review = $reviewManager->findById($_POST['id']);
+				$review->setTitle($_POST['title']);
+				$review->setContent($_POST['content']);
+				$review = $reviewManager->save($review);
+				if(!$review)
 					throw new Exception("Erreur interne");
-				header('Location: index.php?admin&page=projects#'.$project->getId().'');
+				header('Location: index.php?admin&page=projects#'.$review->getProject()->getId().'');
 				exit;
 				
 			}
@@ -65,18 +66,18 @@ if(isset($_POST["action"]))
 		if(isset($_POST['id'], $_SESSION['id'], $_SESSION['admin']))
 		{
 			$userManager = new UserManager($db);
-			$projectManager = new ProjectManager($db);
+			$reviewManager = new ReviewManager($db);
 			try
 			{
 				$user = $userManager->findById($_SESSION['id']);
 				if(!$user)
 					throw new Exception("Vous n'êtes plus connecté");
 
-				$project = $projectManager->findById($_POST['id']);
-				if(!$project)
+				$review = $reviewManager->findById($_POST['id']);
+				if(!$review)
 					throw new Exception("Cette réalisation n'existe pas");
 
-				$delete = $projectManager->remove($project);
+				$delete = $reviewManager->remove($review);
 				if($delete != null)
 					throw new Exception("Erreur interne");
 

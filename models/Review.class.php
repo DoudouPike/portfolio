@@ -7,6 +7,7 @@ class Review
 	private $title;
 	private $content;
 	private $date;
+	private $id_project;
 
 	private $db;
 	private $project;
@@ -35,12 +36,17 @@ class Review
 	{
 		return $this->date;
 	}
+	public function getFormatedDate()
+	{
+		$date = new DateTime($this->date);
+		return $date->format('d/m/Y');
+	}
 	public function getProject()
 	{
 		if(!$this->project)
 		{
 			$manager = new ProjectManager($this->db);
-			$this->project = $manager->find($this);
+			$this->project = $manager->find($this->id_project);
 		}
 		return $this->project;
 	}
@@ -49,11 +55,11 @@ class Review
 	public function setTitle($title)
 	{
 		if (empty($title))
-			throw new Exception("Title vide");
-		else if (strlen($title) < 4)
-			throw new Exception("Title trop court");
-		else if (strlen($title) > 63)
-			throw new Exception("Title trop long");
+			throw new Exception("Titre vide");
+		elseif (strlen($title) < 4)
+			throw new Exception("Titre trop court");
+		elseif (strlen($title) > 63)
+			throw new Exception("Titre trop long");
 		else
 		{
 			$this->title = $title;
@@ -63,14 +69,19 @@ class Review
 	{
 		if(empty($content))
 			throw new Exception("Contenu vide");
-		else if(strlen($content) < 4)
+		elseif(strlen($content) < 4)
 			throw new Exception("Contenu trop court");
-		else if(strlen($content) > 4095)
+		elseif(strlen($content) > 4095)
 			throw new Exception("Contenu trop long");
 		else
 		{
 			$this->content = $content;
 		}
+	}
+	public function setProject(Project $project)
+	{
+		$this->project = $project;
+		$this->id_project = $project->getId();
 	}
 }
 ?>

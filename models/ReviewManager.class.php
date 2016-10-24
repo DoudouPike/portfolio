@@ -74,12 +74,13 @@ class ReviewManager
 		$review = new Review($this->db);
 		$review->setTitle($title);
 		$review->setContent($content);
+		$review->setProject($project);
 		
 		$title = mysqli_real_escape_string($this->db, $review->getTitle());
-		$content = mysqli_real_escape_string($this->db, $review->getDescription());
-		$id_project = $comment->getProject()->getId();
+		$content = mysqli_real_escape_string($this->db, $review->getContent());
+		$id_project = $review->getProject()->getId();
 		
-		if(isset($_SESSION["id"]) && $_SESSION["admin"] === "1")
+		if($_SESSION["admin"])
 		{
 			$query = "INSERT INTO reviews (id_project, title, content) VALUES(".$id_project.",'".$title."', '".$content."')";
 			$res = mysqli_query($this->db, $query);

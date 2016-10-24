@@ -1,0 +1,21 @@
+<div id="<?= $tabs[$i]->getId() ?>" style="background-image:<?= htmlentities($tabs[$i]->getImage()) ?>">
+	<p><?= htmlentities($tabs[$i]->getTitle()) ?></p>
+	<p><?= htmlentities($tabs[$i]->getAbstract()) ?></p>
+	<p>ajouté le: <?= htmlentities($tabs[$i]->getFormatedDate()) ?></p>
+	<p>dernière modification: <?= htmlentities($tabs[$i]->getLastDate()) ?></p>
+	<div><?php require('controllers/buttons_admin.php'); ?></div>
+	
+	<div>
+		<div>
+			<h4>Les nouveautés :</h4>
+			<a class="fa fa-plus" href="index.php?admin&page=create_review&id=<?= $tabs[$i]->getId() ?>" title="Ajouter une nouveauté"></a>
+			<?php require('controllers/reviews.php'); ?>
+		</div>
+		<div>
+			<h4>Les commentaires :</h4>
+			<a class="fa fa-plus" href="index.php?admin&page=create_comment&id=<?= $tabs[$i]->getId() ?>" title="Ajouter un commentaire"></a>
+			<?php require('controllers/comments.php'); ?>
+		</div>
+	</div>
+	
+</div>

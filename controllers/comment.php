@@ -19,33 +19,22 @@ if(isset($_GET['page']))
 			require("views/empty.phtml");
 		}
 	}
-	elseif(isset($_GET['id']) && $_GET['page'] == "comments")
+	elseif($_GET['page'] == "projects")
 	{
-		$projectManager = new ProjectManager($db);
-		$project = $projectManager->findById($_GET['id']);
-
-		if($project)
+		$commentManager = new CommentManager($db);
+		$list = $commentManager->findByProject($tabs[$i]);
+		if($list)
 		{
-			$commentManager = new CommentManager($db);
-			$list = $commentManager->findByProject($project);
-			if($list)
-			{
-				for ($i=0; $i < sizeof($list) ; $i++)
-				{ 
-					$comment = $list[$i];
-					require("views/comments.phtml");
-				}
-			}
-			else
-			{
-				$empty = "Aucun commentaire pour ce projet";
-				require("views/empty.phtml");
+			for ($i=0; $i < sizeof($list) ; $i++)
+			{ 
+				$comment = $list[$i];
+				require("views/comments.phtml");
 			}
 		}
 		else
 		{
-			$error = "Ce projet n'existe pas.";
-			require("controllers/error.php");
+			$empty = "Aucun commentaire pour ce projet.";
+			require("views/empty.phtml");
 		}
 	}
 	elseif(isset($_GET['id']) && $_GET['page'] == "mine")

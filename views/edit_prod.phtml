@@ -8,7 +8,6 @@
 	<input type="url" name="url" value="<?= htmlentities($prod->getUrl()) ?>">
 	<input type="text" name="client" value="<?= htmlentities($prod->getClient())?>">
 	<input type="text" name="date" placeholder="date" id="datepicker" value="<?= htmlentities($prod->getFormatedDate()) ?>">
-	<input type="hidden" name="altFormat" id="altFormat">
 	<input type="submit" id="send" value="Modifier réalisation">
 </form>
 <a href="index.php?admin&page=prods#<?= $prod->getId() ?>">Annuler</a>

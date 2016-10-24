@@ -59,7 +59,8 @@ class Project
 	}
 	public function getLastDate()
 	{
-		return $this->last_date;
+		$last_date = new DateTime($this->last_date);
+		return $last_date->format('d/m/Y à H\h');
 	}
 	public function getReview()
 	{
