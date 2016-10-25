@@ -1,6 +1,6 @@
 <?php
-if(isset($_SESSION["id"]))
-{
-	require("views/create_comments.phtml");
-}
+$content = "";
+if(isset($_POST['content']))
+	$content = $_POST['content'];
+require("views/create_comment.phtml");
 ?>

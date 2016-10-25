@@ -74,7 +74,7 @@ if(isset($_POST["action"]))
 
 				$project = $projectManager->findById($_POST['id']);
 				if(!$project)
-					throw new Exception("Cette réalisation n'existe pas");
+					throw new Exception("Ce projet n'existe pas");
 
 				$delete = $projectManager->remove($project);
 				if($delete != null)

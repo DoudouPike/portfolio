@@ -18,7 +18,7 @@ class CommentManager
 	public function findByUser(User $user)
 	{
 		$list = [];
-		$query = "SELECT * FROM comments WHERE id_user='".$user->getId()."'";
+		$query = "SELECT * FROM comments WHERE id_author='".$user->getId()."'";
 		$res = mysqli_query($this->db, $query);
 		if($res)
 			while ($comment = mysqli_fetch_object($res, "Comment", [$this->db]))
@@ -47,8 +47,8 @@ class CommentManager
 	public function remove(Comment $comment)
 	{
 		$id_comment = $comment->getId();
-		$id_user = $comment->getUser()->getId();
-		if ((isset($_SESSION["id"]) && $id_user === $_SESSION["id"]) || (isset($_SESSION["admin"]) && $_SESSION["admin"] === "1"))
+		$id_user = $comment->getAuthor()->getId();
+		if((isset($_SESSION["id"]) && $id_user === $_SESSION["id"]) || (isset($_SESSION["admin"])))
 		{
 			$query = "DELETE FROM comments WHERE id='".$id_comment."'";
 			$res = mysqli_query($this->db, $query);
@@ -57,20 +57,20 @@ class CommentManager
 		}
 	}
 
-	public function create(Project $project, User $user, $content, $date)
+	public function create(Project $project, User $user, $content)
 	{
 		$comment = new Comment($this->db);
 		$comment->setContent($content);
 		$comment->setProject($project);
-		$comment->setUser($user);
+		$comment->setAuthor($user);
 
 		$content = mysqli_real_escape_string($this->db, $comment->getContent());
 		$id_project = $comment->getProject()->getId();
-		$id_user = $comment->getUser()->getId();
+		$id_author = $comment->getAuthor()->getId();
 
-		if(isset($_SESSION["id"]) && $_SESSION["admin"] === "1")
+		if(isset($_SESSION["id"]))
 		{
-			$query = "INSERT INTO comments (content, id_project, id_user) VALUES('".$content."', '".$id_project."','".$id_user."')";
+			$query = "INSERT INTO comments (content, id_project, id_author) VALUES('".$content."', '".$id_project."','".$id_author."')";
 			$res = mysqli_query($this->db, $query);
 			if (!$res)
 				throw new Exception("Erreur interne > ".mysqli_error($this->db));

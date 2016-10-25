@@ -1,0 +1,10 @@
+<h2>Supprimer un commentaire</h2>
+<p>Supprimer le commentaire #<?= $comment->getId() ?> ?</p>
+<p>Contenu : <?= $comment->getContent() ?></p>
+<p>Auteur : <?= $comment->getAuthor()->getLogin() ?></p>
+<form method="POST">
+	<input type="hidden" name="action" value="delete">
+	<input type="hidden" name="id" value="<?= $comment->getId() ?>">
+	<input type="submit" value="Supprimer">
+</form>
+<a href="index.php?admin&page=projects#<?= $comment->getProject()->getId() ?>">Annuler</a>

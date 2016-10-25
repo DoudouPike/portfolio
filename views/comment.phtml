@@ -1,2 +1,5 @@
-<p><?= htmlentities($comments->getUser()->getLogin()) ?></p>
-<p><?= htmlentities($comments->getContent()) ?></p>
+<div>
+	<p>de <?= htmlentities($comment->getAuthor()->getLogin()) ?> :</p>
+	<p><?= htmlentities($comment->getContent()) ?></p>
+	<?php require('controllers/comment_admin.php'); ?>
+</div>

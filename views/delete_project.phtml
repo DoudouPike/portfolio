@@ -1,0 +1,8 @@
+<h2>Supprimer un projet</h2>
+<p>Supprimer le projet "<?= $project->getTitle() ?>" ?</p>
+<form method="POST">
+	<input type="hidden" name="action" value="delete">
+	<input type="hidden" name="id" value="<?= $project->getId() ?>">
+	<input type="submit" value="Supprimer">
+</form>
+<a href="index.php?admin&page=projects#<?= $project->getId() ?>">Annuler</a>

@@ -4,14 +4,14 @@ class Comment
 {
 	//Propriétés
 	private $id;
-	private $id_project;
-	private $id_user;
 	private $content;
 	private $date;
+	private $id_project;
+	private $id_author;
 
 	private $db;
-	private $user;
 	private $project;
+	private $user;
 	
 	public function __construct($db)
 	{
@@ -41,12 +41,12 @@ class Comment
 		}
 		return $this->project;
 	}
-	public function getUser()
+	public function getAuthor()
 	{
 		if (!$this->user)
 		{
 			$userManager = new UserManager($this->db);
-			$this->user = $userManager->findById($this->id_user);
+			$this->user = $userManager->findById($this->id_author);
 		}
 		return $this->user;
 	}
@@ -54,8 +54,8 @@ class Comment
 		//Set
 	public function setContent($content)
 	{
-		if(empty($content) || strlen($content) < 1 || strlen($content) > 1023)
-			throw new Exception("Le contenu doit être compris entre 2 et 1023 caractères");
+		if(empty($content) || strlen($content) < 1 || strlen($content) > 512)
+			throw new Exception("Le contenu doit être compris entre 2 et 512 caractères");
 		else
 			$this->content = $content;
 	}
@@ -64,7 +64,7 @@ class Comment
 		$this->id_project = $project->getId();
 		$this->project = $project;
 	}
-	public function setUser(User $user)
+	public function setAuthor(User $user)
 	{
 		$this->id_user = $user->getId();
 		$this->user = $user;

@@ -1,4 +1,5 @@
-<!--
-Liste des commentaires par utilisateur :
-Contenu du commentaire + projet associé (lien) + admin
--->
+<div>
+	<p><?= htmlentities($comment->getContent()) ?></p>
+	<p>sur : <a href="index.php?admin&page=projects#<?= $project->getId() ?>"><?= htmlentities($project->getTitle()) ?></a></p>
+	<hr>
+</div>

@@ -75,7 +75,7 @@ if(isset($_POST["action"]))
 
 				$review = $reviewManager->findById($_POST['id']);
 				if(!$review)
-					throw new Exception("Cette réalisation n'existe pas");
+					throw new Exception("Ce projet n'existe pas");
 
 				$delete = $reviewManager->remove($review);
 				if($delete != null)

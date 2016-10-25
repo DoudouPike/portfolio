@@ -7,10 +7,12 @@ if(isset($_GET['page']))
 		$list = $commentManager->findByUser($user);
 		if($list)
 		{
-			for ($i=0; $i < sizeof($list) ; $i++)
+			$projectManager = new ProjectManager($db);
+			for ($j=0; $j < sizeof($list) ; $j++)
 			{ 
-				$comment = $list[$i];
-				require("views/comment.phtml");
+				$comment = $list[$j];
+				$project = $projectManager->findById($comment->getProject()->getId());
+				require("views/comment_list.phtml");
 			}
 		}
 		else
@@ -25,10 +27,10 @@ if(isset($_GET['page']))
 		$list = $commentManager->findByProject($tabs[$i]);
 		if($list)
 		{
-			for ($i=0; $i < sizeof($list) ; $i++)
+			for ($j=0; $j < sizeof($list) ; $j++)
 			{ 
-				$comment = $list[$i];
-				require("views/comments.phtml");
+				$comment = $list[$j];
+				require("views/comment.phtml");
 			}
 		}
 		else
