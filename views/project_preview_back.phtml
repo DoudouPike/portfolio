@@ -14,7 +14,6 @@
 		<div>
 			<h4>Les commentaires :</h4>
 			<a class="fa fa-plus" href="index.php?admin&page=create_comment&id=<?= $tabs[$i]->getId() ?>" title="Ajouter un commentaire"></a>
-			<a href="index.php?admin&page=deleteAll_comment&id=<?= $tabs[$i]->getId() ?>">Supprimer tout les commentaires de ce projet</a>
 			<?php require('controllers/comments.php'); ?>
 		</div>
 	</div>

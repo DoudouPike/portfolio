@@ -7,6 +7,8 @@ if(isset($_GET['admin'], $_GET['page'], $_SESSION['admin']))
 		$element = "prod";
 	elseif($_GET['page'] == "projects")
 		$element = "project";
+	elseif($_GET['page'] == "users")
+		$element = "user";
 
 	require("views/buttons_admin.phtml");
 }

@@ -14,6 +14,17 @@ class UserManager
 		$user = mysqli_fetch_object($res, "User", [$this->db]);
 		return $user;
 	}
+	public function findAll()
+	{
+		$list = [];
+		$query = "SELECT * FROM users";
+		$res = mysqli_query($this->db, $query);
+		while($users = mysqli_fetch_object($res, "User", [$this->db]))
+		{
+			$list[] = $users;
+		}
+		return $list;	
+	}
 	public function findByLogin($login)
 	{
 		$login = mysqli_real_escape_string($this->db, $login);
