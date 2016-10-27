@@ -1,2 +1,4 @@
-<p><?= htmlentities($tabs[$i]->getLogin()) ?></p>
-<?php require('controllers/buttons_admin.php'); ?>
+<div id="<?= $tabs[$i]->getId() ?>">
+	<p><?= htmlentities($tabs[$i]->getLogin()) ?></p>
+	<?php require('controllers/user_admin.php'); ?>
+</div>
