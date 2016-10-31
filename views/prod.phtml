@@ -1,0 +1,7 @@
+<article style="background-image: <?= htmlentities($prod->getImage()) ?>">
+	<p><?= htmlentities($prod->getTitle()) ?></p>
+	<p><?= htmlentities($prod->getDescription()) ?></p>
+	<p><?= htmlentities($prod->getFormatedDate()) ?></p>
+	<p><?= htmlentities($prod->getClient()) ?></p>
+	<a href="<?= htmlentities($prod->getUrl()) ?>"><?= htmlentities($prod->getUrl()) ?></a>
+</article>
