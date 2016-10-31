@@ -1,0 +1,7 @@
+<article>
+	<a href="index.php?page=mine&id=<?= $tabs[$i]->getId() ?>">
+		<img src="public/images/prods/<?= htmlentities($tabs[$i]->getImage()) ?>">
+		<p><?= htmlentities($tabs[$i]->getTitle()) ?></p>
+		<p><?= htmlentities($tabs[$i]->getAbstract()) ?></p>
+	</a>
+</article>

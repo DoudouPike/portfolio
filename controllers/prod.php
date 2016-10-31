@@ -3,7 +3,15 @@ if(isset($_GET['id']))
 {
 	$prodManager = new ProdManager($db);
 	$prod = $prodManager->findById($_GET['id']);
-	require('views/prod.phtml');
+
+	if(!$prod)
+	{
+		$error = "Cette réalisation n'existe pas.";
+		require('controllers/error.php');
+	}
+	else
+		require('views/prod.phtml');
+		
 }
 else
 {
