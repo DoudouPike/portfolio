@@ -1,0 +1,5 @@
+<article style="background: url('public/images/prods/<?= htmlentities($prod->getImage()) ?>') center center">
+	<a href="index.php?page=portfolio&id=<?= $prod->getId() ?>">
+		<p><?= htmlentities($prod->getTitle()) ?></p>
+	</a>
+</article>

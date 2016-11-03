@@ -1,9 +1,10 @@
 <?php
 $userManager = new UserManager($db);
-$tabs = $userManager->findAll();
+$list = $userManager->findAll();
 
-for($i=0; $i < sizeof($tabs); $i++)
-{ 
+for($i=0; $i < sizeof($list); $i++)
+{
+	$user = $list[$i];
 	require('views/user.phtml');
 }
 ?>

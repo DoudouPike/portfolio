@@ -1,9 +1,10 @@
 <?php
 $projectManager = new ProjectManager($db);
-$tabs = $projectManager->findAll();
+$list = $projectManager->findAll();
 
-for ($i=0; $i < sizeof($tabs); $i++)
+for ($i=0; $i < sizeof($list); $i++)
 {
+	$project = $list[$i];
 	if(isset($_GET['admin']))
 		require('views/project_preview_back.phtml');
 	else

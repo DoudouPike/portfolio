@@ -1,3 +1,1 @@
-<?php
-	require('views/login.phtml');
-?>
+<?php require('views/login.phtml'); ?>

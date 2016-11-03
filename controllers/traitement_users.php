@@ -15,7 +15,7 @@ if(isset($_POST['action']))
 		$userManager = new UserManager($db);
 		try
 		{
-			$user = $userManager->create($_POST['login'], $_POST['email'], $_POST['pwd'], $_POST['pwd2']);
+			$userManager->create($_POST['login'], $_POST['email'], $_POST['pwd'], $_POST['pwd2']);
 			header('Location: index.php?page=login');
 			exit;
 		}
@@ -58,9 +58,7 @@ if(isset($_POST['action']))
 				throw new Exception("Vous n'êtes plus connecté");
 			
 			$user->setEmail($_POST['email']);
-			$user = $userManager->save($user);
-			if(!$user)
-				throw new Exception("Erreur interne");
+			$userManager->save($user);
 				
 			header('Location: index.php?page=dashboard');
 			exit;
@@ -82,9 +80,7 @@ if(isset($_POST['action']))
 				throw new Exception("Mot de passe incorrect");
 
 			$user->initPassword($_POST['newPwd'], $_POST['newPwd2']);
-			$user = $userManager->save($user);
-			if(!$user)
-				throw new Exception("Erreur interne");
+			$userManager->save($user);
 				
 			header('Location: index.php?page=dashboard');
 			exit;
@@ -92,6 +88,63 @@ if(isset($_POST['action']))
 		catch(Exception $e)
 		{
 			$error = $e->getMessage();
+		}
+	}
+	elseif($action == "editAdmin" && isset($_POST['id'], $_POST['admin'], $_SESSION['admin']))
+	{
+		$userManager = new UserManager($db);
+		try
+		{
+			$user = $userManager->findById($_POST['id']);
+			if(!$user)
+				throw new Exception("L'utilisateur n'existe pas");
+
+			$user->setAdmin($_POST['admin']);
+			$userManager->updateAdmin($user);
+			header('Location: index.php?page=users#'.$user->getId());
+		}
+		catch (Exception $exception)
+		{
+			$error = $exception->getMessage();
+		}
+	}
+	elseif($action == "delete")
+	{
+		$userManager = new UserManager($db);
+		try
+		{
+			$user = $userManager->findById($_SESSION['id']);
+			if(!$user)
+				throw new Exception("Vous n'êtes plus connecté");
+
+			$delete = $userManager->remove($user);
+			session_destroy();
+			header('Location: index.php');
+			exit;
+		}
+		catch (Exception $exception)
+		{
+			$error = $exception->getMessage();
+		}
+	}
+	elseif($action == "delete_admin" && isset($_POST['id'], $_SESSION['admin']))
+	{
+		$userManager = new UserManager($db);
+		try
+		{
+			$user = $userManager->findById($_POST['id']);
+			if(!$user)
+				throw new Exception("L'utilisateur n'existe pas");
+			if($user->getAdmin() == "1")
+				throw new Exception("Impossible de supprimer un administrateur");
+				
+			$delete = $userManager->remove($user);
+			header('Location: index.php?admin&page=users');
+			exit;
+		}
+		catch (Exception $exception)
+		{
+			$error = $exception->getMessage();
 		}
 	}
 }	

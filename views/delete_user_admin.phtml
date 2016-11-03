@@ -1,0 +1,7 @@
+<h4>Confirmer la suppression du compte <?= htmlentities($user->getLogin()) ?> ?</h4>
+<form method="POST">
+	<input type="hidden" name="action" value="delete_admin">
+	<input type="hidden" name="id" value="<?= $user->getId() ?>">
+	<input type="submit" value="Supprimer">
+</form>
+<a href="index.php?page=users#<?= htmlentities($_GET['id']) ?>">Annuler</a>

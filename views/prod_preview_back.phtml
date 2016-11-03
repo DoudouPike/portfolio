@@ -1,6 +1,7 @@
-<div id="<?= $tabs[$i]->getId() ?>" style="background-image:<?= htmlentities($tabs[$i]->getImage()) ?>">
-	<p><?= htmlentities($tabs[$i]->getTitle()) ?></p>
-	<a class="fa fa-external-link" href="index.php?page=prod&id=<?= $tabs[$i]->getId() ?>"></a>
+<div id="<?= $prod->getId() ?>" style="background: url('public/images/prods/<?= htmlentities($prod->getImage()) ?>') center center">
+
+	<p><?= htmlentities($prod->getTitle()) ?></p>
+	<a class="fa fa-external-link" href="index.php?page=portfolio&id=<?= $prod->getId() ?>"></a>
 	
-	<div><?php require("controllers/buttons_admin.php"); ?></div>
+	<div><?php require("controllers/prod_admin.php"); ?></div>
 </div>

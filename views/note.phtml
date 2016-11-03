@@ -1,5 +1,5 @@
-<div id="<?= $tabs[$i]->getId() ?>">
-	<p><?= htmlentities($tabs[$i]->getContent()) ?></p>
+<div id="<?= $note->getId() ?>">
+	<p><?= htmlentities($note->getContent()) ?></p>
 	<p>Visibilité : <?= $active ?></p>
-	<div><?php require("controllers/buttons_admin.php"); ?></div>
+	<div><?php require("controllers/note_admin.php"); ?></div>
 </div>

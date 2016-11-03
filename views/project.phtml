@@ -1,0 +1,18 @@
+<article>
+<div>
+	<p>Projet débuté le: <?= htmlentities($project->getFormatedDate()) ?> - Dernière modification le: <?=htmlentities($project->getLastDate()) ?></p>
+	<h3><?= htmlentities($project->getTitle()) ?></h3>
+	<img src="public/images/projects/<?= htmlentities($project->getImage()) ?>" alt='illustration du projet'>
+	<p><?= htmlentities($project->getContent()) ?></p>
+	<a href="<?= htmlentities($project->getUrl()) ?>"><?= htmlentities($project->getUrl()) ?></p>
+</div>
+<div>
+	<?php require('controllers/reviews.php') ?>
+</div>
+<div>
+	<?php
+	require('controllers/create_comment.php');
+	require('controllers/comments.php');
+	?>
+</div>
+</article>

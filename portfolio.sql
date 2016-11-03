@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 21 Octobre 2016 à 14:39
+-- Généré le :  Jeu 03 Novembre 2016 à 13:56
 -- Version du serveur :  5.7.9
 -- Version de PHP :  5.6.16
 
@@ -36,7 +36,14 @@ CREATE TABLE IF NOT EXISTS `comments` (
   PRIMARY KEY (`id`),
   KEY `id_project` (`id_project`),
   KEY `id_author` (`id_author`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Contenu de la table `comments`
+--
+
+INSERT INTO `comments` (`id`, `id_project`, `id_author`, `content`, `date`) VALUES
+(4, 1, 7, 'Commentaire persistant', '2016-10-25 14:25:37');
 
 -- --------------------------------------------------------
 
@@ -70,19 +77,20 @@ CREATE TABLE IF NOT EXISTS `prods` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(63) COLLATE utf8_bin NOT NULL,
   `description` varchar(4095) COLLATE utf8_bin NOT NULL,
-  `image` varchar(255) COLLATE utf8_bin NOT NULL,
+  `image` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT 'default.png',
   `date` date NOT NULL,
   `url` varchar(255) COLLATE utf8_bin NOT NULL,
   `client` varchar(63) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Contenu de la table `prods`
 --
 
 INSERT INTO `prods` (`id`, `title`, `description`, `image`, `date`, `url`, `client`) VALUES
-(1, 'PremiÃ¨re prod (modifiÃ©e)', 'description', 'public/images/prods/', '2016-10-20', 'http://doudoupike.fr', 'client');
+(1, 'PremiÃ¨re prod (modifiÃ©e)', 'description', 'default.png', '2016-10-20', 'http://doudoupike.fr', 'client'),
+(2, 'Test image !!!', 'test image', 'default.png', '2016-10-21', 'http://doudoupike.fr', 'test image');
 
 -- --------------------------------------------------------
 
@@ -96,12 +104,19 @@ CREATE TABLE IF NOT EXISTS `projects` (
   `title` varchar(63) COLLATE utf8_bin NOT NULL,
   `content` varchar(4095) COLLATE utf8_bin NOT NULL,
   `abstract` varchar(1023) COLLATE utf8_bin NOT NULL,
-  `image` varchar(255) COLLATE utf8_bin NOT NULL,
+  `image` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT 'default.png',
   `url` varchar(255) COLLATE utf8_bin NOT NULL,
   `date` date NOT NULL,
   `last_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Contenu de la table `projects`
+--
+
+INSERT INTO `projects` (`id`, `title`, `content`, `abstract`, `image`, `url`, `date`, `last_date`) VALUES
+(1, 'Nouveau projet (edit 2)', 'Ceci est mon nouveau projet', 'Ceci est mon nouveau projet', 'default.png', 'http://doudoupike.fr', '2016-10-19', '2016-11-03 13:30:16');
 
 -- --------------------------------------------------------
 
@@ -117,8 +132,15 @@ CREATE TABLE IF NOT EXISTS `reviews` (
   `content` varchar(4095) COLLATE utf8_bin NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id_project` (`id_project`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  KEY `id_project` (`id_project`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Contenu de la table `reviews`
+--
+
+INSERT INTO `reviews` (`id`, `id_project`, `title`, `content`, `date`) VALUES
+(3, 1, 'Review persistante', 'Review persistante', '2016-10-25 14:28:58');
 
 -- --------------------------------------------------------
 

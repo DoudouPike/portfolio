@@ -1,6 +1,6 @@
 <?php
 $reviewManager = new ReviewManager($db);
-$list = $reviewManager->findByProject($tabs[$i]);
+$list = $reviewManager->findByProject($project);
 if($list)
 {
 	for ($j=0; $j < sizeof($list) ; $j++)

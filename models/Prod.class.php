@@ -87,7 +87,9 @@ class Prod
 			$this->client = $client;
 	}
 	public function setImage($image)
-	{		
+	{
+		if(empty($image))
+			$image = "default.png";
 		$this->image = $image;
 	}
 	public function setUrl($url)

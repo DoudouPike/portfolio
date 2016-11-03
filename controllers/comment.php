@@ -24,7 +24,7 @@ if(isset($_GET['page']))
 	elseif($_GET['page'] == "projects")
 	{
 		$commentManager = new CommentManager($db);
-		$list = $commentManager->findByProject($tabs[$i]);
+		$list = $commentManager->findByProject($project);
 		if($list)
 		{
 			for ($j=0; $j < sizeof($list) ; $j++)
@@ -39,7 +39,7 @@ if(isset($_GET['page']))
 			require("views/empty.phtml");
 		}
 	}
-	elseif(isset($_GET['id']) && $_GET['page'] == "mine")
+	elseif($_GET['page'] == "mine" && isset($_GET['id']))
 	{
 		var_dump("A FAIRE !");
 	}

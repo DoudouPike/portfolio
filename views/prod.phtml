@@ -1,0 +1,8 @@
+<article>
+	<h3><?= htmlentities($prod->getTitle()) ?></h3>
+	<img src="public/images/prods/<?= htmlentities($prod->getImage()) ?>" alt='illustration du projet'>
+	<p><?= htmlentities($prod->getDescription()) ?></p>
+	<p><?= htmlentities($prod->getFormatedDate()) ?></p>
+	<p><?= htmlentities($prod->getClient()) ?></p>
+	<a href="<?= htmlentities($prod->getUrl()) ?>"><?= htmlentities($prod->getUrl()) ?></a>
+</article>

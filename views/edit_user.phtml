@@ -1,6 +1,6 @@
-<h2>Editer l'utilsateur <?= $user->getId() ?> ?</h2>
+<h2>Editer l'utilsateur <?= $user->getLogin() ?> ?</h2>
 <form method="POST">
-	<input type="hidden" name="action" value="edit">
+	<input type="hidden" name="action" value="editAdmin">
 	<input type="hidden" name="id" value="<?= $user->getId() ?>">
 	<input type="radio" name="admin" value="0" id="notAdmin" <?= $notAdmin ?>><label for="notAdmin"> Non Admin</label>
 	<input type="radio" name="admin" value="1" id="admin" <?= $admin ?>><label for="admin"> Admin</label>
