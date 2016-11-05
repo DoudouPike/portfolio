@@ -39,7 +39,6 @@ img
 	left: 0;
 	width: 5%;
 	min-height: 100vh;
-	text-align: center;
 	.menuPublic
 	{
 		position: absolute;
@@ -51,34 +50,34 @@ img
 			font-size: 0;
 		}
 		.social
-		{
+		{			
 			position: absolute;
 			bottom: 0;
-			margin: auto;
-			left: 0;
-			transform: translateX(-50%);
-			left: 50%;
+			width: 100%;
+			text-align: center;
 			a
 			{
-				margin: 5px 0;
+				width: 50%;
+				margin: 5px auto;
 				background-color: white;
+
 				.fa
 				{
+					font-size: 1.2rem;
+					padding: 10px;
 					color: gray;
-					padding: 15px;
-					font-size: 2rem;
 				}
-				.fa-facebook:hover
+				&:hover .fa-facebook
 				{
-					color: blue;
+					color: rgb(59, 89, 152);
 				}
-				.fa-twitter:hover
+				&:hover .fa-twitter
 				{
-					color: lightblue;
+					color: rgb(29, 161, 242);
 				}
-				.fa-github:hover
+				&:hover .fa-github
 				{
-					color: black;
+					color: rgb(23, 21, 21);
 				}
 			}
 		}
