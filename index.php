@@ -1,6 +1,20 @@
 <?php
 	session_start();
-	$db = mysqli_connect("localhost", "root", "root", "portfolio");
+
+	$host_name  = "db655083596.db.1and1.com";
+    $database   = "db655083596";
+    $user_name  = "dbo655083596";
+    $password   = "3WAportfolio";
+    $connect = mysqli_connect($host_name, $user_name, $password, $database);
+    if(mysqli_connect_errno())
+    {
+    	$error = "Echec de la connexion avec la base de donnée: ".mysqli_connect_error()."";
+    }
+    else
+    {
+    	$db = $connect;
+    }
+
 	function __autoload($className)
 	{
 		require('models/'.$className.'.class.php');
