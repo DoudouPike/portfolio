@@ -20,6 +20,8 @@ img
 	{
 		display: inline;
 		padding-left: 0;
+		margin-top: 0;
+		margin-bottom: 0;
 		list-style-type: none;
 		li
 		{
@@ -37,7 +39,7 @@ img
 .menu
 {
 	left: 0;
-	width: 5%;
+	width: 75px;
 	min-height: 100vh;
 	.menuPublic
 	{
@@ -50,22 +52,26 @@ img
 			font-size: 0;
 		}
 		.social
-		{			
+		{
 			position: absolute;
 			bottom: 0;
-			width: 100%;
-			text-align: center;
+			left: 0;
+			right: 0;
 			a
 			{
-				width: 50%;
+				display: flex;
+				width: 45px;
+				height: 45px;
 				margin: 5px auto;
-				background-color: white;
+				justify-content: center;
+				align-items: center;
+				background-color: #fff;
+				color: gray;
+				text-decoration: none;
 
 				.fa
 				{
-					font-size: 1.2rem;
-					padding: 10px;
-					color: gray;
+					
 				}
 				&:hover .fa-facebook
 				{
@@ -116,5 +122,30 @@ img
 /*Main*/
 .main
 {
-	margin-left: 5%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin-left: 75px;
+
+}
+
+.layout
+{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 50%;
+}
+.left
+{
+	left: 0;
+	border-right: 1px solid black;
+}
+
+.right
+{
+	right: 0;
+	border-left: 1px solid black;
 }
