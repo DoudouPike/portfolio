@@ -1,16 +1,59 @@
+@bright: rgb(240, 240, 240);
+@lightBright: rgb(220, 220, 220);
+@lightDark: rgb(67, 67, 67);
+@dark: rgb(26, 26, 26);
+
 *
 {
 	box-sizing: border-box;
+}
+strong
+{
+	font-weight: inherit;
 }
 img
 {
 	max-width: 100%;
 }
-
+.space
+{
+	padding: 30px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.button
+{
+	display: flex !important;
+	justify-content: center;
+	align-items: center;
+	width: 45px;
+	height: 45px;
+	margin: 5px auto;
+	border: 1px solid rgb(67, 67, 67);
+	background-color: @bright;
+	color: gray;
+	text-decoration: none;
+	transition: all 0.5s ease;
+	&:hover
+	{
+		background-color: @lightBright
+	}
+	&:hover .fa-facebook
+	{
+		color: rgb(59, 89, 152);
+	}
+	&:hover .fa-twitter
+	{
+		color: rgb(29, 161, 242);
+	}
+	&:hover .fa-github
+	{
+		color: rgb(23, 21, 21);
+	}
+}
 .container
 {
 }
-
 /*Nav*/
 .nav
 {
@@ -28,10 +71,6 @@ img
 			a
 			{
 				display: block;
-				&:hover
-				{
-					background-color: rgb(170, 170, 170);
-				}
 			}
 		}
 	}
@@ -46,46 +85,28 @@ img
 		position: absolute;
 		top: 0;
 		bottom: 0;
-		background-color: gray;
+		background-color: @dark;
+		.links 
+		{
+			a
+			{
+				transition: all 1s ease; 
+				&:hover
+				{
+					background-color: rgb(67, 67, 67);
+				}
+			}
+		}
 		.logo
 		{
 			font-size: 0;
 		}
-		.social
+		.social_menu
 		{
 			position: absolute;
 			bottom: 0;
 			left: 0;
 			right: 0;
-			a
-			{
-				display: flex;
-				width: 45px;
-				height: 45px;
-				margin: 5px auto;
-				justify-content: center;
-				align-items: center;
-				background-color: #fff;
-				color: gray;
-				text-decoration: none;
-
-				.fa
-				{
-					
-				}
-				&:hover .fa-facebook
-				{
-					color: rgb(59, 89, 152);
-				}
-				&:hover .fa-twitter
-				{
-					color: rgb(29, 161, 242);
-				}
-				&:hover .fa-github
-				{
-					color: rgb(23, 21, 21);
-				}
-			}
 		}
 	}
 	.menuBack
@@ -122,12 +143,20 @@ img
 /*Main*/
 .main
 {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
+	position: relative;
+	min-height: 100vh;
 	margin-left: 75px;
+
+	.social_main
+	{
+		padding-left: 0;
+		list-style-type: none;
+		li
+		{
+			display: inline-block;
+		}
+
+	}
 
 }
 
@@ -141,11 +170,28 @@ img
 .left
 {
 	left: 0;
-	border-right: 1px solid black;
+	background-color: @lightDark;
 }
 
 .right
 {
 	right: 0;
-	border-left: 1px solid black;
+	background-color: @bright;
+}
+
+/*Home*/
+.home
+{
+	text-align: center;
+	.title
+	{
+		.space;
+		color: @bright;
+		background-color: rgb(67, 67, 67);
+	}
+	.description
+	{
+		.space;
+		background-color: rgb(217, 217, 217);
+	}
 }

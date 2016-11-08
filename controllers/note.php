@@ -12,13 +12,11 @@ if(isset($_GET['admin']))
 		elseif($note->getActive() == "1")
 			$active = "Affichée";
 
-		require("views/note.phtml");
+		require("views/note_back.phtml");
 	}
 }
-
 else
 {
-
 	$list = $noteManager->findActive();
 	for ($i=0; $i < sizeof($list); $i++)
 	{
