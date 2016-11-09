@@ -4,6 +4,9 @@
 <main class="main">
 	<?php require('controllers/content.php'); ?>
 </main>
-<nav class="nav panel">
-	<?php require('controllers/panel.php'); ?>
+<nav id="panel" class="nav panel">
+	<i id="panel_icone" class="panel_icone fa fa-user"></i>
+	<div id="panel_links" class="panel_links">
+		<?php require('controllers/panel.php'); ?>
+	</div>
 </nav>

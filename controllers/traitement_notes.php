@@ -16,7 +16,7 @@ if(isset($_POST["action"]))
 			$note = $noteManager->create($_POST['content'],$_POST['active']);
 			if(!$note)
 				throw new Exception("Erreur interne");
-			header('Location: index.php?admin&page=notes#'.$note->getId().'');
+			header('Location: index.php?admin&page=notes_back#'.$note->getId().'');
 			exit;
 			
 		}

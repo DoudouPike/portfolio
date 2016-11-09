@@ -31,14 +31,14 @@
 		require('models/'.$className.'.class.php');
 	}
 	
-	if(isset($_GET['admin']))
+	if(isset($_GET['admin'], $_SESSION['admin']) )
 		$page= "home_back";
 	else
 		$page = "home";
 
 	$access = ["about", "contact", "login", "mine", "portfolio", "register",];
 	$accessIn = ["about", "contact", "dashboard", "delete_user", "logout", "mine", "portfolio",];
-	$accessAdmin = ["about", "comments", "contact", "create_comment", "create_note", "create_prod", "create_project", "create_review", "dashboard", "delete_comment", "delete_note", "delete_prod", "delete_project", "delete_review", "delete_user", "delete_user_admin", "edit_note", "edit_prod", "edit_project", "edit_review", "edit_user", "home_back", "logout", "mine", "notes", "portfolio", "prods", "prods_admin", "projects", "projects_admin", "reviews", "users"];
+	$accessAdmin = ["about", "comments", "contact", "create_comment", "create_note", "create_prod", "create_project", "create_review", "dashboard", "delete_comment", "delete_note", "delete_prod", "delete_project", "delete_review", "delete_user", "delete_user_admin", "edit_note", "edit_prod", "edit_project", "edit_review", "edit_user", "home_back", "logout", "mine", "notes_back", "portfolio", "prods", "prods_admin", "projects", "projects_admin", "reviews", "users"];
 	
 	if(isset($_GET['page']))
 	{
