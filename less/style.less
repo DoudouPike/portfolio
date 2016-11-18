@@ -370,6 +370,12 @@
 			margin-left: 10px;
 			color: @lightDark;
 		}
+		.previewBox_home
+		{
+			overflow: scroll;
+			width: 100%;
+			background-color: @lightBright;
+		}
 		.home_redirect
 		{
 			text-align: center;
@@ -394,10 +400,8 @@
 	}
 
 /*Previews*/
-	.previews_box
+	.previewsBox
 	{
-		background-color: @lightBright;
-		height: 100%;
 		.flex;
 		.justifyContent_around;
 		.alignItems_center;
@@ -420,6 +424,9 @@
 
 			.previewContent
 			{
+				max-width: 100%;
+				height: 100%;
+				background-color: rgba(0,0,0,0.3);
 				.default_transition;
 				opacity: 0;
 				overflow: hidden;
