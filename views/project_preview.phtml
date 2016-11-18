@@ -1,6 +1,8 @@
-<article style="background: url('public/images/projects/<?= htmlentities($project->getImage()) ?>') center center">
+<article class="preview" style="background: url('public/images/projects/<?= htmlentities($project->getImage()) ?>') center center">
 	<a href="index.php?page=mine&id=<?= $project->getId() ?>">
-		<p><?= htmlentities($project->getTitle()) ?></p>
-		<p><?= htmlentities($project->getAbstract()) ?></p>
+		<div class="previewContent">
+			<p><?= htmlentities($project->getTitle()) ?></p>
+			<p><?= htmlentities($project->getAbstract()) ?></p>
+		</div>
 	</a>
 </article>

@@ -20,6 +20,17 @@ class ProdManager
 		}
 		return $list;	
 	}
+	public function findExample()
+	{
+		$list = [];
+		$query = "SELECT * FROM prods LIMIT 4";
+		$res = mysqli_query($this->db, $query);
+		while($prods = mysqli_fetch_object($res, "Prod", [$this->db]))
+		{
+			$list[] = $prods;
+		}
+		return $list;
+	}
 	/*
 	public function search($search)
 	{

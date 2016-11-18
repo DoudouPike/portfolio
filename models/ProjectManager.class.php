@@ -20,6 +20,17 @@ class ProjectManager
 		}
 		return $list;	
 	}
+	public function findExample()
+	{
+		$list = [];
+		$query = "SELECT * FROM projects LIMIT 4";
+		$res = mysqli_query($this->db, $query);
+		while($projects = mysqli_fetch_object($res, "Project", [$this->db]))
+		{
+			$list[] = $projects;
+		}
+		return $list;
+	}
 	/*
 	public function search($search)
 	{

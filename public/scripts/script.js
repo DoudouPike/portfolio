@@ -7,11 +7,6 @@ $(document).ready(function()
 		else
 			$('#panel_links').css('display', 'none');		
 	});
-	// $('#panel').mouseleave(function(){
-	// 	$('#panel_links').delay(1000).animate({
-	// 		height: 'toggle',
-	// 	})
-	// });
-
+	
     $('#datepicker').datepicker($.datepicker.regional['fr']);
 });
