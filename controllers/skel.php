@@ -1,6 +1,6 @@
 <?php
-$title = "Portfolio";
+$title = "DoudouPike";
 if(isset($_GET['admin']))
-	$title = "Portfolio - BackOffice";
+	$title = "BackOffice";
 require('views/skel.phtml');
 ?>
