@@ -1,4 +1,4 @@
-<div id="<?= $project->getId() ?>" style="background: url('public/images/projects/<?= htmlentities($project->getImage()) ?>') center center">
+<div id="<?= $project->getId() ?>" style="background: url('public/images/projects/<?= htmlentities($project->getImage()) ?>') center center no-repeat">
 	<p><?= htmlentities($project->getTitle()) ?></p>
 	<p><?= htmlentities($project->getAbstract()) ?></p>
 	<p>ajouté le: <?= htmlentities($project->getFormatedDate()) ?></p>
@@ -17,5 +17,4 @@
 			<?php require('controllers/comments.php'); ?>
 		</div>
 	</div>
-	<hr>
 </div>

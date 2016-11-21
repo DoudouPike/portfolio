@@ -4,13 +4,13 @@ if(isset($_GET['page']))
 	if($_GET['page'] == "dashboard")
 	{
 		$commentManager = new CommentManager($db);
-		$list = $commentManager->findByUser($user);
-		if($list)
+		$comments = $commentManager->findByUser($user);
+		if($comments)
 		{
 			$projectManager = new ProjectManager($db);
-			for ($j=0; $j < sizeof($list) ; $j++)
+			for ($j=0; $j < sizeof($comments); $j++)
 			{ 
-				$comment = $list[$j];
+				$comment = $comments[$j];
 				$project = $projectManager->findById($comment->getProject()->getId());
 				require("views/comment_list.phtml");
 			}
@@ -24,12 +24,12 @@ if(isset($_GET['page']))
 	elseif($_GET['page'] == "projects")
 	{
 		$commentManager = new CommentManager($db);
-		$list = $commentManager->findByProject($project);
-		if($list)
+		$comments = $commentManager->findByProject($project);
+		if($comments)
 		{
-			for ($j=0; $j < sizeof($list) ; $j++)
+			for ($j=0; $j < sizeof($comments); $j++)
 			{ 
-				$comment = $list[$j];
+				$comment = $comments[$j];
 				require("views/comment.phtml");
 			}
 		}

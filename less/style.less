@@ -82,6 +82,7 @@
 /*General*/
 	*
 	{
+		font-family: 'Raleway', Arial, Helvetica, sans-serif;
 		box-sizing: border-box;
 	}
 	strong
@@ -132,7 +133,16 @@
 		}
 	}
 
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1400px)
+{
+	.desktop
+	{
+		display: block;
+	}
+	.cellular
+	{
+		display: none;
+	}
 	/*Nav*/
 		.nav
 		{
@@ -374,15 +384,10 @@
 			bottom: 0;
 			border-top: 2px solid @dark;
 		}
-		.cellular
-		{
-			display: none;
-		}
 
 	/*Previews*/
-		.previews_box
+		.previewsBox
 		{
-			height: 100%;
 			.flex;
 			.justifyContent_around;
 			.alignItems_center;
@@ -421,4 +426,24 @@
 			}
 		}
 	
+	/*About*/
+		.sheet
+		{
+			padding: 30px;
+			color: @bright;
+			h2
+			{
+				text-align: center;
+			}
+			ul
+			{
+				padding: 0;
+				list-style-type: none;
+			}
+		}
+		.about
+		{
+			background-color: @lightBright;
+			padding: 30px;
+		}
 }

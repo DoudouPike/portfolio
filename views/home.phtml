@@ -29,16 +29,18 @@
 <div class="layout right">
 	<div class="home_prods">
 		<h2 class="previews_title">Quelques-unes de mes réalisations</h2>
-		<section class="previews_box">
+		<section class="previewsBox">
 			<?php require('controllers/prods.php'); ?>
 		</section>
 		<a class="home_redirect" href="index.php?page=portfolio">Voir toutes mes réalisations</a>
 	</div>
 	<div class="home_projects">
 		<h2 class="previews_title">Quelques-uns de mes projets</h2>
-		<section class="previews_box">
-			<?php require('controllers/projects.php'); ?>
-		</section>
+		<div class="previewsBox_home">
+			<section class="previewsBox">
+					<?php require('controllers/projects.php'); ?>
+			</section>
+		</div>
 		<a class="home_redirect" href="index.php?page=mmine">Voir tous mes projets</a>
 	</div>
 </div>
