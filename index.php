@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require('private/db/connect.php');
+require('private/connectDB.php');
 
 $connect = mysqli_connect($host_name, $user_name, $password, $database);
 if(!$connect)
