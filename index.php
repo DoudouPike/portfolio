@@ -31,6 +31,10 @@ function __autoload($className)
 	require('models/'.$className.'.class.php');
 }
 
+$title = "DoudouPike";
+if(isset($_GET['admin']))
+	$title = "BackOffice";
+$pageName = "Home";
 $page = "home";
 if(isset($_GET['admin'], $_SESSION['admin']) )
 	$page= "home_back";

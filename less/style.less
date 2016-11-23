@@ -1,4 +1,4 @@
-/*Variables & Mixins*/
+/* Variables & Mixins */
 	@facebook: rgb(59, 89, 152);
 	@twitter: rgb(29, 161, 242);
 	@github: rgb(23, 21, 21);
@@ -79,6 +79,31 @@
 		.justifyContent_center;
 	}
 
+	.half
+	{
+		position: absolute;
+		left: 0;
+		right: 0;
+		height: 50%;
+	}
+	.halfTop
+	{
+		top: 0;
+		border-bottom: 2px solid @dark;
+	}
+	.halfBottom
+	{
+		bottom: 0;
+		border-top: 2px solid @dark;
+	}
+	.half_title
+	{
+		margin: 0;
+		background-color: @lightBright;
+		padding: 30px;
+		color: @lightDark;
+	}
+
 /*General*/
 	*
 	{
@@ -135,14 +160,6 @@
 
 @media screen and (min-width: 1400px)
 {
-	.desktop
-	{
-		display: block;
-	}
-	.cellular
-	{
-		display: none;
-	}
 	/*Nav*/
 		.nav
 		{
@@ -275,11 +292,8 @@
 				{
 					display: inline-block;
 				}
-
 			}
-
 		}
-
 		.layout
 		{
 			position: absolute;
@@ -348,20 +362,11 @@
 		}
 		.home_prods, .home_projects
 		{
-			position: absolute;
-			width: 100%;
-			height: 50%;
+			.half;
 			.flex;
 			.flexDirection_column;
 			.justifyContent_between;
 
-			.previews_title
-			{
-				margin: 0;
-				background-color: @lightBright;
-				padding: 30px;
-				color: @lightDark;
-			}
 			.home_redirect
 			{
 				text-align: center;
@@ -376,13 +381,11 @@
 		}
 		.home_prods
 		{
-			top: 0;
-			border-bottom: 2px solid @dark;
+			.halfTop;
 		}
 		.home_projects
 		{
-			bottom: 0;
-			border-top: 2px solid @dark;
+			.halfBottom;
 		}
 
 	/*Previews*/
@@ -427,23 +430,62 @@
 		}
 	
 	/*About*/
-		.sheet
+		.sheet, .about
 		{
-			padding: 30px;
-			color: @bright;
+			.column;
 			h2
 			{
 				text-align: center;
 			}
 			ul
 			{
+				margin: 0;
 				padding: 0;
 				list-style-type: none;
+			}
+
+		}
+		.sheet
+		{
+			color: @bright;
+			a:hover
+			{
+				color: @lightBright;
+			}
+			h4
+			{
+				margin-bottom: 0;
 			}
 		}
 		.about
 		{
 			background-color: @lightBright;
-			padding: 30px;
 		}
-}
+
+
+		.skill, .career
+		{
+			.half;
+			h2
+			{
+				top: 0;
+			}
+
+		}
+		.skill
+		{
+			.halfTop;
+			svg
+			{
+				position: absolute;
+
+				bottom: 0;
+				left: 0;
+				border: 1px solid red;
+			}
+		}
+		}
+		.career
+		{
+			.halfBottom;
+		}
