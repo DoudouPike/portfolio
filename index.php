@@ -1,25 +1,12 @@
 <?php
 session_start();
 
-if($_SERVER['SERVER_NAME'] === "localhost")
-{
-	$host_name = "localhost";
-	$database = "portfolio";
-	$user_name = "root";
-	$password = "root";
-}
-else
-{
-	$host_name  = "db655083596.db.1and1.com";
-    $database   = "db655083596";
-    $user_name  = "dbo655083596";
-    $password   = "3WAportfolio";
-}
+require('private/db/connect.php');
 
 $connect = mysqli_connect($host_name, $user_name, $password, $database);
 if(!$connect)
 {
-	$error = "Echec de la connexion avec la base de donnée: ".mysqli_connect_error()."";    		
+	$error = "Echec de connexion avec la base de donnée: ".mysqli_connect_error()."";    		
 }
 else
 {
