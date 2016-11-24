@@ -1,12 +1,30 @@
 $(document).ready(function()
 {
-	$('#panel_icone').click(function()
+	//Clique login
+	var loginIcone = $('#panel_icone');
+	var loginPanel = $('#panel_links');
+	loginIcone.click(function()
 	{
-		if($('#panel_links').css('display') == 'none')
-			$('#panel_links').css('display', 'inline-block');
-		else
-			$('#panel_links').css('display', 'none');		
+		loginPanel.fadeToggle();
+		loginPanel.css('display', 'inline-block');
 	});
+	$(document.body).click(function(e)
+	{
+		if(!$(e.target).is(loginIcone) && !$.contains(loginIcone[0],e.target))
+		{
+	  		loginPanel.fadeOut();
+		}
+	});
+	
+	if($('#skillBox').is(':visible'))
+	{
+		$('#outline').delay("500").fadeIn();
+		$('.html').delay("500").fadeIn();
+		$('.css').delay("1000").fadeIn();
+		$('.php').delay("1500").fadeIn();
+		$('.mysql').delay("2000").fadeIn();
+		$('.js').delay("2500").fadeIn();
+	}
 	
     $('#datepicker').datepicker($.datepicker.regional['fr']);
 });

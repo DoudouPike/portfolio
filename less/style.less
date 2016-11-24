@@ -9,7 +9,10 @@
 	@dark: rgb(26, 26, 26);
 
 	@previewSize: 160px;
-
+	.hide
+	{
+		display: none;
+	}
 	.flex
 	{
 		display: -webkit-box;
@@ -85,6 +88,13 @@
 		left: 0;
 		right: 0;
 		height: 50%;
+		h2
+		{
+			margin: 0;
+			background-color: @lightBright;
+			padding: 30px;
+			color: @lightDark;
+		}
 	}
 	.halfTop
 	{
@@ -95,13 +105,6 @@
 	{
 		bottom: 0;
 		border-top: 2px solid @dark;
-	}
-	.half_title
-	{
-		margin: 0;
-		background-color: @lightBright;
-		padding: 30px;
-		color: @lightDark;
 	}
 
 /*General*/
@@ -158,8 +161,8 @@
 		}
 	}
 
-@media screen and (min-width: 1400px)
-{
+/*@media screen and (min-width: 1400px)
+{*/
 	/*Nav*/
 		.nav
 		{
@@ -235,7 +238,7 @@
 					}
 					ul
 					{
-						display: none;
+						.hide;
 					}
 				}
 			}
@@ -259,7 +262,7 @@
 			}
 			.panel_links
 			{
-				display: none;
+				.hide;
 				color: @bright;
 				margin-right: 10px;
 				ul
@@ -462,30 +465,70 @@
 			background-color: @lightBright;
 		}
 
-
 		.skill, .career
 		{
 			.half;
-			h2
-			{
-				top: 0;
-			}
-
+			.flex;
+			.flexDirection_column;
+			.justifyContent_between;
 		}
 		.skill
 		{
 			.halfTop;
-			svg
+			h2
 			{
-				position: absolute;
-
-				bottom: 0;
-				left: 0;
-				border: 1px solid red;
+				width: 100%;
 			}
-		}
+			.skillBox
+			{
+				font-size: 0;
+				.graphElement
+				{
+					.hide;
+					color: @dark;
+				}
+				.graph, .specific
+				{
+					font-size: 1rem;
+					display: inline-block;
+					vertical-align: center;
+					width: 50%;
+				}
+				.graph
+				{
+					border: 1px solid red;
+					path.html
+					{
+						fill: rgb(20,20,20);
+					}
+					path.css
+					{
+						fill: rgb(70,70,70);
+					}
+					path.php
+					{
+						fill: rgb(120,120,120);
+					}
+					path.mysql
+					{
+						fill: rgb(170,170,170);
+					}
+					path.js
+					{
+						fill: rgb(230,230,230);
+					}
+					text.graphElement
+					{
+						font-size: 3387px;
+					}
+				}
+				.specific
+				{
+				}
+			}
 		}
 		.career
 		{
 			.halfBottom;
 		}
+/*}*/
