@@ -75,11 +75,8 @@
 	
 	.column
 	{
-		width: 100%;
-		padding: 30px;
 		.flex;
 		.flexDirection_column;
-		.justifyContent_center;
 	}
 
 	.half
@@ -110,8 +107,11 @@
 /*General*/
 	*
 	{
-		font-family: 'Raleway', Arial, Helvetica, sans-serif;
 		box-sizing: border-box;
+	}
+	body
+	{
+		font-family: 'Raleway', Arial, Helvetica, sans-serif;
 	}
 	strong
 	{
@@ -162,373 +162,393 @@
 	}
 
 /*@media screen and (min-width: 1400px)
-{*/
-	/*Nav*/
-		.nav
+{
+	
+}*/
+/*Nav*/
+	.nav
+	{
+		position: fixed;
+		top: 0;
+		ul
 		{
-			position: fixed;
-			top: 0;
-			ul
+			padding-left: 0;
+			margin-top: 0;
+			margin-bottom: 0;
+			list-style-type: none;
+			li
 			{
-				padding-left: 0;
-				margin-top: 0;
-				margin-bottom: 0;
-				list-style-type: none;
-				li
+				a
 				{
-					a
-					{
-						display: block;
-					}
+					display: block;
 				}
 			}
 		}
-		.menu
-		{
-			left: 0;
-			width: 75px;
-			min-height: 100vh;
-			.menuPublic
-			{
-				position: absolute;
-				top: 0;
-				bottom: 0;
-				background-color: @dark;
-				.links 
-				{
-					a
-					{
-						.default_transition;
-						&:hover
-						{
-							background-color: rgb(67, 67, 67);
-						}
-					}
-				}
-				.logo
-				{
-					font-size: 0;
-				}
-				.social_menu
-				{
-					position: absolute;
-					bottom: 0;
-					left: 0;
-					right: 0;
-				}
-			}
-			.menuBack
-			{
-				position: absolute;
-				top: 0;
-				bottom: 0;
-				background-color: orange;
-				.submenu
-				{
-					&:hover
-					{
-						ul
-						{
-							display: block;
-						}
-					}
-					p
-					{
-						margin-bottom: 0;
-					}
-					ul
-					{
-						.hide;
-					}
-				}
-			}
-		}
-		.panel
-		{
-			right: 50px;
-			background-color: @lightDark;
-			.panel_icone
-			{
-				font-size: 2rem;
-				padding: 10px;
-				color: @lightBright;
-				cursor: pointer;
-				vertical-align: middle;
-				.default_transition;
-				&:hover
-				{
-					color: @bright;
-				}
-			}
-			.panel_links
-			{
-				.hide;
-				color: @bright;
-				margin-right: 10px;
-				ul
-				{
-					li
-					{
-						display: inline-block;
-						a
-						{
-							color: inherit;
-							margin: 0 5px;
-						}
-					}
-				}
-			}		
-		}
-
-	/*Layout*/
-		.main
-		{
-			position: relative;
-			min-height: 100vh;
-			margin-left: 75px;
-
-			.social_main
-			{
-				padding-left: 0;
-				list-style-type: none;
-				li
-				{
-					display: inline-block;
-				}
-			}
-		}
-		.layout
+	}
+	.menu
+	{
+		left: 0;
+		width: 75px;
+		min-height: 100vh;
+		.menuPublic
 		{
 			position: absolute;
 			top: 0;
 			bottom: 0;
-			width: 50%;
-		}
-		.left
-		{
-			left: 0;
-			background-color: @lightDark;
-			border-right: 3px solid @dark;
-		}
-		.right
-		{
-			right: 0;
-			background-color: @bright;
-			border-left: 3px solid @dark;
-		}
-
-	/*Home*/
-		.home
-		{
-			.title, .description, .notes
+			background-color: @dark;
+			.links 
 			{
-				.column;
-				height: 33.33%;
-				position: absolute;
-			}
-			.title
-			{
-				top: 0;
-				left: 50%;
-				.transform(translateX(-50%));
-				text-align: center;
-				color: @bright;
-			}
-			.description
-			{
-				top: 50%;
-				.transform(translateY(-50%));
-				text-align: center;
-				background-color: @lightBright;
-			}
-			.notes
-			{
-				bottom: 0;
-				h3
-				{
-					color: @dark;
-					font-weight: normal;
-				}
-				.notes_container
-				{
-					overflow: auto;
-					.note
-					{
-						line-height: 1;
-						padding-left: 10px;
-						color: @bright;
-						border-left: 1px solid @bright;
-						
-					}
-				}
-			}
-		}
-		.home_prods, .home_projects
-		{
-			.half;
-			.flex;
-			.flexDirection_column;
-			.justifyContent_between;
-
-			.home_redirect
-			{
-				text-align: center;
-				padding: 20px 0;
-				color: @lightBright;
-				background-color: @lightDark;
-				&:hover
-				{
-					color: @bright;
-				}
-			}
-		}
-		.home_prods
-		{
-			.halfTop;
-		}
-		.home_projects
-		{
-			.halfBottom;
-		}
-
-	/*Previews*/
-		.previewsBox
-		{
-			.flex;
-			.justifyContent_around;
-			.alignItems_center;
-			.flexWrap;
-
-			.preview
-			{
-				width: @previewSize;
-				height: @previewSize;
-				.flex;
-				.justifyContent_center;
-				.flexDirection_column;
-				.alignItems_center;
-				font-size: 1.5rem;
-				font-weight: bold;
-				text-align: center;
-				border: 3px solid @lightDark;
-				color: @lightDark;
-				.default_transition;
-
-				.previewContent
+				a
 				{
 					.default_transition;
-					opacity: 0;
-					overflow: hidden;
-				}
-				&:hover
-				{
-					color: @dark;
-					border: 3px solid @dark;
-				}
-				&:hover .previewContent
-				{
-					opacity: 1;
+					&:hover
+					{
+						background-color: rgb(67, 67, 67);
+					}
 				}
 			}
-		}
-	
-	/*About*/
-		.sheet, .about
-		{
-			.column;
-			h2
-			{
-				text-align: center;
-			}
-			ul
-			{
-				margin: 0;
-				padding: 0;
-				list-style-type: none;
-			}
-
-		}
-		.sheet
-		{
-			color: @bright;
-			a:hover
-			{
-				color: @lightBright;
-			}
-			h4
-			{
-				margin-bottom: 0;
-			}
-		}
-		.about
-		{
-			background-color: @lightBright;
-		}
-
-		.skill, .career
-		{
-			.half;
-			.flex;
-			.flexDirection_column;
-			.justifyContent_between;
-		}
-		.skill
-		{
-			.halfTop;
-			h2
-			{
-				width: 100%;
-			}
-			.skillBox
+			.logo
 			{
 				font-size: 0;
-				.graphElement
+			}
+			.social_menu
+			{
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+			}
+		}
+		.menuBack
+		{
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			background-color: orange;
+			.submenu
+			{
+				&:hover
+				{
+					ul
+					{
+						display: block;
+					}
+				}
+				p
+				{
+					margin-bottom: 0;
+				}
+				ul
 				{
 					.hide;
-					color: @dark;
-				}
-				.graph, .specific
-				{
-					font-size: 1rem;
-					display: inline-block;
-					vertical-align: center;
-					width: 50%;
-				}
-				.graph
-				{
-					border: 1px solid red;
-					path.html
-					{
-						fill: rgb(20,20,20);
-					}
-					path.css
-					{
-						fill: rgb(70,70,70);
-					}
-					path.php
-					{
-						fill: rgb(120,120,120);
-					}
-					path.mysql
-					{
-						fill: rgb(170,170,170);
-					}
-					path.js
-					{
-						fill: rgb(230,230,230);
-					}
-					text.graphElement
-					{
-						font-size: 3387px;
-					}
-				}
-				.specific
-				{
 				}
 			}
 		}
-		.career
+	}
+	.panel
+	{
+		right: 50px;
+		background-color: @lightDark;
+		.panel_icone
 		{
-			.halfBottom;
+			font-size: 2rem;
+			padding: 10px;
+			color: @lightBright;
+			cursor: pointer;
+			vertical-align: middle;
+			.default_transition;
+			&:hover
+			{
+				color: @bright;
+			}
 		}
-/*}*/
+		.panel_links
+		{
+			.hide;
+			color: @bright;
+			margin-right: 10px;
+			ul
+			{
+				li
+				{
+					display: inline-block;
+					a
+					{
+						color: inherit;
+						margin: 0 5px;
+					}
+				}
+			}
+		}		
+	}
+
+/*Layout*/
+	.main
+	{
+		position: relative;
+		min-height: 100vh;
+		margin-left: 75px;
+
+		.social_main
+		{
+			padding-left: 0;
+			list-style-type: none;
+			li
+			{
+				display: inline-block;
+			}
+		}
+	}
+	.layout
+	{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 50%;
+	}
+	.left
+	{
+		left: 0;
+		background-color: @lightDark;
+		border-right: 3px solid @dark;
+	}
+	.right
+	{
+		right: 0;
+		background-color: @bright;
+		border-left: 3px solid @dark;
+	}
+
+/*Home*/
+	.home
+	{
+		.title, .description, .notes
+		{
+			.column;
+			.justifyContent_center;
+			padding: 30px;
+			width: 100%;
+			height: 33.33%;
+			position: absolute;
+		}
+		.title
+		{
+			top: 0;
+			left: 50%;
+			.transform(translateX(-50%));
+			text-align: center;
+			color: @bright;
+		}
+		.description
+		{
+			top: 50%;
+			.transform(translateY(-50%));
+			text-align: center;
+			background-color: @lightBright;
+		}
+		.notes
+		{
+			bottom: 0;
+			h3
+			{
+				color: @dark;
+				font-weight: normal;
+			}
+			.notes_container
+			{
+				overflow: auto;
+				.note
+				{
+					line-height: 1;
+					padding-left: 10px;
+					color: @bright;
+					border-left: 1px solid @bright;
+					
+				}
+			}
+		}
+	}
+	.home_prods, .home_projects
+	{
+		.half;
+		.column;
+		.justifyContent_between;
+
+		.home_redirect
+		{
+			text-align: center;
+			padding: 20px 0;
+			color: @lightBright;
+			background-color: @lightDark;
+			&:hover
+			{
+				color: @bright;
+			}
+		}
+	}
+	.home_prods
+	{
+		.halfTop;
+	}
+	.home_projects
+	{
+		.halfBottom;
+	}
+
+/*Previews*/
+	.previewsBox
+	{
+		.flex;
+		.justifyContent_around;
+		.alignItems_center;
+		.flexWrap;
+
+		.preview
+		{
+			width: @previewSize;
+			height: @previewSize;
+			.column;
+			.justifyContent_center;
+			.alignItems_center;
+			font-size: 1.5rem;
+			font-weight: bold;
+			text-align: center;
+			border: 3px solid @lightDark;
+			color: @lightDark;
+			.default_transition;
+
+			.previewContent
+			{
+				.default_transition;
+				opacity: 0;
+				overflow: hidden;
+			}
+			&:hover
+			{
+				color: @dark;
+				border: 3px solid @dark;
+			}
+			&:hover .previewContent
+			{
+				opacity: 1;
+			}
+		}
+	}
+
+/*About*/
+	.sheet, .about
+	{
+		padding: 30px;
+		.column;
+		h2
+		{
+			text-align: center;
+		}
+		ul
+		{
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+		}
+
+	}
+	.sheet
+	{
+		color: @bright;
+		a:hover
+		{
+			color: @lightBright;
+		}
+		h4
+		{
+			margin-bottom: 0;
+		}
+	}
+	.about
+	{
+		background-color: @lightBright;
+	}
+
+	.skill, .career
+	{
+		.half;
+	}
+	.skill
+	{
+		.halfTop;
+		.column;
+
+		.skillBox
+		{
+			.flex;
+			.justifyContent_between;
+
+			.chart, .specific
+			{
+				width: 50%;
+
+				.chartElement
+				{
+					.hide;
+				}
+				.html
+				{
+					fill: rgb(20,20,20);
+					border-color: rgb(20,20,20) !important;
+				}
+				.css
+				{
+					fill: rgb(70,70,70);
+					border-color: rgb(70,70,70) !important;
+				}
+				.php
+				{
+					fill: rgb(120,120,120);
+					border-color: rgb(120,120,120) !important;
+				}
+				.mysql
+				{
+					fill: rgb(170,170,170);
+					border-color: rgb(170,170,170) !important;
+				}
+				.js
+				{
+					fill: rgb(230,230,230);
+					border-color: rgb(230,230,230) !important;
+				}
+			}
+
+			.chart
+			{
+				#svg
+				{
+					width: 100%;
+				}
+				path
+				{
+					stroke: black;
+					stroke-width: 30;
+
+				}
+				text
+				{
+					font-size: 3387px;
+					fill: @dark !important;
+				}
+			}
+			.specific
+			{
+				.column;
+				padding-left: 10px;
+				p
+				{
+					border-left: 5px solid;
+					padding-left: 10px;
+				}
+			}
+		}
+	}
+	.career
+	{
+		.halfBottom;
+	}
