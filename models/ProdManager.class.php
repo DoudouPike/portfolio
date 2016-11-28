@@ -23,7 +23,7 @@ class ProdManager
 	public function findExample()
 	{
 		$list = [];
-		$query = "SELECT * FROM prods LIMIT 4";
+		$query = "SELECT * FROM prods LIMIT 3";
 		$res = mysqli_query($this->db, $query);
 		while($prods = mysqli_fetch_object($res, "Prod", [$this->db]))
 		{

@@ -23,7 +23,7 @@ class ProjectManager
 	public function findExample()
 	{
 		$list = [];
-		$query = "SELECT * FROM projects LIMIT 4";
+		$query = "SELECT * FROM projects LIMIT 3";
 		$res = mysqli_query($this->db, $query);
 		while($projects = mysqli_fetch_object($res, "Project", [$this->db]))
 		{
