@@ -4,7 +4,7 @@
 	<h3><?= htmlentities($project->getTitle()) ?></h3>
 	<img src="public/images/projects/<?= htmlentities($project->getImage()) ?>" alt='illustration du projet'>
 	<p><?= htmlentities($project->getContent()) ?></p>
-	<a href="<?= htmlentities($project->getUrl()) ?>"><?= htmlentities($project->getUrl()) ?></p>
+	<a href="<?= htmlentities($project->getUrl()) ?>"><?= htmlentities($project->getUrl()) ?></a>
 </div>
 <div>
 	<?php require('controllers/reviews.php') ?>

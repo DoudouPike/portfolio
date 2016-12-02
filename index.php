@@ -26,7 +26,7 @@ $page = "home";
 if(isset($_GET['admin'], $_SESSION['admin']) )
 	$page= "home_back";
 
-$access = ["about", "contact", "login", "mine", "portfolio", "register",];
+$access = ["about", "contact", "connection", "mine", "portfolio"];
 $accessIn = ["about", "contact", "dashboard", "delete_user", "logout", "mine", "portfolio",];
 $accessAdmin = ["about", "comments", "contact", "create_comment", "create_note", "create_prod", "create_project", "create_review", "dashboard", "delete_comment", "delete_note", "delete_prod", "delete_project", "delete_review", "delete_user", "delete_user_admin", "edit_note", "edit_prod", "edit_project", "edit_review", "edit_user", "home_back", "logout", "mine", "notes_back", "portfolio", "prods", "prods_admin", "projects", "projects_admin", "reviews", "users"];
 if(isset($_GET['page']))
@@ -50,7 +50,7 @@ if(isset($_GET['page']))
 }
 
 $traitementList = [
-	"dashboard"=>"users", "delete_user"=>"users", "delete_user_admin"=>"users", "edit_user"=>"users", "login"=>"users", "logout"=>"users", "register"=>"users", "users"=>"users",
+	"dashboard"=>"users", "delete_user"=>"users", "delete_user_admin"=>"users", "edit_user"=>"users", "connection"=>"users", "logout"=>"users", "users"=>"users",
 	"create_comment"=>"comments", "delete_comment"=>"comments",
 	"create_note"=>"notes", "delete_note"=>"notes", "edit_note"=>"notes",
 	"create_prod"=>"prods", "delete_prod"=>"prods", "edit_prod"=> "prods",

@@ -2,7 +2,9 @@
 if(isset($_GET['page']) && $_GET['page'] == 'logout')
 {
 	session_destroy();
-	header('Location: index.php');
+	session_start();
+	$_SESSION['logoutSuccess'] = "";
+	header('Location: index.php?page=home');
 	exit;
 }
 
@@ -16,7 +18,9 @@ if(isset($_POST['action']))
 		try
 		{
 			$userManager->create($_POST['login'], $_POST['email'], $_POST['pwd'], $_POST['pwd2']);
-			header('Location: index.php?page=login');
+
+			$_SESSION['registerSuccess'] = "";
+			header('Location: index.php?page=connection');
 			exit;
 		}
 		catch(Exception $e)
@@ -38,6 +42,7 @@ if(isset($_POST['action']))
 
 			$_SESSION['id'] = $user->getId();
 			$_SESSION['login'] = $user->getLogin();
+			$_SESSION['loginSuccess'] = "";
 			if($user->getAdmin() == "1")
 				$_SESSION['admin'] = $user->getAdmin();
 			header('Location: index.php?page=home');

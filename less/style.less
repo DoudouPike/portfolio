@@ -1,14 +1,12 @@
 /* Variables & Mixins */
-	@facebook: rgb(59, 89, 152);
-	@twitter: rgb(29, 161, 242);
-	@github: rgb(23, 21, 21);
-
-	@bright: rgb(240, 240, 240);
-	@lightBright: rgb(220, 220, 220);
-	@lightDark: rgb(67, 67, 67);
-	@dark: rgb(26, 26, 26);
-
-	@previewSize: 160px;
+	@facebook: rgb(59,89,152);
+	@twitter: rgb(29,161,242);
+	@github: rgb(23,21,21);
+	@bright: rgb(240,240,240);
+	@lightBright: rgb(220,220,220);
+	@lightDark: rgb(67,67,67);
+	@dark: rgb(26,26,26);
+	@previewSize: 200px;
 	.hide
 	{
 		display: none;
@@ -96,12 +94,12 @@
 	.halfTop
 	{
 		top: 0;
-		border-bottom: 2px solid @dark;
+		border-bottom: 3px solid @dark;
 	}
 	.halfBottom
 	{
 		bottom: 0;
-		border-top: 2px solid @dark;
+		border-top: 3px solid @dark;
 	}
 
 /*General*/
@@ -111,6 +109,7 @@
 	}
 	body
 	{
+		font-size: 18px;
 		font-family: 'Raleway', Arial, Helvetica, sans-serif;
 	}
 	strong
@@ -121,10 +120,15 @@
 	{
 		max-width: 100%;
 	}
-	a, a:hover
+	a
 	{
 		color: inherit;
 		text-decoration: none;
+	}
+	a:hover
+	{
+		color: inherit;
+		text-decoration: underline;
 	}
 	a:active
 	{
@@ -145,7 +149,9 @@
 		.default_transition;
 		&:hover
 		{
-			background-color: @lightBright
+			color: gray !important;
+			background-color: @lightBright;
+			text-decoration: none;
 		}
 		&:hover .fa-facebook
 		{
@@ -165,6 +171,28 @@
 {
 	
 }*/
+
+/*Notification*/
+	.success
+	{
+		position: fixed;
+		z-index: 100;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		border: 1px solid black;
+		text-align: center;
+		background-color: @dark;
+		color: @bright;
+		opacity: 0.8;
+		font-size: 1.5rem;
+		padding: 20px;
+		p
+		{
+			margin: 0;
+		}
+	}
+
 /*Nav*/
 	.nav
 	{
@@ -311,12 +339,22 @@
 		left: 0;
 		background-color: @lightDark;
 		border-right: 3px solid @dark;
+		color: @lightBright;
+		a:hover
+		{
+			color: @bright;
+		}
 	}
 	.right
 	{
 		right: 0;
 		background-color: @bright;
 		border-left: 3px solid @dark;
+		color: @dark;
+		a:hover
+		{
+			color: @lightDark;
+		}
 	}
 
 /*Home*/
@@ -337,13 +375,13 @@
 			left: 50%;
 			.transform(translateX(-50%));
 			text-align: center;
-			color: @bright;
 		}
 		.description
 		{
 			top: 50%;
 			.transform(translateY(-50%));
 			text-align: center;
+			color: @dark;
 			background-color: @lightBright;
 		}
 		.notes
@@ -361,7 +399,7 @@
 				{
 					line-height: 1;
 					padding-left: 10px;
-					color: @bright;
+					color: @lightBright;
 					border-left: 1px solid @bright;
 					
 				}
@@ -396,42 +434,51 @@
 	}
 
 /*Previews*/
-	.previewsBox
+	.previewsBox_home
 	{
 		.flex;
 		.justifyContent_around;
-		.alignItems_center;
+	}
+	.previewsBox
+	{
+		color: @dark;
+		.flex;
 		.flexWrap;
-
-		.preview
+		padding: 15px;
+		a:hover
 		{
-			width: @previewSize;
-			height: @previewSize;
-			.column;
-			.justifyContent_center;
-			.alignItems_center;
-			font-size: 1.5rem;
-			font-weight: bold;
-			text-align: center;
-			border: 3px solid @lightDark;
-			color: @lightDark;
-			.default_transition;
+			color: inherit;
+			text-decoration: none;
+		}
+		.preview:hover
+		{
+			border: 3px solid @bright;
+		}
+	}	
 
-			.previewContent
-			{
-				.default_transition;
-				opacity: 0;
-				overflow: hidden;
-			}
-			&:hover
-			{
-				color: @dark;
-				border: 3px solid @dark;
-			}
-			&:hover .previewContent
-			{
-				opacity: 1;
-			}
+	.preview
+	{
+		margin: 10px;
+		width: @previewSize;
+		height: @previewSize;
+		.column;
+		.justifyContent_center;
+		.alignItems_center;
+		font-size: 1.5rem;
+		font-weight: bold;
+		text-align: center;
+		border: 3px solid @dark;
+		.default_transition;
+
+		.previewContent
+		{
+			.default_transition;
+			opacity: 0;
+			overflow: hidden;
+		}
+		&:hover .previewContent
+		{
+			opacity: 1;
 		}
 	}
 
@@ -454,11 +501,6 @@
 	}
 	.sheet
 	{
-		color: @bright;
-		a:hover
-		{
-			color: @lightBright;
-		}
 		h4
 		{
 			margin-bottom: 0;
@@ -466,12 +508,30 @@
 	}
 	.about
 	{
+		color: @dark;
 		background-color: @lightBright;
+		a
+		{
+			text-decoration: underline;
+			&:hover
+			{
+				color: inherit;
+				text-decoration: none;
+			}
+		}
 	}
 
 	.skill, .career
 	{
 		.half;
+		.show
+		{
+			display: none;
+			text-align: center;
+			opacity: 0.3;
+			top: 50%;
+			transform: translateY(-50%);
+		}
 	}
 	.skill
 	{
@@ -489,36 +549,36 @@
 
 				.chartElement
 				{
+					cursor: help;
 					.hide;
-					cursor: default;
 				}
 				.html
 				{
-					fill: rgb(20,20,20);
-					border-color: rgb(20,20,20) !important;
+					fill: rgb(10,10,10);
+					border-color: rgb(10,10,10) !important;
 				}
 				.css
 				{
-					fill: rgb(60,60,60);
-					border-color: rgb(60,60,60) !important;
+					fill: rgb(40,40,40);
+					border-color: rgb(40,40,40) !important;
 
 				}
 				.php
+				{
+					fill: rgb(70,70,70);
+					border-color: rgb(70,70,70) !important;
+
+				}
+				.mysql
 				{
 					fill: rgb(100,100,100);
 					border-color: rgb(100,100,100) !important;
 
 				}
-				.mysql
-				{
-					fill: rgb(140,140,140);
-					border-color: rgb(140,140,140) !important;
-
-				}
 				.js
 				{
-					fill: rgb(180,180,180);
-					border-color: rgb(180,180,180) !important;
+					fill: rgb(130,130,130);
+					border-color: rgb(130,130,130) !important;
 
 				}
 				.other
@@ -567,23 +627,23 @@
 		
 		.schema
 		{
-			text-align: center;
-			padding: 10px 0;
-
+			height: 380px;
+			.flex;
+			.alignItems_center;
+			padding: 10px;
 			.schemaElement
 			{
 				.hide;
 			}
-
 			svg
 			{
-				/*display: none;*/
-				height: 360px;
+				width: 65%;
+				max-height: 100%;
 				path
 				{
 					fill: @lightDark;
 				}
-				path.arrow
+				.arrow
 				{
 					stroke: @dark;
 					stroke-width: 300;
@@ -592,6 +652,72 @@
 				{
 					font-size: 3386px;
 					fill: @bright;
+				}
+				g
+				{
+					cursor: help;
+				}
+			}
+			.information
+			{
+				width: 35%;
+				height: 100%;
+				position: relative;
+				p
+				{
+					display: none;
+					color: @bright;
+					margin: 0;
+					position: absolute;
+					padding: 10px;
+					background-color: @dark;
+					&:before
+					{
+						content: "";
+						position: absolute;
+						left: -12px;
+						height: 0;
+						width: 0;
+						border-right: 12px solid @dark;
+					}
+				}
+				#info_work
+				{
+					top: 20px;
+					&:before
+					{
+						top: 0;
+					    border-bottom: 15px solid transparent;
+					}
+				}
+				#info_perso
+				{
+					top: 125px;
+					left: -205px;
+					&:before
+					{
+						top: 0;
+					    border-bottom: 15px solid transparent;
+					}
+				}
+				#info_formation
+				{
+					bottom: 125px;
+					left: -15px;
+					&:before
+					{
+						bottom: 0;
+					    border-top: 15px solid transparent;
+					}
+				}
+				#info_old
+				{
+					bottom: 20px;
+					&:before
+					{
+						bottom: 0;
+					    border-top: 15px solid transparent;
+					}
 				}
 			}
 		}

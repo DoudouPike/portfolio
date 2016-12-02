@@ -20,7 +20,7 @@
 		</ul>
 	</section>
 	<section class="about">
-		<p>Débutant, je m'intéresse à la création de site Web depuis début 2016. J'ai d'abord commencé à me former seul, ce qui m'a permis de concrétiser mon intérêt pour la chose. J'ai ensuite suivi une formation pour intensifier mes connaissances.</p>
+		<p>Débutant, je m'intéresse à la création de site Web depuis début 2016. J'ai d'abord commencé à me former seul, ce qui m'a permis de concrétiser mon intérêt pour la chose. J'ai ensuite suivi une <a href="http://3wa.fr" title="3W Academy" target="_blank">formation</a> pour intensifier mes connaissances.</p>
 		<p>J'aime le Back-End pour la rigueur que ça impose. J'aime faire les choses au mieux, le plus sécurisé et le plus optimisé possible.</p>
 		<p>J'aime le Front-End pour la liberté que ça offre. J'aime pouvoir laisser libre cours à mon imagination pour offrir un visuel intuitif et responsive.</p>
 	</section>
@@ -31,6 +31,7 @@
 		<div id="skillBox" class="skillBox">
 			<div class="chart">
 				<svg viewBox="0 0 84100 59400">
+					<title>Mes compétences</title>
 					<!-- outline -->
 					<circle class="chartElement" id="outline" cx="41710" cy="25182" r="22526" fill='none' stroke="rgb(26,26,26)" stroke-width="100"/>
 					<!-- html -->
@@ -67,11 +68,11 @@
 			</div>
 		    <div class="specific">
 		    	<p class="chartElement html">HTML5, WordPress</p>
-		    	<p class="chartElement css">CSS3, Bootstrap, Responsive, Mobile-First, LESS</p>
+		    	<p class="chartElement css">CSS3, Bootstrap, Responsive (Mobile First), LESS</p>
 		    	<p class="chartElement php">PHP5, Objets, <span class="fa fa-lock"></span> XSS/SQLi, Bcrypt</p>
 		    	<p class="chartElement mysql">phpMyAdmin, jointures</p>
 		    	<p class="chartElement js">Natif, jQuery</p>
-		    	<p class="chartElement other">Autres : Git, MVC2 Stricte, Schémas </p>
+		    	<p class="chartElement other">Autres : Git, MVC2 Stricte, Schémas</p>
 		    </div>
 		</div>
 	</section>
@@ -79,22 +80,30 @@
 		<h2>Parcours</h2>
 		<div id="schema" class="schema">
 			<svg viewBox="0 0 84100 59400">
-
+				<title>Mon parcours</title>
 				<!-- Ancien -->
-	    		<path class="schemaElement old" d="M 42050,59400 L 0,59400 0,49300 84100,49300 84100,59400 42050,59400 Z"/>
-				<text class="schemaElement old" x="16917" y="55523">Ancienne carrière professionnelle</text>
+				<g class="schemaElement old">
+		    		<path d="M 42050,59400 L 0,59400 0,49300 84100,49300 84100,59400 42050,59400 Z"/>
+					<text old" x="16917" y="55523">Ancienne carrière professionnelle</text>
+				</g>
 				
 				<!-- Formation -->
-				<path class="schemaElement formation" d="M 57650,42700 L 34300,42700 34300,32600 81000,32600 81000,42700 57650,42700 Z"/>
-				<text class="schemaElement formation" x="38264" y="38823">Formation 3W Academy</text>
+				<g class="schemaElement formation">
+					<path d="M 57650,42700 L 34300,42700 34300,32600 81000,32600 81000,42700 57650,42700 Z"/>
+					<text x="38264" y="38823">Formation 3W Academy</text>
+				</g>
 				
 				<!-- Perso -->
-				<path class="schemaElement perso" d="M 26450,26800 L 3100,26800 3100,16700 49800,16700 49800,26800 26450,26800 Z"/>
-				<text class="schemaElement perso" x="11642" y="22923">Réalisations perso</text>
+				<g class="schemaElement perso">
+					<path d="M 26450,26800 L 3100,26800 3100,16700 49800,16700 49800,26800 26450,26800 Z"/>
+					<text x="11642" y="22923">Réalisations perso</text>
+				</g>
 
 				<!-- Nouveau -->
-				<path class="schemaElement new" d="M 42050,10200 L 0,10200 0,100 84100,100 84100,10200 42050,10200 Z"/>
-				<text class="schemaElement new" x="17389" y="6323">Nouvelle carrière professionnelle</text>
+				<g class="schemaElement work">
+					<path d="M 42050,10200 L 0,10200 0,100 84100,100 84100,10200 42050,10200 Z"/>
+					<text x="17389" y="6323">Nouvelle carrière professionnelle</text>
+				</g>
 				
 				<!-- Flèche 1 -->
 				<path id="old1" class="schemaElement arrow" d="M 40300,48900 L 40781,48556"/>
@@ -129,8 +138,19 @@
 				<path id="perso7" class="schemaElement arrow" d="M 39117,12522 L 39609,12194"/>
 				<path id="perso8" class="schemaElement arrow" d="M 40101,11866 L 40593,11538"/>
 				<path id="perso9" class="schemaElement arrow" d="M 42300,10400 L 40469,10899 41135,11898 42300,10400 Z"/>
-
 			</svg>
+			<div class="information">
+				<p class="show">Survolez un élément de mon parcours pour plus d'informations.</p>
+
+				<p id="info_work">Je suis à la recherche d'un emploi en tant que Développeur Back-End ou Front-End, dans le Haut-Rhin et régions limitrophes.
+				<br>N'hésitez pas à me contacter.</p>
+				<p id="info_perso">A l'issue de ma formation, j'ai dû réaliser un site (ce site) pour la valider.
+				<br>En parallèle, j'ai réfléchi à certains projets persos et commencé la recherche d'emploi.
+				<br>Vous trouverez l'ensemble de mes réalisations et projets sur ce site.</p>
+				<p id="info_formation">La formation proposée par la 3W Academy est une formation intensive de niveau Bac+2. Je l'ai effectué pendant l'Été 2016, à Strasbourg.</p>
+				<p id="info_old">J'ai effectué de nombreux emplois n'ayant aucun rapport direct avec la programmation.
+				<br>En revanche j'ai pu y acquérir des compétences utiles comme l'Autonomie ou la notion du Besoin Client.</p>
+			</div>
 		</div>
 	</section>
 </div>
