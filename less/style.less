@@ -6,7 +6,6 @@
 	@lightBright: rgb(220,220,220);
 	@lightDark: rgb(67,67,67);
 	@dark: rgb(26,26,26);
-	@previewSize: 200px;
 	.hide
 	{
 		display: none;
@@ -84,7 +83,7 @@
 		{
 			margin: 0;
 			background-color: @lightBright;
-			padding: 30px;
+			padding: @padding;
 			color: @lightDark;
 		}
 	}
@@ -106,7 +105,7 @@
 	}
 	body
 	{
-		font-size: 18px;
+		font-size: @fz;
 		font-family: 'Raleway', Arial, Helvetica, sans-serif;
 	}
 	strong
@@ -136,8 +135,8 @@
 		.flex !important;
 		.justifyContent_center;
 		.alignItems_center;
-		width: 45px;
-		height: 45px;
+		width: @buttonSize;
+		height: @buttonSize;
 		margin: 5px auto;
 		border: 1px solid @lightDark;
 		background-color: @bright;
@@ -163,11 +162,6 @@
 			color: @github;
 		}
 	}
-
-/*@media screen and (min-width: 1400px)
-{
-	
-}*/
 
 /*Notifications*/
 	.success
@@ -220,7 +214,7 @@
 	.menu
 	{
 		left: 0;
-		width: 75px;
+		width: @menuSize;
 		min-height: 100vh;
 		.menuPublic
 		{
@@ -319,7 +313,7 @@
 	{
 		position: relative;
 		min-height: 100vh;
-		margin-left: 75px;
+		margin-left: @menuSize;
 
 		.social_main
 		{
@@ -368,7 +362,7 @@
 		{
 			.column;
 			.justifyContent_center;
-			padding: 30px;
+			padding: @padding;
 			width: 100%;
 			height: 33.33%;
 			position: absolute;
@@ -419,7 +413,7 @@
 		.home_redirect
 		{
 			text-align: center;
-			padding: 20px 0;
+			padding: @padding 0;
 			color: @lightBright;
 			background-color: @lightDark;
 			&:hover
@@ -480,14 +474,15 @@
 					.previewContent
 					{
 						.column;
-						.justifyContent_center;
-						.alignItems_center;
-						font-size: 1.5rem;
 						height: 100%;
 						.default_transition;
 						color: @bright;
 						visibility: hidden;
-						overflow: hidden;
+						h5
+						{
+							margin: auto;
+							font-size: 1.5rem;
+						}
 					}
 				}
 			}
@@ -509,7 +504,7 @@
 /*About*/
 	.sheet, .about
 	{
-		padding: 30px;
+		padding: @padding;
 		.column;
 		h2
 		{
@@ -636,8 +631,9 @@
 				padding-left: 10px;
 				p
 				{
-					height: 27.65px;
-					line-height: 27.65px;
+					margin: @specificMargin;
+					height: @specificHeight;
+					line-height: @specificHeight;
 					border-left: 15px solid;
 					padding-left: 10px;
 				}
@@ -650,7 +646,7 @@
 		
 		.schema
 		{
-			height: 380px;
+			height: @schemaHeight;
 			.flex;
 			.alignItems_center;
 			padding: 10px;
@@ -761,7 +757,7 @@
 	{
 		h2
 		{
-			padding: 30px;
+			padding: @padding;
 		}
 	}
 	.prod, .project
@@ -772,7 +768,7 @@
 		{
 			margin: 0;
 			background-color: @lightBright;
-			padding: 30px;
+			padding: @padding;
 			color: @lightDark;
 		}
 		.single_image
@@ -871,11 +867,29 @@
 			flex: 1;
 			.column;
 			.justifyContent_between;
-
 			.reviews, .comments
 			{
 
 			}
-			
 		}
 	}
+
+@schemaHeight: 200px;
+@specificHeight: 18px;
+@specificMargin: 10px;
+@menuSize: 55px;
+@previewSize: 150px;
+@fz: 14px;
+@padding: 15px;
+@buttonSize: 30px;
+@media screen and (min-width: 1400px)
+{
+	@schemaHeight: 380px;
+	@specificHeight: 27.65px;
+	@specificMargin: 15px;
+	@menuSize: 75px;
+	@padding: 30px;
+	@fz: 18px;
+	@previewSize: 200px;
+	@buttonSize: 45px;
+}
