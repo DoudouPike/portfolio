@@ -7,7 +7,6 @@ $(document).ready(function()
 	{
 		loginPanel.fadeToggle();
 		loginPanel.css('display', 'inline-block');
-		loginPanel.delay('3000').fadeOut('slow');
 	});
 	$(document.body).click(function(e)
 	{
@@ -118,41 +117,41 @@ $(document).ready(function()
 	$('.old').hover(function()
 	{
 		$('#info_old').fadeIn("fast");
-		$('.schemaElement:not(".old")').fadeTo(1, 0.3);
+		$('.schemaElement:not(".old")').fadeTo("fast", 0.3);
 	}, function()
 	{
 		$('#info_old').fadeOut("fast");
-		$('.schemaElement:not(".old")').fadeTo(0, 1);
+		$('.schemaElement:not(".old")').fadeTo("fast", 1);
 	});
 
 	$('.formation').hover(function()
 	{
 		$('#info_formation').fadeIn("fast");
-		$('.schemaElement:not(".formation")').fadeTo(1, 0.3);
+		$('.schemaElement:not(".formation")').fadeTo("fast", 0.3);
 	}, function()
 	{
 		$('#info_formation').fadeOut("fast");
-		$('.schemaElement:not(".formation")').fadeTo(0, 1);
+		$('.schemaElement:not(".formati")').fadeTo("fast", 1);
 	});
 
 	$('.perso').hover(function()
 	{
 		$('#info_perso').fadeIn("fast");
-		$('.schemaElement:not(".perso")').fadeTo(1, 0.3);
+		$('.schemaElement:not(".perso")').fadeTo("fast", 0.3);
 	}, function()
 	{
 		$('#info_perso').fadeOut("fast");
-		$('.schemaElement:not(".perso")').fadeTo(0, 1);
+		$('.schemaElement:not(".perso")').fadeTo("fast", 1);
 	});
 
 	$('.work').hover(function()
 	{
 		$('#info_work').fadeIn("fast");
-		$('.schemaElement:not(".work")').fadeTo(1, 0.3);
+		$('.schemaElement:not(".work")').fadeTo("fast", 0.3);
 	}, function()
 	{
 		$('#info_work').fadeOut("fast");
-		$('.schemaElement:not(".work")').fadeTo(0, 1);
+		$('.schemaElement:not(".work")').fadeTo("fast", 1);
 	});
 
 
@@ -166,7 +165,7 @@ $(document).ready(function()
 		{
 			loginPanel.fadeIn("fast");
 			loginPanel.css('display', 'inline-block');
-			loginPanel.delay('3000').fadeOut('fast');
+			loginPanel.delay('3500').fadeOut("slow");
 		}
 		$('.success').delay("1800").fadeOut("slow");
 	}

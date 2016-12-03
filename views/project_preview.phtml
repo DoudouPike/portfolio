@@ -1,8 +1,12 @@
-<article class="preview" style="background: url('public/images/projects/<?= htmlentities($project->getImage()) ?>') center center no-repeat">
-	<a href="index.php?page=mine&id=<?= $project->getId() ?>">
-		<div class="previewContent">
-			<p><?= htmlentities($project->getTitle()) ?></p>
-			<p><?= htmlentities($project->getAbstract()) ?></p>
-		</div>
-	</a>
-</article>
+<div class="preview">
+	<div class="previewImage" style="background-image: url('public/images/prods/<?= htmlentities($project->getImage()) ?>')">
+		<a href="index.php?page=mine&id=<?= $project->getId() ?>">
+			<div class="previewFilm">
+				<div class="previewContent">
+					<h5><?= htmlentities($project->getTitle()) ?></h5>
+					<p><?= htmlentities($project->getAbstract()) ?></p>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>

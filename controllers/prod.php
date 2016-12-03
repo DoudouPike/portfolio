@@ -11,11 +11,10 @@ if(isset($_GET['id']))
 	}
 	else
 		require('views/prod.phtml');
-		
 }
 else
 {
-	$empty = "Cliquez sur la réalisation de votre choix";
+	$element = "la réalisation";
 	require('views/empty.phtml');
 }
 ?>

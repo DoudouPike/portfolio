@@ -1,8 +1,20 @@
-<article>
-	<h3><?= htmlentities($prod->getTitle()) ?></h3>
-	<img src="public/images/prods/<?= htmlentities($prod->getImage()) ?>" alt='illustration du projet'>
-	<p><?= htmlentities($prod->getDescription()) ?></p>
-	<p><?= htmlentities($prod->getFormatedDate()) ?></p>
-	<p><?= htmlentities($prod->getClient()) ?></p>
-	<a href="<?= htmlentities($prod->getUrl()) ?>"><?= htmlentities($prod->getUrl()) ?></a>
+<article class="prod">
+	<h3 class="single_title"><?= htmlentities($prod->getTitle()) ?></h3>
+	<figure class="single_image prod_image">
+		<img src="public/images/prods/<?= htmlentities($prod->getImage()) ?>" alt='illustration du projet'>
+	</figure>
+	<div class="prod_content">
+		<div class="prod_description">
+			<div>
+				<p><?= htmlentities($prod->getDescription()) ?></p>
+			</div>
+		</div>
+		<div class="prod_informations">
+			<div>
+				<p>Réalisé le : <?= htmlentities($prod->getFormatedDate()) ?></p>
+				<p>Pour : <?= htmlentities($prod->getClient()) ?></p>
+				<p><a href="<?= htmlentities($prod->getUrl()) ?>"><?= htmlentities($prod->getUrl()) ?></a></p>
+			</div>
+		</div>
+	</div>
 </article>

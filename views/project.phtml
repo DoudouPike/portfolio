@@ -1,18 +1,30 @@
-<article>
-<div>
-	<p>Projet débuté le: <?= htmlentities($project->getFormatedDate()) ?> - Dernière modification le: <?=htmlentities($project->getLastDate()) ?></p>
-	<h3><?= htmlentities($project->getTitle()) ?></h3>
-	<img src="public/images/projects/<?= htmlentities($project->getImage()) ?>" alt='illustration du projet'>
-	<p><?= htmlentities($project->getContent()) ?></p>
-	<a href="<?= htmlentities($project->getUrl()) ?>"><?= htmlentities($project->getUrl()) ?></a>
-</div>
-<div>
-	<?php require('controllers/reviews.php') ?>
-</div>
-<div>
-	<?php
-	require('controllers/create_comment.php');
-	require('controllers/comments.php');
-	?>
-</div>
+<article class="project">
+	<h3 class="single_title"><?= htmlentities($project->getTitle()) ?><span class="project_lastDate">Dernière modification le <?=htmlentities($project->getLastDate()) ?></span></h3>
+	<div class="project_box">
+		<figure class="single_image project_image">
+			<img src="public/images/projects/<?= htmlentities($project->getImage()) ?>" alt='illustration du projet'>
+		</figure>
+		<div class="project_content">
+			<div class="project_description">
+				<div>
+					<p><?= htmlentities($project->getContent()) ?></p>
+					<p>Projet débuté le: <?= htmlentities($project->getFormatedDate()) ?></p>
+				</div>
+				<div class="project_information">
+					<a href="<?= htmlentities($project->getUrl()) ?>"><?= htmlentities($project->getUrl()) ?></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="project_news">
+		<div class="reviews">
+			<?php require('controllers/reviews.php') ?>
+		</div>
+		<div class="comments">
+			<?php
+			require('controllers/create_comment.php');
+			require('controllers/comments.php');
+			?>
+		</div>
+	</div>
 </article>
