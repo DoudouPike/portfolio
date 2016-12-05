@@ -21,7 +21,7 @@ if(isset($_GET['page']))
 			require('views/prod_preview_back.phtml');
 		}
 	}
-	elseif($_GET['page'] == "home")
+	else
 	{
 		$prodManager = new ProdManager($db);
 		$list = $prodManager->findExample();

@@ -50,12 +50,17 @@ class Comment
 		}
 		return $this->user;
 	}
+	public function getFormatedDate()
+	{
+		$date = new DateTime($this->date);
+		return $date->format('d/m/Y à H\hi');
+	}
 
 		//Set
 	public function setContent($content)
 	{
-		if(empty($content) || strlen($content) < 1 || strlen($content) > 512)
-			throw new Exception("Le contenu doit être compris entre 2 et 512 caractères");
+		if(empty($content) || strlen($content) < 2 || strlen($content) > 250)
+			throw new Exception("Le contenu doit être compris entre 2 et 250 caractères");
 		else
 			$this->content = $content;
 	}

@@ -51,7 +51,7 @@ if(isset($_GET['page']))
 
 $traitementList = [
 	"dashboard"=>"users", "delete_user"=>"users", "delete_user_admin"=>"users", "edit_user"=>"users", "connection"=>"users", "logout"=>"users", "users"=>"users",
-	"create_comment"=>"comments", "delete_comment"=>"comments",
+	"create_comment"=>"comments", "delete_comment"=>"comments", "mine"=>"comments",
 	"create_note"=>"notes", "delete_note"=>"notes", "edit_note"=>"notes",
 	"create_prod"=>"prods", "delete_prod"=>"prods", "edit_prod"=> "prods",
 	"create_project"=>"projects", "delete_project"=>"projects", "edit_project"=>"projects",

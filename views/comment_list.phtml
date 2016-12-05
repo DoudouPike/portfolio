@@ -1,5 +1,5 @@
 <div>
 	<p><?= htmlentities($comment->getContent()) ?></p>
-	<p>sur : <a href="index.php?admin&page=projects#<?= $project->getId() ?>"><?= htmlentities($project->getTitle()) ?></a></p>
+	<p>sur : <a href="index.php?page=mine&id=<?= $project->getId() ?>#<?= $comment->getId(); ?>"><?= htmlentities($project->getTitle()) ?></a></p>
 	<hr>
 </div>

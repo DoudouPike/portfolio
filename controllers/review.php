@@ -1,11 +1,11 @@
 <?php
 $reviewManager = new ReviewManager($db);
 $reviews = $reviewManager->findByProject($project);
-if($list)
+if($reviews)
 {
-	for ($j=0; $j < sizeof($list) ; $j++)
+	for ($j=0; $j < sizeof($reviews) ; $j++)
 	{ 
-		$review = $list[$j];
+		$review = $reviews[$j];
 		require("views/review.phtml");
 	}
 }

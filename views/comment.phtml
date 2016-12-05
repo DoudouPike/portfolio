@@ -1,5 +1,7 @@
-<div>
-	<p>de <?= htmlentities($comment->getAuthor()->getLogin()) ?> :</p>
-	<p><?= htmlentities($comment->getContent()) ?></p>
-	<?php require('controllers/comment_admin.php'); ?>
+<div id="<?= $comment->getId(); ?>" class="comment">
+	<p class="comment_content"><?= htmlentities($comment->getContent()) ?></p>
+	<p class="comment_author">de <?= htmlentities($comment->getAuthor()->getLogin()) ?> <br> <?= htmlentities($comment->getFormatedDate()); ?></p>
+	<div class="comment_admin">
+		<?php require('controllers/comment_admin.php'); ?>
+	</div>
 </div>

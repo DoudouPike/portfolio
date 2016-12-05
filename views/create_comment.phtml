@@ -1,9 +1,7 @@
-<div class="comments_form">
-	<h2>Créer un commentaire :</h2>
-	<form method="POST">
-		<input type="hidden" name="action" value="create">
-		<input type="hidden" name="id_project" value="<?= $_GET['id'] ?>">
-		<textarea name="content" placeholder="Contenu"><?= htmlentities($content) ?></textarea>
-		<input type="submit" value="Commenter">		
-	</form>
-</div>
+<form method="POST">
+	<input class="form hide" type="hidden" name="action" value="create">
+	<input class="form hide" type="hidden" name="id_project" value="<?= $project->getId() ?>">
+	<textarea class="form" id="comment_text" name="content" placeholder="Mon commentaire..."><?= htmlentities($content) ?></textarea>
+	<p class="form" id="comment_count">250</p>
+	<button class="form" id="comment_submit" type="submit">Commenter</button>
+</form>

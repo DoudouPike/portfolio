@@ -15,6 +15,6 @@ if(isset($_GET['id']))
 else
 {
 	$element = "le projet";
-	require('views/empty.phtml');
+	require('views/select.phtml');
 }
 ?>

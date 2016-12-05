@@ -6,6 +6,30 @@
 	@lightBright: rgb(220,220,220);
 	@lightDark: rgb(67,67,67);
 	@dark: rgb(26,26,26);
+
+	/*@media screen and (max-width: 1400px)
+	{
+		@fz: 14px;
+		@menuSize: 55px;
+		@buttonSize: 30px;
+		@padding: 15px;
+		@previewSize: 150px;
+		@specificHeight: 18px;
+		@specificMargin: 10px;
+		@schemaHeight: 200px;
+	}*/
+	/*@media screen and (min-width: 1400px)
+	{*/
+		@fz: 18px;
+		@menuSize: 75px;
+		@buttonSize: 45px;
+		@padding: 30px; 
+		@previewSize: 200px;
+		@specificHeight: 27.65px;
+		@specificMargin: 15px;
+		@schemaHeight: 380px;
+	/*}*/
+
 	.hide
 	{
 		display: none;
@@ -166,7 +190,7 @@
 /*Notifications*/
 	.success
 	{
-		position: fixed;
+		position: absolute;
 		z-index: 100;
 		top: 0;
 		left: 50%;
@@ -174,12 +198,12 @@
 		border: 1px solid black;
 		text-align: center;
 		background-color: @dark;
-		color: @bright;
 		opacity: 0.8;
 		font-size: 1.5rem;
-		padding: 20px;
+		padding: @padding;
 		p
 		{
+			color: @bright;
 			margin: 0;
 		}
 	}
@@ -188,6 +212,36 @@
 		a
 		{
 			text-decoration: underline;
+		}
+		a:hover
+		{
+			text-decoration: none;
+		}
+	}
+	.wrongCount
+	{
+		color: red !important;
+	}
+	.error
+	{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		z-index: 100;
+		border: 1px solid black;
+		text-align: center;
+		background-color: @dark;
+		p
+		{
+			padding: @padding;
+			color: @bright;
+			margin: 0;
+			font-size: 2rem;
+			span
+			{
+				color: red;
+			}
 		}
 	}
 
@@ -743,7 +797,7 @@
 	}
 
 /*Portfolio & Mine*/
-	.empty
+	.select
 	{
 		height: 100vh;
 		.flex;
@@ -752,6 +806,11 @@
 		{
 			margin: auto;
 		}
+	}
+	.fade
+	{
+		display: none;
+		height: 100%;
 	}
 	.prods, .projects
 	{
@@ -795,6 +854,10 @@
 			{
 				margin: auto;
 			}
+			a:hover
+			{
+				color: inherit;
+			}
 		}
 	}
 
@@ -827,11 +890,6 @@
 				color: @bright;
 				border-left: 2px solid @dark;
 				text-align: right;
-				a:hover
-				{
-					color: inherit;
-					text-decoration: underline;
-				}
 			}
 		}
 	}
@@ -845,9 +903,10 @@
 			float: right;
 			margin-right: 100px;
 		}
-		.project_box
+		.project_presentation
 		{
-			height: 40%;
+			border-bottom: 3px solid @dark;
+			height: 25%;
 			.flex;
 			font-size: 0;
 			.project_image
@@ -863,33 +922,106 @@
 		}
 		.project_news
 		{
-			border: 1px solid red;
+			border-top: 3px solid @dark;
 			flex: 1;
 			.column;
-			.justifyContent_between;
 			.reviews, .comments
 			{
+				padding: 10px;
+				height: 50%;
+				h4
+				{
+					margin: 0;
+					/*margin-bottom: 10px;*/
+				}
+				.review, .comment
+				{
+					
+				}
+			}
+			.reviews
+			{
+				overflow: auto;
+				border-bottom: 2px solid @dark;
+			}
+			.comments
+			{
+				border-top: 2px solid @dark;
 
+				.comment_create
+				{
+					height: 25%;
+					margin: 10px 0;
+					form
+					{
+						font-size: 0;
+						height: 100%;
+						position: relative;
+						.form
+						{
+							font-size: 1rem;
+							height: 100%;
+							display: inline-block;
+							vertical-align: bottom;
+							margin: 0;
+						}
+						textarea
+						{
+							border: 1px solid  @dark;
+							border-right: 0;
+							width: 85%;
+							resize: none;
+						}
+						p
+						{
+							position: absolute;
+							bottom: 0;
+							right: 15%;
+							width: 10%;
+							height: 30% !important;
+							text-align: center;
+							border-top: 1px solid;
+							border-left: 1px solid;
+							opacity: 0.5;
+						}
+						button
+						{
+							border: 1px solid @dark;
+							width: 15%;
+						}
+					}
+				}
+				.comments_list
+				{
+					border-top: 2px solid @dark;
+					height: 60%;
+					overflow: auto;
+					.comment
+					{
+						font-size: 0;
+						.comment_content, .comment_author, .comment_admin
+						{
+							display: inline-block;
+							vertical-align: middle;
+							font-size: 1rem;
+							/*margin: 5px 0;*/
+						}
+						.comment_content
+						{
+							width: 70%;
+						}
+						.comment_author
+						{
+							padding-right: 10px;
+							text-align: right;
+							width: 25%;
+						}
+						.comment_admin
+						{
+							width: 5%;
+						}
+					}
+				}
 			}
 		}
 	}
-
-@schemaHeight: 200px;
-@specificHeight: 18px;
-@specificMargin: 10px;
-@menuSize: 55px;
-@previewSize: 150px;
-@fz: 14px;
-@padding: 15px;
-@buttonSize: 30px;
-@media screen and (min-width: 1400px)
-{
-	@schemaHeight: 380px;
-	@specificHeight: 27.65px;
-	@specificMargin: 15px;
-	@menuSize: 75px;
-	@padding: 30px;
-	@fz: 18px;
-	@previewSize: 200px;
-	@buttonSize: 45px;
-}

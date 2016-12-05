@@ -21,8 +21,10 @@ if(isset($_POST["action"]))
 			$comment = $commentManager->create($project, $author, $_POST['content']);
 			if(!$comment)
 				throw new Exception("Erreur interne");
-			
-			header('Location: index.php?admin&page=projects#'.$project->getId().'');
+			if($_GET['page'] == "create_comment")
+				header('Location: index.php?admin&page=projects#'.$project->getId().'');
+			elseif($_GET['page'] == "mine")
+				header('Location: index.php?page=mine&id='.$project->getId().'#'.$comment->getId().'');
 			exit;
 			
 		}

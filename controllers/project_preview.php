@@ -21,7 +21,7 @@ if(isset($_GET['page']))
 			require('views/project_preview_back.phtml');
 		}
 	}
-	elseif($_GET['page'] == "home")
+	else
 	{
 		$projectManager = new ProjectManager($db);
 		$list = $projectManager->findExample();

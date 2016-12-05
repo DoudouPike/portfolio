@@ -154,10 +154,6 @@ $(document).ready(function()
 		$('.schemaElement:not(".work")').fadeTo("fast", 1);
 	});
 
-
-// Date
-    $('#datepicker').datepicker($.datepicker.regional['fr']);
-
 // Success login/logout
 	if($('.success').is(':visible'))
 	{
@@ -169,4 +165,51 @@ $(document).ready(function()
 		}
 		$('.success').delay("1800").fadeOut("slow");
 	}
+
+//Prod & Project
+	$('.fade').fadeIn(1000);
+
+// Counter
+	$('#comment_submit').attr("disabled", "disabled");
+	$('#comment_text').keyup(function()
+	{
+ 
+	    var nbrPrint = $(this).val().length;
+	 
+	    // On soustrait le nombre limite au nombre de caractère existant
+	    var nbrPrint = 250 - nbrPrint;
+
+	    $('#comment_count').text(nbrPrint);
+	 
+	    // On écris le nombre de caractère en rouge si celui si est inférieur à 0 
+	    // La limite est donc dépasse
+	    if(nbrPrint < 0)
+	    {
+	    	$('#comment_count').addClass("wrongCount");
+	    	$('#comment_submit').attr("disabled", "disabled");
+	    	$('#comment_submit').css("cursor", "default");
+		}
+		else if(nbrPrint == 250 || nbrPrint > 248)
+		{
+			$('#comment_submit').attr("disabled", "disabled");
+			$('#comment_submit').css("cursor", "default");
+		}
+		else
+		{
+			$('#comment_count').removeClass("wrongCount");
+			$('#comment_submit').removeAttr("disabled");
+			$('#comment_submit').css("cursor", "pointer");
+		}
+	 
+	 });
+
+//Error
+	if($('.error').is(':visible'))
+	{
+		$('.error').delay(3500).fadeOut("slow");
+	}
+
+// Date
+    $('#datepicker').datepicker($.datepicker.regional['fr']);
+
 });

@@ -21,7 +21,7 @@ if(isset($_GET['page']))
 			require("views/empty.phtml");
 		}
 	}
-	elseif($_GET['page'] == "projects")
+	elseif($_GET['page'] == "projects" || $_GET['page'] == "mine")
 	{
 		$commentManager = new CommentManager($db);
 		$comments = $commentManager->findByProject($project);
@@ -38,10 +38,6 @@ if(isset($_GET['page']))
 			$empty = "Aucun commentaire pour ce projet.";
 			require("views/empty.phtml");
 		}
-	}
-	elseif($_GET['page'] == "mine" && isset($_GET['id']))
-	{
-		var_dump("A FAIRE !");
 	}
 }
 ?>
