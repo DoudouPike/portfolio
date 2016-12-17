@@ -21,7 +21,8 @@ if(isset($_POST["action"]))
 			$review = $reviewManager->create($project, $_POST['title'], $_POST['content']);
 			if(!$review)
 				throw new Exception("Erreur interne");
-			header('Location: index.php?admin&page=projects#'.$project->getId().'');
+				
+			header('Location: index.php?admin&page=project_back#'.$project->getId().'');
 			exit;
 			
 		}
@@ -46,7 +47,7 @@ if(isset($_POST["action"]))
 			$review = $reviewManager->save($review);
 			if(!$review)
 				throw new Exception("Erreur interne");
-			header('Location: index.php?admin&page=projects#'.$review->getProject()->getId().'');
+			header('Location: index.php?admin&page=project_back#'.$review->getProject()->getId().'');
 			exit;
 			
 		}
@@ -73,7 +74,7 @@ if(isset($_POST["action"]))
 			if($delete != null)
 				throw new Exception("Erreur interne");
 
-			header('Location: index.php?admin&page=projects');
+			header('Location: index.php?admin&page=project_back');
 			exit;
 		}
 		catch (Exception $exception)

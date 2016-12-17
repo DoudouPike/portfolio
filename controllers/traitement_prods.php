@@ -16,7 +16,7 @@ if(isset($_POST["action"]))
 			$prod = $prodManager->create($_POST['title'], $_POST['description'], $_POST['image'], $_POST['url'], $_POST['client'], $_POST['date']);
 			if(!$prod)
 				throw new Exception("Erreur interne");
-			header('Location: index.php?admin&page=prods#'.$prod->getId().'');
+			header('Location: index.php?admin&page=prod_back#'.$prod->getId().'');
 			exit;
 			
 		}
@@ -45,7 +45,7 @@ if(isset($_POST["action"]))
 			$prod = $prodManager->save($prod);
 			if(!$prod)
 				throw new Exception("Erreur interne");
-			header('Location: index.php?admin&page=prods#'.$prod->getId().'');
+			header('Location: index.php?admin&page=prod_back#'.$prod->getId().'');
 			exit;
 			
 		}
@@ -72,7 +72,7 @@ if(isset($_POST["action"]))
 			if($delete != null)
 				throw new Exception("Erreur interne");
 
-			header('Location: index.php?admin&page=prods');
+			header('Location: index.php?admin&page=prod_back');
 			exit;
 		}
 		catch (Exception $exception)

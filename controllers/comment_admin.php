@@ -3,6 +3,4 @@ if((isset($_SESSION['login']) && $_SESSION['login'] == $comment->getAuthor()->ge
 {
 	require('views/comment_admin.phtml');
 }
-elseif(isset($_GET['admin'], $_SESSION['admin']))
-	require('views/comment_admin_back.phtml');
 ?>

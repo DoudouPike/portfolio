@@ -11,16 +11,6 @@ if(isset($_GET['page']))
 			require('views/prod_preview.phtml');
 		}
 	}
-	elseif($_GET['page'] == "prods" && isset($_GET['admin']))
-	{
-		$prodManager = new ProdManager($db);
-		$list = $prodManager->findAll();
-		for($i=0; $i < sizeof($list); $i++)
-		{
-			$prod = $list[$i];
-			require('views/prod_preview_back.phtml');
-		}
-	}
 	else
 	{
 		$prodManager = new ProdManager($db);

@@ -1,6 +1,6 @@
 <div id="<?= $prod->getId() ?>" style="background: url('public/images/prods/<?= htmlentities($prod->getImage()) ?>') no-repeat center center">
 
 	<p><?= htmlentities($prod->getTitle()) ?></p>
-	<a class="fa fa-external-link" href="index.php?page=portfolio&id=<?= $prod->getId() ?>"></a>
+	<p><a class="fa fa-external-link" href="index.php?page=portfolio&id=<?= $prod->getId() ?>"></a></p>
 </div>
 <div><?php require("controllers/prod_admin.php"); ?></div>

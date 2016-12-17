@@ -28,7 +28,7 @@ class NoteManager
 	public function findActive()
 	{
 		$list = [];
-		$query = 'SELECT * FROM notes WHERE active="1"';
+		$query = 'SELECT * FROM notes WHERE active="1" ORDER BY id DESC';
 		$res = mysqli_query($this->db, $query);
 		while($notes = mysqli_fetch_object($res, "Note", [$this->db]))
 		{

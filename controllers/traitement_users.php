@@ -154,7 +154,7 @@ if(isset($_POST['action']))
 
 			$user->setAdmin($_POST['admin']);
 			$userManager->updateAdmin($user);
-			header('Location: index.php?page=users#'.$user->getId());
+			header('Location: index.php?admin&page=users#'.$user->getId());
 		}
 		catch (Exception $exception)
 		{

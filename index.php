@@ -29,12 +29,12 @@ if(isset($_GET['admin'], $_SESSION['admin']) )
 
 $access = ["about", "contact", "connection", "mine", "portfolio"];
 $accessIn = ["about", "contact", "dashboard", "logout", "mine", "portfolio",];
-$accessAdmin = ["about", "comments", "contact", "create_comment", "create_note", "create_prod", "create_project", "create_review", "dashboard", "delete_comment", "delete_note", "delete_prod", "delete_project", "delete_review", "delete_user", "delete_user_admin", "edit_note", "edit_prod", "edit_project", "edit_review", "edit_user", "home_back", "logout", "mine", "notes_back", "portfolio", "prods", "prods_admin", "projects", "projects_admin", "reviews", "users"];
+$accessAdmin = ["create_comment", "create_note", "create_prod", "create_project", "create_review", "delete_comment", "delete_note", "delete_prod", "delete_project", "delete_review", "delete_user", "edit_note", "edit_prod", "edit_project", "edit_review", "edit_user", "home_back", "notes_back", "prod_back", "project_back", "users"];
 if(isset($_GET['page']))
 {
 	if(isset($_SESSION['id']))
 	{
-		if(isset($_SESSION['admin']) && in_array($_GET['page'], $accessAdmin))
+		if(isset($_SESSION['admin'], $_GET['admin']) && in_array($_GET['page'], $accessAdmin))
 		{
 			$page = $_GET['page'];
 		}

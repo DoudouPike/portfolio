@@ -9,12 +9,12 @@
 		<div>
 			<h4>Les nouveautés :</h4>
 			<a class="fa fa-plus" href="index.php?admin&page=create_review&id=<?= $project->getId() ?>" title="Ajouter une nouveauté"></a>
-			<?php require('controllers/reviews.php'); ?>
+			<?php require('controllers/review_back.php'); ?>
 		</div>
 		<div>
 			<h4>Les commentaires :</h4>
 			<a class="fa fa-plus" href="index.php?admin&page=create_comment&id=<?= $project->getId() ?>" title="Ajouter un commentaire"></a>
-			<?php require('controllers/comments.php'); ?>
+			<?php require('controllers/comment_back.php'); ?>
 		</div>
 	</div>
 </div>

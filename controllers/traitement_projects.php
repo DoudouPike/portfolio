@@ -16,7 +16,7 @@ if(isset($_POST["action"]))
 			$project = $projectManager->create($_POST['title'], $_POST['content'], $_POST['abstract'], $_POST['image'], $_POST['url'], $_POST['date']);
 			if(!$project)
 				throw new Exception("Erreur interne");
-			header('Location: index.php?admin&page=projects#'.$project->getId().'');
+			header('Location: index.php?admin&page=project_back#'.$project->getId().'');
 			exit;
 			
 		}
@@ -45,7 +45,7 @@ if(isset($_POST["action"]))
 			$project = $projectManager->save($project);
 			if(!$project)
 				throw new Exception("Erreur interne");
-			header('Location: index.php?admin&page=projects#'.$project->getId().'');
+			header('Location: index.php?admin&page=project_back#'.$project->getId().'');
 			exit;
 			
 		}
@@ -72,7 +72,7 @@ if(isset($_POST["action"]))
 			if($delete != null)
 				throw new Exception("Erreur interne");
 
-			header('Location: index.php?admin&page=projects');
+			header('Location: index.php?admin&page=project_back');
 			exit;
 		}
 		catch (Exception $exception)

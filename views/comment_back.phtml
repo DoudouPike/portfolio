@@ -1,0 +1,7 @@
+<div id="<?= $comment->getId(); ?>" class="comment">
+	<p class="comment_content"><?= htmlentities($comment->getContent()) ?></p>
+	<p class="comment_author">de <?= htmlentities($comment->getAuthor()->getLogin()) ?> <br> le <?= htmlentities($comment->getFormatedDate()); ?></p>
+	<div class="comment_admin">
+		<?php require('controllers/comment_admin_back.php'); ?>
+	</div>
+</div>

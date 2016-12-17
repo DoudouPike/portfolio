@@ -41,7 +41,7 @@ if(isset($_POST["action"]))
 			$note = $noteManager->save($note);
 			if(!$note)
 				throw new Exception("Erreur interne");
-			header('Location: index.php?admin&page=notes#'.$note->getId().'');
+			header('Location: index.php?admin&page=notes_back#'.$note->getId().'');
 			exit;
 			
 		}
@@ -68,7 +68,7 @@ if(isset($_POST["action"]))
 			if($delete != null)
 				throw new Exception("Erreur interne");
 
-			header('Location: index.php?admin&page=notes');
+			header('Location: index.php?admin&page=notes_back');
 			exit;
 		}
 		catch (Exception $exception)

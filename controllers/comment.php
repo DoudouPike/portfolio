@@ -21,7 +21,7 @@ if(isset($_GET['page']))
 			require("views/empty.phtml");
 		}
 	}
-	elseif($_GET['page'] == "projects" || $_GET['page'] == "mine")
+	elseif($_GET['page'] == "mine")
 	{
 		$commentManager = new CommentManager($db);
 		$comments = $commentManager->findByProject($project);
