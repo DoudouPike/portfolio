@@ -35,25 +35,51 @@ if(isset($_POST["action"]))
 	}
 	elseif($action == "delete" && (isset($_POST["id"], $_SESSION['id'])))
 	{
-		$userManager = new UserManager($db);
-		$commentManager = new CommentManager($db);
-		try
+		if(isset($_GET['admin']))
 		{
-			$user = $userManager->findById($_SESSION['id']);
-			if(!$user)
-				throw new Exception("Vous n'êtes plus connecté.");
+			$userManager = new UserManager($db);
+			$commentManager = new CommentManager($db);
+			try
+			{
+				$user = $userManager->findById($_SESSION['id']);
+				if(!$user)
+					throw new Exception("Vous n'êtes plus connecté.");
 
-			$comment = $commentManager->findById($_POST['id']);
-			if(!$comment)
-				throw new Exception("Ce commentaire n'existe pas");
+				$comment = $commentManager->findById($_POST['id']);
+				if(!$comment)
+					throw new Exception("Ce commentaire n'existe pas");
 
-			$commentManager -> remove($comment);
-			header('Location: index.php?admin&page=projects#'.$comment->getProject()->getId());
-			exit;
+				$commentManager -> remove($comment);
+				header('Location: index.php?admin&page=projects#'.$comment->getProject()->getId());
+				exit;
+			}
+			catch (Exception $exception)
+			{
+				$error = $exception->getMessage();
+			}
 		}
-		catch (Exception $exception)
+		else
 		{
-			$error = $exception->getMessage();
+			$userManager = new UserManager($db);
+			$commentManager = new CommentManager($db);
+			try
+			{
+				$user = $userManager->findById($_SESSION['id']);
+				if(!$user)
+					throw new Exception("Vous n'êtes plus connecté.");
+
+				$comment = $commentManager->findById($_POST['id']);
+				if(!$comment)
+					throw new Exception("Ce commentaire n'existe pas");
+
+				$commentManager -> remove($comment);
+				header('Location: index.php?page=mine&id='.$comment->getProject()->getId());
+				exit;
+			}
+			catch (Exception $exception)
+			{
+				$error = $exception->getMessage();
+			}
 		}
 	}	
 }

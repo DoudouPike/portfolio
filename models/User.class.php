@@ -8,6 +8,7 @@ class User
 	private $email;
 	private $pwd;
 	private $admin;
+	private $active;
 
 	private $db;
 	private $comments;
@@ -39,6 +40,10 @@ class User
 	public function getAdmin()
 	{
 		return $this->admin;
+	}
+	public function getActive()
+	{
+		return $this->active;
 	}
 	public function getComment()
 	{
@@ -93,6 +98,14 @@ class User
 			throw new Exception("Valeur de Admin invalide");
 		else
 			$this->admin = $admin;
+	}
+	public function setActive($active)
+	{
+		$values = ["0", "1"];
+		if(!in_array($active, $values))
+			throw new Exception("Valeur de Active invalide");
+		else
+			$this->active = $active;
 	}
 }
 

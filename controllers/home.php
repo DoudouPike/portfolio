@@ -1,13 +1,13 @@
 <?php
-	if(isset($_SESSION['loginSuccess']))
-	{
-		require('views/successLogin.phtml');
-		unset($_SESSION['loginSuccess']);
-	}
-	if(isset($_SESSION['logoutSuccess']))
-	{
-		require('views/successLogout.phtml');
-		session_destroy();
-	}
-	require('views/home.phtml');
+if(isset($_SESSION['loginSuccess']))
+{
+	require('views/successLogin.phtml');
+	unset($_SESSION['loginSuccess']);
+}
+if(isset($_SESSION['logoutSuccess']))
+{
+	require('views/successLogout.phtml');
+	session_destroy();
+}
+require('views/home.phtml');
 ?>

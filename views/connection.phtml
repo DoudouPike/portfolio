@@ -1,6 +1,12 @@
 <div class="layout left">
-	<?php require("controllers/login.php"); ?>
+	<div class="connection_message">
+		<?php require("controllers/connection_message.php"); ?>
+	</div>
 </div>
 <div class="layout right">
-	<?php require("controllers/register.php"); ?>
+	<div class="connection">
+		<div class="form fade">
+			<?php require("controllers/connection_display.php"); ?>
+		</div>
+	</div>
 </div>

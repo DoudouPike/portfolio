@@ -67,7 +67,17 @@ class UserManager
 				throw new Exception("Erreur interne > ".mysqli_error($this->db));
 			return $this->findById($id_user);
 		}
+	}
 
+	public function updateActive(User $user)
+	{
+		$active = intval($user->getActive());
+		$id_user = $user->getId();
+		$query = "UPDATE users SET active='".$active."' WHERE id='".$id_user."'";
+		$res = mysqli_query($this->db, $query);
+		if(!$res)
+			throw new Exception("Erreur interne > ".mysqli_error($this->db));
+		return $this->findById($id_user);
 	}
 
 	public function remove(User $user)

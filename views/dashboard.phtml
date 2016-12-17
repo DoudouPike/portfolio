@@ -1,36 +1,31 @@
-<h1>Dashboard</h1>
-<?php require("controllers/access.php"); ?>
-
-<div>
-	<p>Pseudo: <?= $user->getLogin() ?></p>
-
-	<form method="POST">
-		<input type="hidden" name="action" value="update">
-
-		<label for='email'>Email: </label>
-		<input type='email' name='email' value="<?= htmlentities($user->getEmail()) ?>" id='email'>
-		<input type='submit' value="Modifier l'adresse Email">
-	</form>
-
-	<form method="POST">
-		<input type="hidden" name="action" value="newPwd">
-
-		<label for='actualPwd'>Mot de passe actuel</label>
-		<input type="password" name="actualPwd" id="actualPwd">
-		<br>
-
-		<label for='newPwd'>Nouveau mot de passe</label>
-		<input type="password"	name="newPwd" id="newPwd">
-		<label for='newPwd2'>Retaper nouveau mot de passe</label>
-		<input type="password"	name="newPwd2" id="newPwd2">
-
-		<input type=submit value="Modifier le mot de passe">
-	</form>
-
-	<a href="index.php?page=delete_user&id=<?= $user->getId() ?>">Supprimer mon compte</a>
+<div class="layout left">
+	<div class="dashboard">
+	<h2>Mon compte</h2>
+		<?php require("controllers/access.php"); ?>
+		<section class="account">
+			<p class="user_info"><span>Pseudo:</span><?= $user->getLogin() ?></p>
+			<p class="user_info">
+				<span>Email:</span>
+				<?= $user->getEmail() ?>
+				<span><a href="index.php?page=dashboard&me"><i class="fa fa-pencil" aria-hidden="true"></i></a></span>
+				</p>
+			<p class="user_info">
+				<span>Mot de passe:</span>
+				•••••••••••••••
+				<span><a href="index.php?page=dashboard&mp"><i class="fa fa-pencil" aria-hidden="true"></i></a></span>
+			</p>
+			<p class="account_delete"><a href="index.php?page=dashboard&da">Supprimer mon compte</a></p>
+		</section>
+		<section class="comments_list">
+			<h3>Mes commentaires</h3>
+			<?php require('controllers/comment.php'); ?>
+		</section>
+	</div>
 </div>
-
-<div class="commentList">
-	<h3>Mes commentaires :</h3>
-	<?php require("controllers/comments.php"); ?>
+<div class="layout right">
+	<div class="fade single">
+		<div class="account_modify">
+			<?php require('controllers/account.php'); ?>
+		</div>
+	</div>
 </div>

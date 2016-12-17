@@ -59,7 +59,7 @@ class Comment
 		//Set
 	public function setContent($content)
 	{
-		if(empty($content) || strlen($content) < 2 || strlen($content) > 250)
+		if(empty($content) || mb_strlen($content) < 2 || mb_strlen($content) > 250)
 			throw new Exception("Le contenu doit être compris entre 2 et 250 caractères");
 		else
 			$this->content = $content;

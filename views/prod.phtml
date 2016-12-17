@@ -1,4 +1,4 @@
-<div class="fade">
+<div class="fade single">
 	<article class="prod">
 		<h3 class="single_title"><?= htmlentities($prod->getTitle()) ?></h3>
 		<figure class="single_image prod_image">
@@ -14,7 +14,7 @@
 				<div>
 					<p>Réalisé le : <?= htmlentities($prod->getFormatedDate()) ?></p>
 					<p>Pour : <?= htmlentities($prod->getClient()) ?></p>
-					<p><a href="<?= htmlentities($prod->getUrl()) ?>"><?= htmlentities($prod->getUrl()) ?></a></p>
+					<p><a href="<?= htmlentities($prod->getUrl()) ?>" target="_blank" ><i class="fa fa-external-link" aria-hidden="true"></i> <?= htmlentities($prod->getUrl()) ?></a></p>
 				</div>
 			</div>
 		</div>

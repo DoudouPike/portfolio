@@ -7,28 +7,28 @@
 			</figure>
 			<div class="project_content">
 				<div class="project_description">
-					<div>
-						<p><?= htmlentities($project->getContent()) ?></p>
-						<p>Projet débuté le: <?= htmlentities($project->getFormatedDate()) ?></p>
-					</div>
-					<div class="project_information">
-						<a href="<?= htmlentities($project->getUrl()) ?>"><?= htmlentities($project->getUrl()) ?></a>
-					</div>
+					<p><?= htmlentities($project->getContent()) ?></p>
+				</div>
+				<div class="project_information">
+					<p>Débuté le: <?= htmlentities($project->getFormatedDate()) ?></p>
+					<p><a href="<?= htmlentities($project->getUrl()) ?>" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i> <?= htmlentities($project->getUrl()) ?></a></p>
 				</div>
 			</div>
 		</div>
 		<div class="project_news">
 			<div class="reviews">
-				<h4>News :</h4>
-				<?php require('controllers/reviews.php') ?>
+				<h4>Actualités</h4>
+				<div class="reviews_list">
+					<?php require('controllers/reviews.php') ?>
+				</div>
 			</div>
 			<div class="comments">
-				<h4>Commentaires :</h4>
+				<h4>Commentaires</h4>
 				<div class="comment_create">
 					<?php require('controllers/create_comment.php'); ?>
 				</div>
 				<div class="comments_list">
-					<?php require('controllers/comments.php'); ?>
+					<?php require('controllers/comment.php'); ?>
 				</div>
 			</div>
 		</div>

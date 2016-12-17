@@ -18,16 +18,55 @@ if(isset($_POST['action']))
 		try
 		{
 			$userManager->create($_POST['login'], $_POST['email'], $_POST['pwd'], $_POST['pwd2']);
+			if(!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$#", $_POST['email']))
+			{
+				$return = "\r\n";
+			}
+			else
+			{
+				$return = "\n";
+			}
+			$boundary = "-----=".md5(rand());
+			$id = uniqid();
+			$object = "[DoudouPike] - Confirmation d'inscription";
+			$content = "
+			<html>
+				<head>
+					<title>Confirmation d'inscription</title>
+				</head>
+				<body>
+					<p>Bonjour ".$_POST['login'].",</p>
+					<p>Cliquez sur le lien ci dessous pour confirmer votre inscription au site <a href=\"http://doudoupike.fr\">doudoupike.fr</a>.</p>
+					<p><a href=\"http://doudoupike.fr/index.php?page=connection&log=".urlencode($_POST['login'])."&id=".$id."\">Confirmer mon inscription</a></p>
+				</body>
+			</html>";
 
-			$_SESSION['registerSuccess'] = "";
-			header('Location: index.php?page=connection');
+			$header = 'From: "DoudouPike" <contact@doudoupike.fr>'.$return;
+			$header .= 'Reply-to: "'.$_POST['login'].'" <'.$_POST['email'].'>'.$return;
+			$header .= "MIME-Version: 1.0".$return;
+			$header .= "X-Priority: 2".$return;
+			$header .= "Content-Type: multipart/alternative;".$return." boundary=\"$boundary\"".$return;
+
+			$message = $return."--".$boundary.$return;
+			$message .= "Content-Type: text/html; charset=\"UTF-8\"".$return;
+			$message .= "Content-Transfer-Encoding: 8bits".$return;
+			$message .= $return.$content.$return;
+			$message .= $return."--".$boundary."--".$return;
+
+			$mail = mail($_POST['email'], $object, $message, $header);
+			if(!$mail)
+			{
+				throw new Exception("Erreur lors de l'envoi du message. Contactez moi via contact@doudoupike.fr");
+			}
+			$_SESSION['successBeforeReg'] = "";
+			$_SESSION['uniqid'] = $id;
+			header('Location: index.php?page=connection&confirm');
 			exit;
 		}
 		catch(Exception $e)
 		{
 			$error = $e->getMessage();
 		}
-
 	}
 	elseif($action == 'login' && isset($_POST['login'], $_POST['pwd']))
 	{
@@ -39,6 +78,8 @@ if(isset($_POST['action']))
 				throw new Exception("Utilisateur introuvable");	
 			if(!$user->verifPassword($_POST['pwd']))
 				throw new Exception("Mot de passe incorrect");
+			if($user->getActive() == "0")
+				throw new Exception("Votre compte n'est pas activé, vérifiez vos mails.");
 
 			$_SESSION['id'] = $user->getId();
 			$_SESSION['login'] = $user->getLogin();
@@ -64,7 +105,9 @@ if(isset($_POST['action']))
 			
 			$user->setEmail($_POST['email']);
 			$userManager->save($user);
-				
+			
+			$_SESSION['successUpdate'] = "";
+
 			header('Location: index.php?page=dashboard');
 			exit;
 		}
@@ -86,8 +129,13 @@ if(isset($_POST['action']))
 
 			$user->initPassword($_POST['newPwd'], $_POST['newPwd2']);
 			$userManager->save($user);
-				
-			header('Location: index.php?page=dashboard');
+
+			session_destroy();
+
+			session_start();
+			$_SESSION['successNewPwd'] = "";
+
+			header('Location: index.php?page=connection');
 			exit;
 		}
 		catch(Exception $e)

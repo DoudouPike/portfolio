@@ -1,6 +1,10 @@
 <div class="review">
-	<p><?= htmlentities($review->getTitle()) ?></p>
-	<p><?= htmlentities($review->getContent()) ?></p>
-	<p><?= htmlentities($review->getFormatedDate()) ?></p>
+	<div class="review_title">
+		<p><?= htmlentities($review->getTitle()) ?></p>
+		<p><?= htmlentities($review->getFormatedDate()) ?></p>
+	</div>
+	<div class="review_content">
+		<p><?= htmlentities($review->getContent()) ?></p>
+	</div>
 	<?php require('controllers/review_admin.php'); ?>
 </div>

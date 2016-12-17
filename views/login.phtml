@@ -1,9 +1,18 @@
-<section class="login">
-	<h2>Vous avez déjà un compte ? Connectez-vous.</h2>
-	<form method="post">
-		<input type="text" name="login" placeholder="Pseudo/Email" autofocus>
-		<input type="password" name="pwd" placeholder="Mot de passe" >
-		<input type="hidden" name="action" value="login">
-		<input id="login" type="submit" value="Se connecter">
-	</form>
-</section>
+<form method="post">
+	<input type="hidden" name="action" value="login">
+	<input type="hidden" name="action" value="login">
+	<ul>
+		<li>
+			<label for="login">Pseudo ou Email</label>
+			<input id="login" type="text" name="login" placeholder="Votre pseudo..." >
+		</li>
+		<li>
+			<label for="pwd">Mot de passe</label>
+			<input id="pwd" type="password" name="pwd" placeholder="Votre mot de passe..." >
+		</li>
+		<li>
+			<input id="buttonLogin" type="submit" value="Se connecter">
+		</li>
+	</ul>		
+</form>
+<p class="missed">Mot de passe oublié ? <a href="index.php?page=contact">Contactez-moi</a>.</p>

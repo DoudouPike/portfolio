@@ -1,0 +1,18 @@
+<form method="post">
+	<input type="hidden" name="action" value="contact">
+	<input type="hidden" name="pseudo" value="<?= htmlentities($user->getLogin()); ?>">
+	<input type="hidden" name="email" value="<?= htmlentities($user->getEmail()); ?>">
+	<ul>
+		<li>
+			<label for="object">Objet</label>
+			<input id="object" type="text" name="object" placeholder="Raison du message..." required>
+		</li>
+		<li>
+			<label for="message">Message</label>
+			<textarea id="message" name="message" placeholder="Votre message..." required></textarea>
+		</li>
+		<li>
+			<input type="submit" value="Envoyer">
+		</li>
+	</ul>
+</form>

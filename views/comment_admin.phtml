@@ -1,1 +1,5 @@
-<a href='index.php?admin&page=delete_comment&id=<?= $comment->getId() ?>' title="Supprimer"><span class="fa fa-remove"></span></a>
+<form method="POST">
+	<input type="hidden" name="action" value="delete">
+	<input type="hidden" name="id" value="<?= $comment->getId() ?>">
+	<button class="fa fa-remove" type="submit">
+</form>

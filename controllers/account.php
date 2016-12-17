@@ -1,0 +1,18 @@
+<?php
+if(isset($_GET['me']))
+{
+	require('views/account_email.phtml');
+}
+elseif(isset($_GET['mp']))
+{
+	require('views/account_password.phtml');
+}
+elseif(isset($_GET['da']))
+{
+	require('views/account_delete.phtml');
+}
+else
+{
+	require('views/blank.phtml');
+}
+?>
