@@ -248,5 +248,10 @@ $(document).ready(function()
 	{
 		$('#pseudo').focus();
 	}
-
+//Scroll
+	$("#scrollClick").click(function() {
+	    $('html, body').animate({
+	        scrollTop: $(".scrollTarget").offset().top
+	    }, 2000);
+	});
 });
