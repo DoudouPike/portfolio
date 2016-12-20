@@ -249,9 +249,11 @@ $(document).ready(function()
 		$('#pseudo').focus();
 	}
 //Scroll
-	$("#scrollClick").click(function() {
-	    $('html, body').animate({
-	        scrollTop: $(".scrollTarget").offset().top
-	    }, 2000);
-	});
+	if($(location).attr('href').indexOf('&id=') != -1) 
+	{
+	    $('html, body').animate(
+	    {
+	    	scrollTop: $('.scrollTarget').offset().top
+	    }, 1500);
+	}
 });
