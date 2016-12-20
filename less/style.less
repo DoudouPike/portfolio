@@ -152,7 +152,6 @@
 	}
 	input[type="submit"]
 	{
-		cursor: pointer;
 		border: 1px solid;
 	}
 	.form
@@ -169,25 +168,15 @@
 			{
 				margin: 40px 0;
 				font-size: 0;
-				overflow: hidden;
 			}
 			label, input, textarea
 			{
-				font-size: 1.3rem;
-			}
-			label
-			{
-				display: inline-block;
-				width: 35%;
-				padding-right: 15px;
-				text-align: right;
+				display: block;
+				font-size: 1rem;
 			}
 			input:not([type="submit"]), textarea
 			{
 				border: 1px solid @dark;
-				align-self: flex-end;
-				float: right;
-				width: 65%;
 			}
 			textarea
 			{
@@ -196,7 +185,6 @@
 			}
 			input[type="submit"]
 			{
-				display: block;
 				width: 100%;
 			}
 		}
@@ -258,6 +246,11 @@
 	{
 		text-align: center;
 	}
+	.toggle_desktop
+	{
+		padding: 5px;
+		text-align: center;
+	}
 
 /*Layout*/
 	.main
@@ -311,7 +304,6 @@
 	.nav
 	{
 		background-color: @dark;
-		position: fixed;
 		top: 0;
 		a
 		{
@@ -320,6 +312,7 @@
 	}
 	.menu
 	{
+		position: fixed;
 		left: 0;
 		width: @menuSizePhoneLittle;
 		height: 100vh;
@@ -387,6 +380,7 @@
 	}
 	.panel
 	{
+		position: absolute;
 		right: 15px;
 		.panel_icone
 		{
@@ -612,40 +606,47 @@
 	.skill, .career
 	{
 		.half;
+		.column;
 		.show
 		{
 			display: none;
-			text-align: center;
+		}
+		.toggle_desktop
+		{
 			color: @bright;
 			opacity: 0.3;
 			margin: 0;
-			padding: 10px;
 			background-color: @dark;
 		}
 	}
 	.skill
 	{
 		.halfTop;
-		.column;
-
 		.skillBox
 		{
+			font-size: 0;
+			overflow: auto;
 			flex: 1;
-			.alignItems_center;
-			.flex;
-			.justifyContent_between;
+			.column;
 
-			.chart, .specific
+			.chart
 			{
-				width: 50%;
+				height: 100%;
+				text-align: center;
+				svg
+				{
+					max-height: 100%;
+					path
+					{
+						stroke: black;
+						stroke-width: 30;
 
-				.chartElement
-				{
-					.hide;
-				}
-				#html, #css, #php, #mysql, #js
-				{
-					cursor: help;
+					}
+					text
+					{
+						font-size: 3800px;
+						fill: @dark !important;
+					}
 				}
 				.html
 				{
@@ -681,63 +682,25 @@
 					border-color: rgb(180,180,180);
 				}
 			}
-
-			.chart
-			{
-				margin-top: 15px;
-				svg
-				{
-					width: 100%;
-					path
-					{
-						stroke: black;
-						stroke-width: 30;
-
-					}
-					text
-					{
-						font-size: 3387px;
-						fill: @dark !important;
-					}
-				}
-				
-			}
 			.specific
 			{
-				.column;
-				padding-left: 10px;
-				p
-				{
-					margin: @specificMarginPhoneLittle;
-					height: @specificHeightPhoneLittle;
-					line-height: @specificHeightPhoneLittle;
-					border-left: 15px solid;
-					padding-left: 10px;
-				}
+				display: none;
 			}
 		}
 	}
 	.career
 	{
 		.halfBottom;
-		.column;
-		flex: 1;
-		
 		.schema
 		{
-			margin: auto 0;
-			height: 380px;
-			.flex;
-			.alignItems_center;
-			padding: 10px;
-			.schemaElement
-			{
-				.hide;
-			}
+			font-size: 0;
+			overflow: auto;
+			text-align: center;
+			flex: 1;
+			margin-bottom: 5px; 
 			svg
 			{
-				width: 65%;
-				max-height: 100%;
+				height: 100%;
 				path
 				{
 					fill: @lightDark;
@@ -749,80 +712,13 @@
 				}
 				text
 				{
-					font-size: 3386px;
+					font-size: 3800px;
 					fill: @bright;
-				}
-				g
-				{
-					cursor: help;
 				}
 			}
 			.information
 			{
-				width: 35%;
-				height: 100%;
-				position: relative;
-				.show
-				{
-					top: 50%;
-					transform: translateY(-50%);
-				}
-				p
-				{
-					display: none;
-					color: @bright;
-					margin: 0;
-					padding: 10px;
-					background-color: @dark;
-					position: absolute;
-					&:before
-					{
-						content: "";
-						position: absolute;
-						left: -12px;
-						height: 0;
-						width: 0;
-						border-right: 12px solid @dark;
-					}
-				}
-				#info_work
-				{
-					top: 20px;
-					&:before
-					{
-						top: 0;
-					    border-bottom: 15px solid transparent;
-					}
-				}
-				#info_perso
-				{
-					top: 125px;
-					left: -205px;
-					&:before
-					{
-						top: 0;
-					    border-bottom: 15px solid transparent;
-					}
-				}
-				#info_formation
-				{
-					bottom: 125px;
-					left: -15px;
-					&:before
-					{
-						bottom: 0;
-					    border-top: 15px solid transparent;
-					}
-				}
-				#info_old
-				{
-					bottom: 20px;
-					&:before
-					{
-						bottom: 0;
-					    border-top: 15px solid transparent;
-					}
-				}
+				display: none;
 			}
 		}
 	}
@@ -839,7 +735,7 @@
 	}
 	.fade
 	{
-		/*display: none;*/
+		display: none;
 	}
 	.prods, .projects
 	{
@@ -851,11 +747,12 @@
 	}
 	.prod, .project
 	{
-		background-color: @bright;
+		height: 100%;
 		.column;
 		.single_title
 		{
 			margin: 0;
+			font-size: 1rem;
 			background-color: @lightBright;
 			padding: @paddingPhoneLittle;
 			color: @lightDark;
@@ -876,8 +773,7 @@
 		.prod_description, .prod_informations, .project_image, .project_content
 		{
 			height: 100%;
-			width: 50%;
-			font-size: 1rem;
+			font-size: 0.8rem;
 		}
 	}
 
@@ -893,27 +789,18 @@
 		.prod_content
 		{
 			flex: 1;
-			.flex;
+			.column;
 			font-size: 0;
-			.prod_description, .prod_informations
-			{
-				.flex;
-				div
-				{
-					margin: auto;
-				}
-			}
 			.prod_description
 			{
 				background-color: @lightBright;
-				border-right: 2px solid @dark;
+				border-bottom: 1px solid @dark;
 			}
 			.prod_informations
 			{
 				background-color:@lightDark;
 				color: @bright;
-				border-left: 2px solid @dark;
-				text-align: right;
+				border-top: 1px solid @dark;
 			}
 		}
 	}
@@ -922,28 +809,24 @@
 	{
 		.project_lastDate
 		{
-			font-size: 0.8rem;
+			font-size: 0.5rem;
 			font-style: italic;
 			float: right;
-			margin-right: 100px;
 		}
 		.project_presentation
 		{
-			border-top: 4px solid @dark;
-			border-bottom: 2px solid @dark;
+			border-top: 2px solid @dark;
+			border-bottom: 1px solid @dark;
 			height: 25%;
-			.flex;
 			.project_image
 			{
-				border-right: 1px solid @dark;
+				display: none;
 			}
 			.project_content
 			{
-				padding: 0 5px;
-				border-left: 1px solid @dark;
 				background-color:@lightDark;
 				color: @bright;
-				.column;
+				.flex;
 
 				.project_description
 				{
@@ -951,60 +834,46 @@
 				}
 				.project_information
 				{
-					p
-					{
-						display: inline-block;
-						&:nth-child(2)
-						{
-							float: right;
-						}
-					}
+					font-size: 0.7rem;
+					text-align: right;
+					padding-right: 5px;
 				}
 			}
 		}
 		.project_news
 		{
-			border-top: 2px solid @dark;
+			border-top: 1px solid @dark;
 			flex: 1;
 			overflow: auto;
-			.reviews, .comments
+			.column;
+			.reviews
 			{
+				flex: 1;
 				.column;
+				height: 100%;
 				font-size: 0;
-				height: 50%;
 				h4
 				{
-					font-size: 1.5rem;
+					font-size: 1rem;
 					padding: 5px;
 					margin: 0;
 					background-color: @lightBright;
 					color: @lightDark;
 					text-align: center;
 				}
-				.reviews_list, .comments_list
+				.reviews_list
 				{
 					flex: 1;
 					padding: 10px;
 					overflow: auto;
-					.review, .comment
+					.review
 					{
 						border-left: 3px solid @lightDark;
 						border-right: 3px solid @lightDark;
 					}
-				}
-			}
-			.reviews
-			{
-				border-bottom: 2px solid @dark;
-				.reviews_list
-				{
 					.review
 					{
-						.review_title, .review_content
-						{
-							font-size: 1rem;
-							padding: 5px;
-						}
+						padding: 0 5px;
 						.review_title
 						{
 							font-size: 0;
@@ -1016,19 +885,20 @@
 								&:nth-child(1)
 								{
 									font-weight: bold;
-									font-size: 1.1rem;
-									width: 80%;
+									font-size: 1rem;
+									width: 70%;
 								}
 								&:nth-child(2)
 								{
 									text-align: right;
-									font-size: 1rem;
-									width: 20%;
+									font-size: 0.6rem;
+									width: 30%;
 								}
 							}
 						}
 						.review_content
 						{
+							margin-top: 5px;							font-size: 1rem;
 							p
 							{
 								margin: 0;
@@ -1039,63 +909,7 @@
 			}
 			.comments
 			{
-				border-top: 2px solid @dark;
-
-				.comment_create
-				{
-					height: 25%;
-					margin: 10px 0;
-					font-size: 1rem;
-					.flex;
-					.need
-					{
-						margin: auto;
-					}
-					form
-					{
-						width: 100%;
-						height: 100%;
-						.flex;
-						.textarea
-						{
-							position: relative;
-							flex: 1;
-							textarea
-							{
-								width: 100%;
-								height: 100%;
-								border-color: @dark;
-								border-right: 0;
-							}
-							.count
-							{
-								position: absolute;
-								right: 0;
-								bottom: 0;
-								p
-								{
-									margin: 5px;
-									opacity: 0.7;								
-								}
-							}
-						}
-						input[type="submit"]
-						{
-							cursor: default;
-							font-size: 1.3rem;
-							border-color: @dark;
-						}
-					}
-					.buttonOk
-					{
-						background-color: @lightDark !important;
-						color: @bright !important;
-					}
-					.wrongCount
-					{
-						color: red !important;
-					}
-				}
+				display: none;
 			}
 		}
 	}
@@ -1145,9 +959,22 @@
 		}
 	}
 
+/* Contact */
+	.contact_info
+	{
+		background-color: @transpLightDark;
+		padding: @paddingPhoneLittle;
+	}
+	.contact_form
+	{
+		.column;
+		height: 100%;
+	}
+
 /* Login/Register */
 	.connection_message
-	{
+	{	
+
 		.column;
 		height: 100%;
 		.connection_infos
@@ -1164,7 +991,7 @@
 		.connection_change
 		{
 			flex: 1;
-			.flex;
+			.column;
 			background-color: @lightBright;
 			p
 			{
@@ -1195,6 +1022,7 @@
 		.column;
 		.account
 		{
+			flex: 1;
 			background-color: @transpLightDark;
 			p
 			{
@@ -1208,13 +1036,7 @@
 		}
 		.comments_list
 		{
-			flex: 1;
-			background-color: @lightBright;
-			color: @dark;
-			h3
-			{
-				padding: @paddingPhoneLittle;
-			}
+			display: none;
 		}
 		.admin
 		{
@@ -1229,18 +1051,6 @@
 	{
 		height: 100%;
 		.column;
-	}
-
-/* Contact */
-	.contact_info
-	{
-		background-color: @transpLightDark;
-		padding: @paddingPhoneLittle;
-	}
-	.contact_form
-	{
-		.column;
-		height: 100%;
 	}
 
 
@@ -1600,6 +1410,11 @@
 		.empty
 		{
 			text-align: center;
+		}
+
+		.toggle_desktop
+		{
+			display: none;
 		}
 
 	/*Layout*/

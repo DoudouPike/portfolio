@@ -1,6 +1,6 @@
-<div class="fade scrollTarget">
+<div class="fade single scrollTarget">
 	<article class="project">
-		<h3 class="single_title"><?= htmlentities($project->getTitle()) ?><span class="project_lastDate">Dernière modification le <?=htmlentities($project->getLastDate()) ?></span></h3>
+		<h3 class="single_title"><?= htmlentities($project->getTitle()) ?><span class="project_lastDate">Dernière modif: <?=htmlentities($project->getLastDate()) ?></span></h3>
 		<div class="project_presentation">
 			<figure class="single_image project_image">
 				<img src="public/images/projects/<?= htmlentities($project->getImage()) ?>" alt='illustration du projet'>
@@ -22,6 +22,7 @@
 					<?php require('controllers/review.php') ?>
 				</div>
 			</div>
+			<p class="toggle_desktop">Visionnez le site sur grand écran pour plus d'informations</p>
 			<div class="comments">
 				<h4>Commentaires</h4>
 				<div class="comment_create">
