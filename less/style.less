@@ -9,16 +9,15 @@
 @input: rgba(120,120,120,0.4);
 @inputHover: rgba(120,120,120,0.8);
 
-@menuSizePhoneLittle: 50px;
-@buttonSizePhoneLittle: 30px;
-@paddingPhoneLittle: 10px; 
-@previewSizePhoneLittle: 75px;
-@specificHeightPhoneLittle: 27.65px;
-@specificMarginPhoneLittle: 15px;
-
 /*320x480*/
 
 /* Variables & Mixins */
+	@menuSizePhoneLittle: 50px;
+	@buttonSizePhoneLittle: 30px;
+	@paddingPhoneLittle: 10px; 
+	@previewSizePhoneLittle: 75px;
+	@specificHeightPhoneLittle: 27.65px;
+	@specificMarginPhoneLittle: 15px;
 
 	.hide
 	{
@@ -284,6 +283,7 @@
 		{
 			top: 0;
 			background: url(../images/left.png) center center no-repeat;
+			background-size: cover;
 			color: @lightBright;
 			h2
 			{
@@ -337,14 +337,12 @@
 					img
 					{
 						margin: auto;
-						font-size: @menuSizePhoneLittle/1.5;
 					}
 				}
 			}
 			.logo
 			{
 				font-size: 0;
-				margin-bottom: 10px;
 			}
 			.social_menu
 			{
@@ -1225,6 +1223,52 @@
 	}
 }
 
+@media screen and (min-width: 720px)
+{
+	@menuSizePad: 70px;
+	@buttonSizePad: 45px;
+	@paddingPad: 20px;
+	body
+	{
+		font-size: 16px;
+	}
+	.main
+	{
+		margin-left: @menuSizePad;
+	}
+	.menu
+	{
+		width: @menuSizePad;
+		.menuPublic .links a
+		{
+			height: @menuSizePad;
+		}
+	}
+	.button
+	{
+		height: @buttonSizePad;
+		width: @buttonSizePad;
+	}
+	.form, .home_prods, .home_projects
+	{
+		padding: @paddingPad 0;
+	}
+	.main .left h2, .main .right h2, .success, .error p, .about, .sheet, .contact_info, .prod, .project, .connection_message .connection_infos
+	{
+		padding: @paddingPad;
+	}
+	.home
+	{
+		.home_title, .home_description, .notes
+		{
+			padding: @paddingPad;
+		}
+	}
+	.user_info
+	{
+		font-size: 1rem;
+	}
+}
 
 
 
