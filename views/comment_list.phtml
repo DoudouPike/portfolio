@@ -1,4 +1,4 @@
 <div class="comment">
 	<p class="comment_content"><?= htmlentities($comment->getContent()) ?></p>
-	<p class="comment_project"><a href="index.php?page=mine&id=<?= $project->getId() ?>#<?= $comment->getId(); ?>"><?= htmlentities($project->getTitle()) ?></a><br> le <?= htmlentities($comment->getFormatedDate()); ?></p>
+	<p class="comment_project"><a href="index.php?page=mine&id=<?= $project->getId() ?>#<?= $comment->getId(); ?>"><?= htmlentities($project->getTitle()) ?></a><span class="comment_date"><br>le <?= htmlentities($comment->getFormatedDate()); ?></span></p>
 </div>

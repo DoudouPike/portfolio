@@ -9,15 +9,17 @@
 @input: rgba(120,120,120,0.4);
 @inputHover: rgba(120,120,120,0.8);
 
+@menuSizePhoneLittle: 50px;
+@buttonSizePhoneLittle: 30px;
+@paddingPhoneLittle: 10px; 
+@previewSizePhoneLittle: 75px;
+@specificHeightPhoneLittle: 27.65px;
+@specificMarginPhoneLittle: 15px;
+
 /*320x480*/
 
 /* Variables & Mixins */
-	@menuSizePhoneLittle: 50px;
-	@buttonSizePhoneLittle: 30px;
-	@paddingPhoneLittle: 10px; 
-	@previewSizePhoneLittle: 75px;
-	@specificHeightPhoneLittle: 27.65px;
-	@specificMarginPhoneLittle: 15px;
+
 	.hide
 	{
 		display: none;
@@ -848,9 +850,9 @@
 			.column;
 			.reviews
 			{
+				border-top: 1px solid @dark;
 				flex: 1;
 				.column;
-				height: 100%;
 				font-size: 0;
 				h4
 				{
@@ -868,8 +870,8 @@
 					overflow: auto;
 					.review
 					{
-						border-left: 3px solid @lightDark;
-						border-right: 3px solid @lightDark;
+						border-left: 1px solid @lightDark;
+						border-right: 1px solid @lightDark;
 					}
 					.review
 					{
@@ -1053,41 +1055,175 @@
 		.column;
 	}
 
+@media screen and (min-width: 360px)
+{
+	.only_small
+	{
+		display: none;
+	}
+	.only_small
+	{
+		display: none;
+	}
+	.project
+	{
+		.project_news
+		{
+			.reviews, .comments
+			{
+				height: 50%;
+			}
+			.comments
+			{
+				overflow: scroll;
+				display: block;
+				flex: 1;
+				.column;
+				font-size: 0;
+				border-top: 2px solid @dark;
+				h4
+				{
+					font-size: 1rem;
+					padding: 5px;
+					margin: 0;
+					background-color: @lightBright;
+					color: @lightDark;
+					text-align: center;
+				}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+				.comment_create
+				{
+					height: 25%;
+					margin: 10px 0;
+					font-size: 1rem;
+					.flex;
+					.need
+					{
+						margin: auto;
+					}
+					form
+					{
+						width: 100%;
+						height: 100%;
+						.flex;
+						.textarea
+						{
+							position: relative;
+							flex: 1;
+							textarea
+							{
+								width: 100%;
+								height: 100%;
+								border-color: @dark;
+								border-right: 0;
+							}
+							.count
+							{
+								position: absolute;
+								right: 0;
+								bottom: 0;
+								p
+								{
+									margin: 5px;
+									opacity: 0.7;								
+								}
+							}
+						}
+						input[type="submit"]
+						{
+							cursor: default;
+							font-size: 1.3rem;
+							border-color: @dark;
+						}
+					}
+					.buttonOk
+					{
+						background-color: @lightDark !important;
+						color: @bright !important;
+					}
+					.wrongCount
+					{
+						color: red !important;
+					}
+				}
+				.comments_list
+				{
+					flex: 1;
+				}
+			}
+		}
+	}
+	.comments_list
+	{
+		padding: 10px;
+		overflow: auto;
+		.comment
+		{
+			border-left: 1px solid @lightDark;
+			border-right: 1px solid @lightDark;
+			padding: 0 5px;
+			font-size: 0;
+			.comment_content, .comment_author, .comment_project, .comment_admin
+			{
+				margin: 0;
+				display: inline-block;
+				vertical-align: middle;
+			}
+			.comment_content
+			{
+				font-size: 0.9rem;
+				width: 70%;
+				overflow: hidden;
+			}
+			.comment_author
+			{
+				font-size: 0.6rem;
+				text-align: right;
+				width: 25%;
+			}
+			.comment_date
+			{
+				display: none;
+			}
+			.comment_project
+			{
+				font-size: 0.6rem;
+				text-align: right;
+				width: 30%;
+			}
+			.comment_admin
+			{
+				font-size: 0.6rem;
+				text-align: center;
+				width: 5%;
+				button
+				{
+					border: 0;
+					background-color: inherit;
+					cursor: pointer;
+					&:hover
+					{
+						color: @lightDark;
+					}
+				}
+			}
+		}		
+	}
+	.dashboard
+	{
+		.comments_list
+		{
+			display: block;
+			flex: 1;
+			background-color: @lightBright;
+			color: @dark;
+			h3
+			{
+				padding: @paddingPhoneLittle;
+			}
+		}
+	}
+}
 
 
 
@@ -1106,20 +1242,8 @@
 
 
 @media screen and (min-width: 1440px)
-	{
+{
 	/* Variables & Mixins */
-		@media screen and (max-width: 1400px)
-		{
-			@fz: 14px;
-			@menuSize: 55px;
-			@buttonSize: 30px;
-			@padding: 15px;
-			@previewSize: 150px;
-			@specificHeight: 18px;
-			@specificMargin: 10px;
-			@schemaHeight: 200px;
-		}
-
 		@fz: 18px;
 		@menuSize: 75px;
 		@buttonSize: 45px;
@@ -2307,7 +2431,6 @@
 				{
 					width: 70%;
 					overflow: hidden;
-
 				}
 				.comment_author
 				{
@@ -2337,7 +2460,7 @@
 			}
 		}
 
-	/* Login/Register */
+	/*Login/Register*/
 		.connection_message
 		{
 			.column;
@@ -2423,7 +2546,7 @@
 			.column;
 		}
 
-	/* Contact */
+	/*Contact*/
 		.contact_info
 		{
 			background-color: @transpLightDark;

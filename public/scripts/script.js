@@ -254,7 +254,6 @@ $(document).ready(function()
     $('#datepicker').datepicker($.datepicker.regional['fr']);
 
 //Scroll
-console.log($(location).attr('href').indexOf('#s'));
 	if($(window).width() < 1000)
 	{
 		if(($(location).attr('href').indexOf('&id=') != -1)

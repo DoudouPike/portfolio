@@ -18,7 +18,7 @@ class CommentManager
 	public function findByUser(User $user)
 	{
 		$list = [];
-		$query = "SELECT * FROM comments WHERE id_author='".$user->getId()."'";
+		$query = "SELECT * FROM comments WHERE id_author='".$user->getId()."' ORDER BY id DESC";
 		$res = mysqli_query($this->db, $query);
 		if($res)
 			while ($comment = mysqli_fetch_object($res, "Comment", [$this->db]))
