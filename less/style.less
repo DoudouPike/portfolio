@@ -16,8 +16,6 @@
 	@buttonSizePhoneLittle: 30px;
 	@paddingPhoneLittle: 10px; 
 	@previewSizePhoneLittle: 75px;
-	@specificHeightPhoneLittle: 27.65px;
-	@specificMarginPhoneLittle: 15px;
 
 	.hide
 	{
@@ -572,6 +570,7 @@
 			height: 100%;
 			a
 			{
+				font-size: 0.6rem;
 				text-decoration: none;
 				display: block;
 				height: 100%;
@@ -586,7 +585,6 @@
 						h3
 						{
 							margin: auto !important;
-							font-size: 0.6rem;
 						}
 					}
 				}
@@ -1229,12 +1227,13 @@
 
 @media screen and (min-width: 720px)
 {
-	@menuSizePad: 70px;
+	@menuSizePad: 60px;
 	@buttonSizePad: 45px;
 	@paddingPad: 20px;
+	@previewSizePad: 200px;
 	body
 	{
-		font-size: 16px;
+		font-size: 18px;
 	}
 	.main
 	{
@@ -1264,13 +1263,43 @@
 		height: @buttonSizePad;
 		width: @buttonSizePad;
 	}
-	.form, .home_prods, .home_projects
+	.form, .home_prods .home_redirect, .home_projects .home_redirect
 	{
 		padding: @paddingPad 0;
 	}
 	.main .left h2, .main .right h2, .success, .error p, .about, .sheet, .contact_info, .prod, .project, .connection_message .connection_infos
 	{
 		padding: @paddingPad;
+	}
+	.form form
+	{
+		li
+		{
+			margin: 40px 0;
+			font-size: 0;
+			overflow: hidden;
+		}
+		label, input, textarea
+		{
+			font-size: 1.5rem;
+		}
+		label
+		{
+			display: inline-block;
+			width: 35%;
+			padding-right: 15px;
+			text-align: right;
+		}
+		input:not([type="submit"]), textarea
+		{
+			align-self: flex-end;
+			float: right;
+			width: 65%;
+		}
+	}
+	.user_info
+	{
+		font-size: 1rem;
 	}
 	.home
 	{
@@ -1279,9 +1308,69 @@
 			padding: @paddingPad;
 		}
 	}
-	.user_info
+	.preview
 	{
+		width: @previewSizePad;
+		height: @previewSizePad;
+		.previewImage a
+		{
+			font-size: 1.5rem;
+		}
+	}
+	.skill .skillBox .specific, .career .schema .information
+	{
+		display: block;
 		font-size: 1rem;
+	}
+	.skill .skillBox
+	{
+		.flex;
+		flex-direction: row;
+		align-items: center;
+		font-size: 0;
+		.chart
+		{
+			.column;
+			justify-content: center;
+			width: 50%;
+		}
+		.specific
+		{
+			width: 50%;
+			p
+			{
+				padding-left: 5px;
+				border-left: 5px solid;
+				&.html
+				{
+					border-color: rgb(10,10,10) !important;
+				}
+				&.css
+				{
+					border-color: rgb(40,40,40) !important;
+				}
+				&.php
+				{
+					border-color: rgb(70,70,70) !important;
+				}
+				&.mysql
+				{
+					border-color: rgb(100,100,100) !important;
+				}
+				&.js
+				{
+					border-color: rgb(130,130,130) !important;
+				}
+				&.other
+				{
+					border-color: rgb(180,180,180);
+				}	
+			}
+		}
+	}
+	.career .schema .information
+	{
+
 	}
 }
 
