@@ -322,9 +322,13 @@
 		{
 			.links 
 			{
-				color: @lightBright;
+				li:not(.logo)
+				{
+					margin: 5px 0;
+				}
 				a
 				{
+					background-color: @lightBright;
 					.flex;
 					text-decoration: none;
 					height: @menuSizePhoneLittle;
@@ -332,7 +336,7 @@
 					.default_transition;
 					&:hover
 					{
-						color: @bright;
+						background-color: @bright;
 					}
 					img
 					{
@@ -384,7 +388,7 @@
 		right: 15px;
 		.panel_icone
 		{
-			font-size: 1.3rem;
+			font-size: 1.5rem;
 			padding: 10px;
 			color: @lightBright;
 			cursor: pointer;
@@ -1239,10 +1243,21 @@
 	.menu
 	{
 		width: @menuSizePad;
-		.menuPublic .links a
+		.menuPublic .links li
 		{
-			height: @menuSizePad;
+			&:not(.logo)
+			{
+				margin: 15px 0;
+			}
+			a
+			{
+				height: @menuSizePad;	
+			}
 		}
+	}
+	.panel .panel_icone
+	{
+		font-size: 1.8rem;
 	}
 	.button
 	{
