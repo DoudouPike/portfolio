@@ -277,6 +277,7 @@ input[type="submit"] {
   background-color: #f0f0f0;
 }
 .menu .menuPublic .links a img {
+  width: 25px;
   margin: auto;
 }
 .menu .menuPublic .logo {
@@ -513,6 +514,7 @@ input[type="submit"] {
   height: 100%;
 }
 .preview .previewImage a {
+  font-size: 0.6rem;
   text-decoration: none;
   display: block;
   height: 100%;
@@ -535,7 +537,6 @@ input[type="submit"] {
 }
 .preview .previewImage a .previewFilm .previewContent h3 {
   margin: auto !important;
-  font-size: 0.6rem;
 }
 /*About*/
 .sheet {
@@ -1216,19 +1217,19 @@ input[type="submit"] {
 }
 @media screen and (min-width: 720px) {
   body {
-    font-size: 16px;
+    font-size: 18px;
   }
   .main {
-    margin-left: 70px;
+    margin-left: 60px;
   }
   .menu {
-    width: 70px;
+    width: 60px;
   }
   .menu .menuPublic .links li:not(.logo) {
     margin: 15px 0;
   }
   .menu .menuPublic .links li a {
-    height: 70px;
+    height: 60px;
   }
   .panel .panel_icone {
     font-size: 1.8rem;
@@ -1238,8 +1239,8 @@ input[type="submit"] {
     width: 45px;
   }
   .form,
-  .home_prods,
-  .home_projects {
+  .home_prods .home_redirect,
+  .home_projects .home_redirect {
     padding: 20px 0;
   }
   .main .left h2,
@@ -1254,13 +1255,102 @@ input[type="submit"] {
   .connection_message .connection_infos {
     padding: 20px;
   }
+  .form form li {
+    margin: 40px 0;
+    font-size: 0;
+    overflow: hidden;
+  }
+  .form form label,
+  .form form input,
+  .form form textarea {
+    font-size: 1.5rem;
+  }
+  .form form label {
+    display: inline-block;
+    width: 35%;
+    padding-right: 15px;
+    text-align: right;
+  }
+  .form form input:not([type="submit"]),
+  .form form textarea {
+    -webkit-align-self: flex-end;
+    -ms-flex-item-align: end;
+    align-self: flex-end;
+    float: right;
+    width: 65%;
+  }
+  .user_info {
+    font-size: 1rem;
+  }
   .home .home_title,
   .home .home_description,
   .home .notes {
     padding: 20px;
   }
-  .user_info {
+  .preview {
+    width: 200px;
+    height: 200px;
+  }
+  .preview .previewImage a {
+    font-size: 1.5rem;
+  }
+  .skill .skillBox .specific,
+  .career .schema .information {
+    display: block;
     font-size: 1rem;
+  }
+  .skill .skillBox {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 0;
+  }
+  .skill .skillBox .chart {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 50%;
+  }
+  .skill .skillBox .specific {
+    width: 50%;
+  }
+  .skill .skillBox .specific p {
+    padding-left: 5px;
+    border-left: 5px solid;
+  }
+  .skill .skillBox .specific p.html {
+    border-color: #0a0a0a !important;
+  }
+  .skill .skillBox .specific p.css {
+    border-color: #282828 !important;
+  }
+  .skill .skillBox .specific p.php {
+    border-color: #464646 !important;
+  }
+  .skill .skillBox .specific p.mysql {
+    border-color: #646464 !important;
+  }
+  .skill .skillBox .specific p.js {
+    border-color: #828282 !important;
+  }
+  .skill .skillBox .specific p.other {
+    border-color: #b4b4b4;
   }
 }
 @media screen and (min-width: 1440px) {

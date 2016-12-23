@@ -320,24 +320,21 @@
 		{
 			.links 
 			{
-				li:not(.logo)
+				li
 				{
-					margin: 5px 0;
+					border-bottom: 1px solid black;
 				}
 				a
 				{
-					background-color: @lightBright;
+					margin: 5px 0;
 					.flex;
 					text-decoration: none;
 					height: @menuSizePhoneLittle;
 					text-align: center;
-					.default_transition;
-					&:hover
-					{
-						background-color: @bright;
-					}
 					img
 					{
+						width: @menuSizePhoneLittle / 1.5;
+						background-color: @bright;
 						margin: auto;
 					}
 				}
@@ -728,11 +725,18 @@
 /*Portfolio & Mine*/
 	.select
 	{
+		height: 100%;
 		.flex;
 		.column;
 		p
 		{
 			margin: auto;
+			&:before
+			{
+				display: inline-block;
+				content: "\f062";
+				padding-right: 5px;
+			}
 		}
 	}
 	.fade
@@ -829,16 +833,21 @@
 				background-color:@lightDark;
 				color: @bright;
 				.flex;
-
 				.project_description
 				{
+					padding: 5px;
 					flex: 1;
+					p
+					{
+						margin: 0;
+					}
 				}
 				.project_information
 				{
 					font-size: 0.7rem;
 					text-align: right;
 					padding-right: 5px;
+					margin: auto 0;
 				}
 			}
 		}
@@ -900,7 +909,8 @@
 						}
 						.review_content
 						{
-							margin-top: 5px;							font-size: 1rem;
+							margin-top: 5px;
+							font-size: 1rem;
 							p
 							{
 								margin: 0;
@@ -1228,12 +1238,12 @@
 @media screen and (min-width: 720px)
 {
 	@menuSizePad: 60px;
-	@buttonSizePad: 45px;
+	@buttonSizePad: 40px;
 	@paddingPad: 20px;
 	@previewSizePad: 200px;
 	body
 	{
-		font-size: 18px;
+		font-size: 16px !important;
 	}
 	.main
 	{
@@ -1242,14 +1252,11 @@
 	.menu
 	{
 		width: @menuSizePad;
-		.menuPublic .links li
+		.menuPublic .links
 		{
-			&:not(.logo)
-			{
-				margin: 15px 0;
-			}
 			a
 			{
+				margin: 10px 0;
 				height: @menuSizePad;	
 			}
 		}
@@ -1267,7 +1274,7 @@
 	{
 		padding: @paddingPad 0;
 	}
-	.main .left h2, .main .right h2, .success, .error p, .about, .sheet, .contact_info, .prod, .project, .connection_message .connection_infos
+	.main .left h2, .main .right h2, .success, .error p, .about, .sheet, .contact_info, .prod .single_title, .project .single_title, .connection_message .connection_infos
 	{
 		padding: @paddingPad;
 	}
@@ -1371,6 +1378,43 @@
 	.career .schema .information
 	{
 
+	}
+	.prod .prod_description
+	{
+		font-size: 1rem;
+	}
+	.project .project_presentation 
+	{
+		.flex;
+		.project_image, .project_content
+		{
+			width: 50%;
+		}
+		.project_image
+		{
+			display: block;
+			text-align: center;
+		}
+		.project_content
+		{
+
+			.column;
+			.project_description
+			{
+				font-size: 1rem;
+				flex: 1; 
+			}
+			.project_information
+			{
+				text-align: center;
+				.flex;
+				font-size: 0.8rem;
+				p
+				{
+					flex: 1;
+				}
+			}
+		}
 	}
 }
 
@@ -1817,10 +1861,13 @@
 				{
 					a
 					{
-						.default_transition;
-						&:hover
+						&:hover img
 						{
-							background-color: rgb(67, 67, 67);
+							background-color: @lightDark;
+						}
+						img
+						{
+							.default_transition;
 						}
 					}
 				}
@@ -2294,6 +2341,12 @@
 			p
 			{
 				margin: auto;
+				&:before
+				{
+					display: inline-block;
+					content: "\f060";
+					padding-right: 5px;
+				}
 			}
 		}
 		.fade
