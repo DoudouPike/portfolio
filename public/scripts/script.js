@@ -15,8 +15,7 @@ $(document).ready(function()
 	  		loginPanel.fadeOut();
 		}
 	});
-
-	if($(window).width() > 1000)
+	if($(window).width() >= 950)
 	{
 		// Chart
 			if($('#skillBox').is(':visible'))
