@@ -248,6 +248,13 @@
 		padding: 5px;
 		text-align: center;
 	}
+	.only_small
+	{
+		padding: @paddingPhoneLittle;
+		text-align: center;
+		background-color: @lightBright;
+		margin: 0;
+	}
 
 /*Layout*/
 	.main
@@ -694,10 +701,11 @@
 			overflow: auto;
 			text-align: center;
 			flex: 1;
-			margin-bottom: 5px; 
+			.column;
+			justify-content: center;
 			svg
 			{
-				height: 100%;
+				max-width: 100%;
 				path
 				{
 					fill: @lightDark;
@@ -728,9 +736,12 @@
 		.column;
 		p
 		{
+			font: inherit;
 			margin: auto;
 			&:before
 			{
+				font: normal normal normal 14px/1 FontAwesome;
+				text-rendering: auto;
 				display: inline-block;
 				content: "\f062";
 				padding-right: 5px;
@@ -1069,10 +1080,6 @@
 	{
 		display: none;
 	}
-	.only_small
-	{
-		display: none;
-	}
 	.project
 	{
 		.project_news
@@ -1390,6 +1397,7 @@
 		.chart
 		{
 			width: 50%;
+			height: unset;
 		}
 	}
 	.career .schema .information
@@ -1453,6 +1461,10 @@
 	a:active
 	{
 		color: inherit;
+	}
+	.toggle_large
+	{
+		display: none;
 	}
 	.button
 	{
@@ -1535,7 +1547,7 @@
 	}
 	.panel
 	{
-		right: 50px;
+		right: 20px;
 		.panel_icone
 		{
 			font-size: 2rem;
@@ -1628,550 +1640,247 @@
 			border-left: 8px solid;
 		}
 	}
-	.career .schema
-	{	
-		.schemaElement
-		{
-			.hide;
-		}
-	}
-
-	/*Portfolio & Mine*/
-		.select
-		{
-			height: 100vh;
-			.flex;
-			.column;
-			p
-			{
-				margin: auto;
-				&:before
-				{
-					display: inline-block;
-					content: "\f060";
-					padding-right: 5px;
-				}
-			}
-		}
-		.fade
+	.career
+	{
+		.show
 		{
 			display: none;
 		}
-		.prods, .projects
+		.schema
 		{
-			background-color: @transpLightDark;
-		}
-		.single
-		{
-			height: 100%;
-		}
-		.prod, .project
-		{
-			background-color: @bright;
-			height: 100vh;
-			.column;
-			.single_title
+			margin-bottom: 0;
+			flex: 1;
+			svg
 			{
-				margin: 0;
-				background-color: @lightBright;
-				padding: @padding;
-				color: @lightDark;
-			}
-			.single_image
-			{
-				.flex;
-				.justifyContent_center;
-				.alignItems_center;
-				font-size: 0;
-				margin: 0;
-				img
+				height: 60%;
+				g
 				{
-					max-height: 100%;
-					max-width: 100%;
+					cursor: help;
 				}
 			}
-			.prod_description, .prod_informations, .project_image, .project_content
+			.information
 			{
-				height: 100%;
-				width: 50%;
-				font-size: 1rem;
-			}
-		}
-
-		.prod
-		{
-			.prod_image
-			{
-				width: 100%;
-				height: 50%;
-				border-top: 3px solid @dark;
-				border-bottom: 3px solid @dark;
-			}
-			.prod_content
-			{
-				flex: 1;
-				.flex;
-				font-size: 0;
-				.prod_description, .prod_informations
+				height: 40%;
+				.column;
+				justify-content: flex-end;
+				p
 				{
-					.flex;
-					div
-					{
-						margin: auto;
-					}
-				}
-				.prod_description
-				{
-					background-color: @lightBright;
-					border-right: 2px solid @dark;
-				}
-				.prod_informations
-				{
-					background-color:@lightDark;
-					color: @bright;
-					border-left: 2px solid @dark;
-					text-align: right;
-				}
-			}
-		}
-
-		.project
-		{
-			.project_lastDate
-			{
-				font-size: 0.8rem;
-				font-style: italic;
-				float: right;
-				margin-right: 100px;
-			}
-			.project_presentation
-			{
-				border-top: 4px solid @dark;
-				border-bottom: 2px solid @dark;
-				height: 25%;
-				.flex;
-				.project_image
-				{
-					border-right: 1px solid @dark;
-				}
-				.project_content
-				{
-					padding: 0 5px;
-					border-left: 1px solid @dark;
-					background-color:@lightDark;
-					color: @bright;
-					.column;
-
-					.project_description
-					{
-						flex: 1;
-					}
-					.project_information
-					{
-						p
-						{
-							display: inline-block;
-							&:nth-child(2)
-							{
-								float: right;
-							}
-						}
-					}
-				}
-			}
-			.project_news
-			{
-				border-top: 2px solid @dark;
-				flex: 1;
-				overflow: auto;
-				.reviews, .comments
-				{
-					.column;
-					font-size: 0;
-					height: 50%;
-					h4
-					{
-						font-size: 1.5rem;
-						padding: 5px;
-						margin: 0;
-						background-color: @lightBright;
-						color: @lightDark;
-						text-align: center;
-					}
-					.reviews_list, .comments_list
-					{
-						flex: 1;
-						padding: 10px;
-						overflow: auto;
-						.review, .comment
-						{
-							border-left: 3px solid @lightDark;
-							border-right: 3px solid @lightDark;
-						}
-					}
-				}
-				.reviews
-				{
-					border-bottom: 2px solid @dark;
-					.reviews_list
-					{
-						.review
-						{
-							.review_title, .review_content
-							{
-								font-size: 1rem;
-								padding: 5px;
-							}
-							.review_title
-							{
-								font-size: 0;
-								p
-								{
-									display: inline-block;
-									vertical-align: middle;
-									margin: 0;
-									&:nth-child(1)
-									{
-										font-weight: bold;
-										font-size: 1.1rem;
-										width: 80%;
-									}
-									&:nth-child(2)
-									{
-										text-align: right;
-										font-size: 1rem;
-										width: 20%;
-									}
-								}
-							}
-							.review_content
-							{
-								p
-								{
-									margin: 0;
-								}
-							}
-						}
-					}
-				}
-				.comments
-				{
-					border-top: 2px solid @dark;
-
-					.comment_create
-					{
-						height: 25%;
-						margin: 10px 0;
-						font-size: 1rem;
-						.flex;
-						.need
-						{
-							margin: auto;
-						}
-						form
-						{
-							width: 100%;
-							height: 100%;
-							.flex;
-							.textarea
-							{
-								position: relative;
-								flex: 1;
-								textarea
-								{
-									width: 100%;
-									height: 100%;
-									border-color: @dark;
-									border-right: 0;
-								}
-								.count
-								{
-									position: absolute;
-									right: 0;
-									bottom: 0;
-									p
-									{
-										margin: 5px;
-										opacity: 0.7;								
-									}
-								}
-							}
-							input[type="submit"]
-							{
-								cursor: default;
-								font-size: 1.3rem;
-								border-color: @dark;
-							}
-						}
-						.buttonOk
-						{
-							background-color: @lightDark !important;
-							color: @bright !important;
-						}
-						.wrongCount
-						{
-							color: red !important;
-						}
-					}
-				}
-			}
-		}
-		.comments_list
-		{
-			.comment
-			{
-				border-left: 3px solid @lightDark;
-				border-right: 3px solid @lightDark;
-				margin: 5px 0;
-				font-size: 0;
-				.comment_content, .comment_author, .comment_project, .comment_admin
-				{
-					padding: 5px;
 					margin: 0;
-					display: inline-block;
-					vertical-align: middle;
 					font-size: 1rem;
-				}
-				.comment_content
-				{
-					width: 70%;
-					overflow: hidden;
-				}
-				.comment_author
-				{
-					text-align: right;
-					width: 25%;
-				}
-				.comment_project
-				{
-					text-align: right;
-					width: 30%;
-				}
-				.comment_admin
-				{
-					text-align: center;
-					width: 5%;
-					button
+					display: none;
+					&:not(.show)
 					{
-						border: 0;
-						background-color: inherit;
-						cursor: pointer;
-						&:hover
-						{
-							color: @lightDark;
-						}
+						background-color: @dark;
+						color: @bright;
 					}
 				}
 			}
-		}
-
-	/*Login/Register*/
-		.connection_message
-		{
-			.column;
-			height: 100%;
-			.connection_infos
+			.schemaElement
 			{
-				flex: 2;
+				.hide;
+			}			
+		}
+	}
+
+	.select
+	{
+		p
+		{
+			&:before
+			{
+				content: "\f060";
+			}
+		}
+	}
+		
+	.prod, .project
+	{
+		.prod_description, .prod_informations, .project_image, .project_content
+		{
+			height: 100%;
+			width: 50%;
+			font-size: 1rem;
+		}
+	}
+
+	.prod
+	{
+		.prod_content
+		{
+			flex-direction: row;
+			.prod_description, .prod_informations
+			{
 				.flex;
-				padding: @padding;
-				background-color: @transpLightDark;
 				div
 				{
 					margin: auto;
 				}
 			}
-			.connection_change
+			.prod_description
 			{
-				flex: 1;
-				.flex;
-				background-color: @lightBright;
-				p
-				{
-					margin: auto;
-					text-align: center;
-					color: @dark;
-				}
+				border-right: 2px solid @dark;
+			}
+			.prod_informations
+			{
+				border-top: 0;
+				border-left: 2px solid @dark;
 			}
 		}
-		.connection
-		{
-			height: 100%;
-			.column;
-			p
-			{
-				text-align: center;
-			}
-			.missed
-			{
-	 			text-align: center;
-			}
-		}
+	}
+	.project .project_lastDate
+	{
+		margin-right: 55px;
+	}
 
-	/*Dashboard*/
-		.dashboard
-		{
-			height: 100%;
-			.column;
-			.account
-			{
-				background-color: @transpLightDark;
-				p
-				{
-					.clear;
-				}
-				.account_delete
-				{
-					text-align: right;
-					margin-right: 10px;
-				}
-			}
-			.comments_list
-			{
-				flex: 1;
-				background-color: @lightBright;
-				color: @dark;
-				h3
-				{
-					padding: @padding;
-				}
-			}
-			.admin
-			{
-				font-size: 1.5rem;
-				background-color: @lightBright;
-				color: @dark;
-				padding: @padding;
-				text-align: center;
-			}
-		}
-		.account_modify
-		{
-			height: 100%;
-			.column;
-		}
-
-	/*Contact*/
-		.contact_info
-		{
-			background-color: @transpLightDark;
-			padding: @padding;
-		}
-		.contact_form
-		{
-			.column;
-			height: 100%;
-		}
+	.form form label,.form form input
+	{
+		font-size: 1rem;
+	}		
 }
-
-
-
-
-
-
-
-
-
 	
-@media screen and (min-width: 1500px)
+@media screen and (min-width: 1920px)
 {
-	.career .schema
-	{	
-		.schemaElement
+	@paddingLarge: 30px; 
+	@previewSizeLarge: 200px;
+
+	body
+	{
+		font-size: 18px !important;
+	}
+	.show
+	{
+		font-size: 1rem;
+	}
+	.panel .panel_icone
+	{
+		font-size: 1.8rem;
+	}
+	.form, .home_prods .home_redirect, .home_projects .home_redirect
+	{
+		padding: @paddingLarge 0;
+	}
+	.main .left h2, .main .right h2, .success, .error p, .about, .sheet, .contact_info, .prod .single_title, .project .single_title, .connection_message .connection_infos
+	{
+		padding: @paddingLarge;
+	}
+	.home
+	{
+		.home_title, .home_description, .notes
 		{
-			.hide;
+			padding: @paddingLarge;
 		}
-		svg
+	}
+	.preview
+	{
+		width: @previewSizeLarge;
+		height: @previewSizeLarge;
+	}
+
+	.skill
+	{
+		.skillBox
 		{
-			width: 65%;
-			max-height: 100%;
-			path
+			.specific
 			{
-				fill: @lightDark;
-			}
-			.arrow
-			{
-				stroke: @dark;
-				stroke-width: 300;
-			}
-			text
-			{
-				font-size: 3386px;
-				fill: @bright;
-			}
-			g
-			{
-				cursor: help;
-			}
-		}
-		.information
-		{
-			display: block;
-			font-size: 1rem;
-			width: 35%;
-			height: 100%;
-			position: relative;
-			.show
-			{
-				top: 50%;
-				transform: translateY(-50%);
-			}
-			p
-			{
-				display: none;
-				color: @bright;
-				margin: 0;
-				padding: 10px;
-				background-color: @dark;
-				position: absolute;
-				&:before
+				margin-left: 15px;
+				height: unset;
+				p
 				{
-					content: "";
-					position: absolute;
-					left: -12px;
-					height: 0;
-					width: 0;
-					border-right: 12px solid @dark;
-				}
-			}
-			#info_work
-			{
-				top: 20px;
-				&:before
-				{
-					top: 0;
-				    border-bottom: 15px solid transparent;
-				}
-			}
-			#info_perso
-			{
-				top: 125px;
-				left: -205px;
-				&:before
-				{
-					top: 0;
-				    border-bottom: 15px solid transparent;
-				}
-			}
-			#info_formation
-			{
-				bottom: 125px;
-				left: -15px;
-				&:before
-				{
-					bottom: 0;
-				    border-top: 15px solid transparent;
-				}
-			}
-			#info_old
-			{
-				bottom: 20px;
-				&:before
-				{
-					bottom: 0;
-				    border-top: 15px solid transparent;
+					margin: 20px 0;
+					font-size: 1.3rem;
+					
 				}
 			}
 		}
 	}
+	.career
+	{
+		.schema
+		{
+			flex-direction: row;
+			svg
+			{
+				width: 65%;
+				height: unset;
+			}
+			.information
+			{
+				width: 35%;
+				height: 100%;
+				position: relative;
+				.show
+				{
+					top: 50%;
+					transform: translateY(-50%);
+				}
+				p
+				{
+					padding: 10px;
+					position: absolute;
+					&:before
+					{
+						content: "";
+						position: absolute;
+						left: -12px;
+						height: 0;
+						width: 0;
+						border-right: 12px solid @dark;
+					}
+				}
+				#info_work
+				{
+					top: 20px;
+					&:before
+					{
+						top: 0;
+					    border-bottom: 15px solid transparent;
+					}
+				}
+				#info_perso
+				{
+					top: 125px;
+					left: -205px;
+					&:before
+					{
+						top: 0;
+					    border-bottom: 15px solid transparent;
+					}
+				}
+				#info_formation
+				{
+					bottom: 125px;
+					left: -15px;
+					&:before
+					{
+						bottom: 0;
+					    border-top: 15px solid transparent;
+					}
+				}
+				#info_old
+				{
+					bottom: 20px;
+					&:before
+					{
+						bottom: 0;
+					    border-top: 15px solid transparent;
+					}
+				}
+			}
+		}
+	}
+	.project
+	{
+		.single_title
+		{
+			font-size: 1.3rem;
+		}
+		.project_lastDate
+		{
+			font-size: 0.9rem;
+		}
+	}
+	.form form label,.form form input
+	{
+		font-size: 1.5rem;
+	}	
 }
