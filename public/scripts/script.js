@@ -15,6 +15,8 @@ $(document).ready(function()
 	  		loginPanel.fadeOut();
 		}
 	});
+
+
 	if($(window).width() >= 950)
 	{
 		// Chart
@@ -162,16 +164,36 @@ $(document).ready(function()
 				$('.schemaElement:not(".work")').fadeTo(0, 1);
 				$('#show_career').fadeIn(0);
 			});
+		
+		//Titles
+			$('.menu_page').mouseenter(function()
+			{
+				if(this.id == "link_home")
+					var page = "Accueil";
+				else if(this.id == "link_about")
+					var page = "À propos";
+				else if(this.id == "link_prod")
+					var page = "Mes réalisations";
+				else if(this.id == "link_project")
+					var page = "Mes projets";
+				else if(this.id == "link_contact")
+					var page = "Me contacter";
 
-		//Focus
-			if($('#login').is(':visible'))
+				var title = $("<p></p>");
+				title.text(page);
+				title.css('position', 'absolute');
+				title.offset({ top: $( this ).offset().top, left: 60});
+				title.addClass('menu_title');
+
+				$('body').append(title);
+			});
+			$('.menu_page').mouseleave(function()
 			{
-				$('#login').focus();
-			}
-			if($('#pseudo').is(':visible'))
-			{
-				$('#pseudo').focus();
-			}
+				if($('.menu_title'))
+				{
+					$('.menu_title').remove();
+				}
+			});
 	}
 
 // Success login/logout
@@ -187,7 +209,14 @@ $(document).ready(function()
 	}
 
 //Prod & Project
-	$('.fade').fadeIn(1000);
+	$('.fade').fadeIn(1000, function()
+		{
+			if($(window).width() >= 950)
+			{
+				$('#login').focus();
+				$('#pseudo').focus();
+			}
+		});
 
 // Counter
 	$('#comment_submit').attr("disabled", "disabled");

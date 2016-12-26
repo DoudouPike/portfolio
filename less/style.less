@@ -327,6 +327,7 @@
 			{
 				li
 				{
+					position: relative;
 					border-bottom: 1px solid black;
 				}
 				a
@@ -343,6 +344,19 @@
 						background-color: @bright;
 						margin: auto;
 					}
+				}
+				.title
+				{
+					position: absolute;
+					top: -100%;
+					right: -100%;
+
+
+					margin: 0;
+					z-index: 999;
+					background-color: @dark;
+					color: @bright;
+					font-size: 1rem;
 				}
 			}
 			.logo
@@ -1526,6 +1540,28 @@
 	{
 		margin: 8px 0;
 	}
+	.menu_title
+	{
+		padding: 10px;
+		text-align: center;
+		background-color: @dark;
+		color: @bright;
+		margin-left: 10px;
+		&:before
+		{
+			display: block;
+			content: "";
+			position: absolute;
+			height: 0;
+			width: 0;
+			left: -8px;
+			top: 50%;
+			transform: translateY(-50%);
+			border-top: 8px solid transparent;
+			border-right: 8px solid @dark;
+			border-bottom: 8px solid transparent;
+		}
+	}
 	.menu
 	{
 		width: @menuSize;
@@ -1536,7 +1572,7 @@
 			{
 				&:hover img
 				{
-					background-color: @lightDark;
+					background-color: @bright;
 				}
 				img
 				{
