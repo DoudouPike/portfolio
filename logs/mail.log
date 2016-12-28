@@ -1,0 +1,12 @@
+2016-12-27 11:03:34 u86961078 0aGfHY-1cKeOw1I8C-00GZ7Y |< REMOTE="2a01:cb10:4ea:3700:7889:7c1d:3a8:1e5b" SCRIPT=/index.php -- /usr/sbin/sendmail -t -i
+2016-12-27 11:03:34 u86961078 0aGfHY-1cKeOw1I8C-00GZ7Y <= S=doudoupike@hotmail.fr SZ=995 D=0 SID=653924033
+2016-12-27 11:03:34 u86961078 0aGfHY-1cKeOw1I8C-00GZ7Y => contact@doudoupike.fr msmtp.kundenserver.de[172.19.35.7] 250 Message 0M636U-1cje961W5i-00y700 accepted by mreue007.kundenserver.de
+2016-12-27 11:03:34 u86961078 0ZfxxG-1crFOS1qnG-00oEuP |< REMOTE="2a01:cb10:4ea:3700:7889:7c1d:3a8:1e5b" SCRIPT=/index.php -- /usr/sbin/sendmail -t -i
+2016-12-27 11:03:34 u86961078 0ZfxxG-1crFOS1qnG-00oEuP <= S=contact@doudoupike.fr SZ=1245 D=0 SID=653924033
+2016-12-27 11:03:34 u86961078 0ZfxxG-1crFOS1qnG-00oEuP => doudoupike@hotmail.fr msmtp.kundenserver.de[172.19.35.7] 250 Message 0Mbo5R-1c5elP26gH-00J6Pc accepted by mreue006.kundenserver.de
+2016-12-27 11:08:27 u86961078 0ZWa1E-1d0d4h2ajk-00evGG |< REMOTE="2a01:cb10:4ea:3700:7889:7c1d:3a8:1e5b" SCRIPT=/index.php -- /usr/sbin/sendmail -t -i
+2016-12-27 11:08:27 u86961078 0ZWa1E-1d0d4h2ajk-00evGG <= S=contact@doudoupike.fr SZ=1518 D=0 SID=653924033
+2016-12-27 11:08:27 u86961078 0ZWa1E-1d0d4h2ajk-00evGG => keke.doudoupike@gmail.com msmtp.kundenserver.de[172.19.35.7] 250 Message 0MSTdP-1bxN0y2oyh-00TVvd accepted by mreue006.kundenserver.de
+2016-12-28 07:47:04 u86961078 0ZI4N5-1ckdWB2IAx-00zYFv |< REMOTE="2a01:cb10:4ea:3700:1828:6e15:aee3:777e" SCRIPT=/index.php -- /usr/sbin/sendmail -t -i
+2016-12-28 07:47:04 u86961078 0ZI4N5-1ckdWB2IAx-00zYFv <= S=contact@doudoupike.fr SZ=1450 D=0 SID=653924033
+2016-12-28 07:47:04 u86961078 0ZI4N5-1ckdWB2IAx-00zYFv => keke.doudoupike@gmail.com msmtp.kundenserver.de[172.19.35.7] 250 Message 0MMcW2-1cTFI62kAA-008Lc0 accepted by mreue007.kundenserver.de

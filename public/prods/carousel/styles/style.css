@@ -1,0 +1,77 @@
+.carousel{
+	width: 800px;
+	margin: 150px auto 0;
+	position: relative;
+
+	border: 1px solid black;
+}
+
+.carousel .title{
+	position: absolute;
+	top: 0;
+	left: 15%;
+	right: 15%;
+	padding: 10px;
+
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+
+
+	font-size: 1.5em;
+	background-color: rgba(0,0,0,0.2);
+	color: white;
+}
+
+.carousel .title .description{
+	display: inline-block;
+}
+
+.carousel .title .descriptionLink{
+	float: right;
+	margin-right: 20px;
+	padding: 3px;
+}
+
+.carousel .side{
+	position: absolute;
+	width: 15%;
+	z-index: 10;
+	height: 100%;
+
+	border: 1px solid black;
+	background-color: rgba(0,0,0,0.2);
+	color: rgba(0,0,0,0.6);
+	font-size: 4em;
+}
+.carousel .side:hover{
+	cursor: pointer;
+}
+.carousel .side i{
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	transform: translateX(-50%) translateY(-50%);
+}
+
+.carouselImg{
+	width: 100%;
+	height: 350px;
+	vertical-align: middle;
+}
+
+.hide{
+	display: none;
+}
+
+#left{
+	left: 0;
+	top: 0;
+}
+
+
+#right{
+	right: 0;
+	top: 0;
+}
