@@ -3,7 +3,7 @@ if(isset($_POST["action"]))
 {
 	$action = $_POST['action'];
 
-	if($action == 'create' && (isset($_POST['title'], $_POST['content'], $_POST['abstract'], $_POST['image'], $_POST['url'], $_POST['date'], $_SESSION['id'], $_SESSION['admin'])))
+	if($action == 'create' && (isset($_POST['title'], $_POST['content'], $_POST['image'], $_POST['url'], $_POST['date'], $_SESSION['id'], $_SESSION['admin'])))
 	{
 		$userManager = new UserManager($db);
 		$projectManager = new ProjectManager($db);
@@ -13,7 +13,7 @@ if(isset($_POST["action"]))
 			if (!$user)
 				throw new Exception("Vous n'êtes plus connecté");
 
-			$project = $projectManager->create($_POST['title'], $_POST['content'], $_POST['abstract'], $_POST['image'], $_POST['url'], $_POST['date']);
+			$project = $projectManager->create($_POST['title'], $_POST['content'], $_POST['image'], $_POST['url'], $_POST['date']);
 			if(!$project)
 				throw new Exception("Erreur interne");
 			header('Location: index.php?admin&page=project_back#'.$project->getId().'');
@@ -25,7 +25,7 @@ if(isset($_POST["action"]))
 			$error = $exception->getMessage();
 		}
 	}
-	elseif($action == "edit" && (isset($_POST['id'], $_POST['title'], $_POST['content'], $_POST['abstract'], $_POST['image'], $_POST['url'], $_POST['date'], $_SESSION['id'], $_SESSION['admin'])))
+	elseif($action == "edit" && (isset($_POST['id'], $_POST['title'], $_POST['content'], $_POST['image'], $_POST['url'], $_POST['date'], $_SESSION['id'], $_SESSION['admin'])))
 	{
 		$userManager = new UserManager($db);
 		$projectManager = new ProjectManager($db);
@@ -38,7 +38,6 @@ if(isset($_POST["action"]))
 			$project = $projectManager->findById($_POST['id']);
 			$project->setTitle($_POST['title']);
 			$project->setContent($_POST['content']);
-			$project->setAbstract($_POST['abstract']);
 			$project->setImage($_POST['image']);
 			$project->setUrl($_POST['url']);
 			$project->setDate($_POST['date']);

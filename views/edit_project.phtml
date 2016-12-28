@@ -4,10 +4,9 @@
 	<input type="hidden" name="id" value="<?= $project->getId() ?>">
 	<input type="text" name="title" value="<?= htmlentities($project->getTitle()) ?>">
 	<textarea name="content"><?= htmlentities($project->getContent()) ?></textarea>
-	<textarea name="abstract"><?= htmlentities($project->getAbstract()) ?></textarea>
 	<input type="text" name="image" value="<?= htmlentities($project->getImage()) ?>">
 	<input type="url" name="url" value="<?= htmlentities($project->getUrl()) ?>">
 	<input type="text" name="date" placeholder="date" id="datepicker" value="<?= htmlentities($project->getFormatedDate()) ?>">
 	<input type="submit" id="send" value="Modifier projet">
 </form>
-<a href="index.php?admin&page=projects#<?= $project->getId() ?>">Annuler</a>
+<a href="index.php?admin&page=project_back#<?= $project->getId() ?>">Annuler</a>

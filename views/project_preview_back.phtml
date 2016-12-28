@@ -1,6 +1,5 @@
 <div id="<?= $project->getId() ?>" style="background: url('public/images/projects/<?= htmlentities($project->getImage()) ?>') center center no-repeat">
 	<p><?= htmlentities($project->getTitle()) ?></p>
-	<p><?= htmlentities($project->getAbstract()) ?></p>
 	<p>ajouté le: <?= htmlentities($project->getFormatedDate()) ?></p>
 	<p>dernière modification: <?= htmlentities($project->getLastDate()) ?></p>
 	<div><?php require('controllers/project_admin.php'); ?></div>

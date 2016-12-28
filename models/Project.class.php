@@ -6,7 +6,6 @@ class Project
 	private $id;
 	private $title;
 	private $content;
-	private $abstract;
 	private $image;
 	private $url;
 	private $date;
@@ -35,10 +34,6 @@ class Project
 	public function getContent()
 	{
 		return $this->content;
-	}
-	public function getAbstract()
-	{
-		return $this->abstract;
 	}
 	public function getImage()
 	{
@@ -106,19 +101,6 @@ class Project
 		else
 		{
 			$this->content = $content;
-		}
-	}
-	public function setAbstract($abstract)
-	{
-		if(empty($abstract))
-			throw new Exception("Résumé vide");
-		else if(strlen($abstract) < 4)
-			throw new Exception("Résumé trop court");
-		else if(strlen($abstract) > 1023)
-			throw new Exception("Résumé trop long");
-		else
-		{
-			$this->abstract = $abstract;
 		}
 	}
 	public function setImage($image)
