@@ -36,8 +36,8 @@ if(isset($_POST['action']))
 				</head>
 				<body>
 					<p>Bonjour ".$_POST['login'].",</p>
-					<p>Cliquez sur le lien ci dessous pour confirmer votre inscription au site <a href=\"http://doudoupike.fr\">doudoupike.fr</a>.</p>
-					<p><a href=\"http://doudoupike.fr/index.php?page=connection&log=".urlencode($_POST['login'])."&id=".$id."\">Confirmer mon inscription</a></p>
+					<p>Cliquez sur le lien ci dessous pour confirmer votre inscription au site <a href=\"https://doudoupike.fr\">doudoupike.fr</a>.</p>
+					<p style='text-align: center; margin: 50px 0'><a href=\"https://doudoupike.fr/index.php?page=connection&log=".urlencode($_POST['login'])."&id=".$id."\">Confirmer mon inscription</a></p>
 				</body>
 			</html>";
 
