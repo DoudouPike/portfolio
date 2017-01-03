@@ -166,6 +166,10 @@ $(document).ready(function()
 			});
 		
 		//Titles
+
+			
+
+
 			$('.menu_page').mouseenter(function()
 			{
 				if(this.id == "link_home")

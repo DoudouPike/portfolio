@@ -3,7 +3,9 @@
 		<h3 class="single_title"><?= htmlentities($project->getTitle()) ?><span class="project_lastDate">Dernière modif: <?=htmlentities($project->getLastDate()) ?></span></h3>
 		<div class="project_presentation">
 			<figure class="single_image project_image">
-				<img src="public/images/projects/<?= htmlentities($project->getImage()) ?>" alt='illustration du projet'>
+				<a href="<?= htmlentities($project->getUrl()) ?>">
+					<img src="public/images/projects/<?= htmlentities($project->getImage()) ?>" alt='illustration du projet'>
+				</a>
 			</figure>
 			<div class="project_content">
 				<div class="project_description">
@@ -11,7 +13,7 @@
 				</div>
 				<div class="project_information">
 					<p>Débuté le: <?= htmlentities($project->getFormatedDate()) ?></p>
-					<p><a href="<?= htmlentities($project->getUrl()) ?>" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i> <?= htmlentities($project->getUrl()) ?></a></p>
+					<p><a href="<?= htmlentities($project->getUrl()) ?>"><i class="fa fa-external-link" aria-hidden="true"></i> <?= htmlentities($project->getUrl()) ?></a></p>
 				</div>
 			</div>
 		</div>

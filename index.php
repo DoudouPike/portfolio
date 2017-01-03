@@ -18,9 +18,9 @@ function __autoload($className)
 	require('models/'.$className.'.class.php');
 }
 
-$title = "DoudouPike";
-if(isset($_GET['admin']))
-	$title = "BackOffice";
+$title = "DoudouPike | Développeur Web Front & Back";
+if(isset($_GET['admin'], $_SESSION['admin']))
+	$title = "DoudouPike | BackOffice";
 
 $page = "home";
 if(isset($_GET['admin'], $_SESSION['admin']) )
@@ -50,49 +50,49 @@ if(isset($_GET['page']))
 if($page == "home")
 {
 	$pageName = "Accueil";
-	$pageDescription = "Kévin Pique alias DoudouPike, Développeur Web Front & Back en Alsace - Découvrez mes connaissances (HML, CSS, PHP, JavaScript, MySQL), mon parcours (3W Academy), mes réalisations et mes projets !";
+	$pageDescription = "Kévin Pique alias DoudouPike, Développeur Web Front&Back à Guebwiller (Alsace). Mes compétences (HTML, CSS, PHP, MySQL, JS), ma formation (3W Academy), mes réalisations et projets.";
 	$ogURL = "http://doudoupike.fr/";
 }
 elseif($page == "about")
 {
 	$pageName = "À propos";
-	$pageDescription = "À propos de moi : DoudouPike, Développeur Web en Alsace. Philosophie, Fight Club. Mes connaissances : HTML5, CSS3, PHP, JavaScript, jQuery, MySQL. Mon parcous : Formation 3W Academy.";
+	$pageDescription = "Kévin Pique alias DoudouPike, Développeur Web Front&Back à Guebwiller (Alsace). Mes compétences : HTML5, CSS3, PHP, JavaScript, jQuery, MySQL. Mon parcours : Formation 3W Academy.";
 	$ogURL = "http://doudoupike.fr/index.php?page=about";
 }
 elseif($page == "portfolio")
 {
 	$pageName = "Mes réalisations";
-	$pageDescription = "Découvrez mes réalisations dans les langages Web suivant : HTML, CSS, JavaScript, PHP";
+	$pageDescription = "Kévin Pique alias DoudouPike, Développeur Web Front&Back à Guebwiller (Alsace). Découvrez mes réalisations dans les langages Web suivant : HTML, CSS, JavaScript, PHP";
 	$ogURL = "http://doudoupike.fr/index.php?page=portfolio";
 }
 elseif($page == "mine")
 {
 	$pageName = "Mes projets";
-	$pageDescription = "Découvrez mes projets et leurs actualités, postez des commentaires.";
+	$pageDescription = "Kévin Pique alias DoudouPike, Développeur Web Front&Back à Guebwiller (Alsace). Découvrez mes projets Web et leurs actualités. Inscrivez vous pour poster des commentaires.";
 	$ogURL = "http://doudoupike.fr/index.php?page=mine";
 }
 elseif($page == "contact")
 {
 	$pageName = "Me contacter";
-	$pageDescription = "Un poste à proposer ? Besoin d'un site ? Une question sur mon travail ? Besoin d'aide pour réaliser un projet ? N'hésitez pas à me contacter !";
+	$pageDescription = "Kévin Pique alias DoudouPike, Développeur Web Front&Back à Guebwiller (Alsace). Un poste à proposer? Besoin d'un site ? Une question sur mon travail? N'hésitez pas à me contacter!";
 	$ogURL = "http://doudoupike.fr/index.php?page=contact";
 }
 elseif($page == "connection")
 {
 	$pageName = "Se connecter";
-	$pageDescription = "Connectez-vous pour pouvoir poster des commentaires. Connexion sécurisée, accedez librement à vos informations pour les modifier ou les supprimer.";
+	$pageDescription = "Kévin Pique alias DoudouPike, Développeur Web Front&Back à Guebwiller (Alsace). Connexion sécurisée, accédez librement à vos informations pour les modifier ou les supprimer.";
 	$ogURL = "http://doudoupike.fr/index.php?page=connection";
 }
 elseif($page == "dashboard")
 {
 	$pageName = "Mon compte";
-	$pageDescription = "Modifier mon compte ou le supprimer. Voir la liste des commentaires que j'ai posté.";
+	$pageDescription = "Kévin Pique alias DoudouPike, Développeur Web Front&Back à Guebwiller (Alsace). Modifier mon compte ou le supprimer. Voir la liste des commentaires que j'ai posté.";
 	$ogURL = "http://doudoupike.fr/index.php?page=dashboard";
 }
 else
 {
 	$pageName = "";
-	$pageDescription = "Kévin Pique alias DoudouPike, Développeur Web Front & Back en Alsace";
+	$pageDescription = "Kévin Pique alias DoudouPike, Développeur Web Front&Back à Guebwiller (Alsace).";
 	$ogURL = "http://doudoupike.fr/";
 }
 

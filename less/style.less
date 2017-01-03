@@ -9,6 +9,13 @@
 @input: rgba(120,120,120,0.4);
 @inputHover: rgba(120,120,120,0.8);
 
+@keyframes bubble
+{
+	0%   {transform: scale(1);}
+	50%  {transform: scale(1.05);}
+	100% {transform: scale(1);}
+}
+
 /* Variables & Mixins */
 	@menuSizePhoneLittle: 50px;
 	@buttonSizePhoneLittle: 30px;
@@ -1546,6 +1553,7 @@
 	}
 	.menu_title
 	{
+		animation: bubble 0.5s linear;
 		padding: 10px;
 		text-align: center;
 		background-color: @dark;
@@ -1607,11 +1615,21 @@
 			}
 		}		
 	}
+	.home
+	{
+		.home_title
+		{
+			h1, h2
+			{
+				animation: bubble 0.5s linear;
+			}
+		}
+	}
 	.preview
 	{
 		width: @previewSize;
 		height: @previewSize;
-		.default_transition;
+		animation: bubble 0.5s linear;
 		.previewImage
 		{
 			.default_transition;
@@ -1620,7 +1638,7 @@
 				.default_transition;
 				.previewContent
 				{
-					.default_transition;
+					transition: 0;
 					color: @bright;
 					visibility: hidden;
 					h3
@@ -1736,6 +1754,18 @@
 		
 	.prod, .project
 	{
+		.single_image
+		{
+			img
+			{
+				.default_transition;
+				&:hover
+				{
+					transform: scale(1.1);
+				}
+			}
+			
+		}
 		.prod_description, .prod_informations, .project_image, .project_content
 		{
 			height: 100%;
@@ -1909,7 +1939,7 @@
 			}
 		}
 	}
-	.project
+	.project, .prod
 	{
 		.single_title
 		{

@@ -2,7 +2,9 @@
 	<article class="prod">
 		<h3 class="single_title"><?= htmlentities($prod->getTitle()) ?></h3>
 		<figure class="single_image prod_image">
-			<img src="public/images/prods/<?= htmlentities($prod->getImage()) ?>" alt='illustration du projet'>
+			<a href="<?= htmlentities($prod->getUrl()) ?>" >
+				<img src="public/images/prods/<?= htmlentities($prod->getImage()) ?>" alt='illustration du projet'>
+			</a>
 		</figure>
 		<div class="prod_content">
 			<div class="prod_description">
@@ -14,7 +16,7 @@
 				<div>
 					<p>Réalisé le : <?= htmlentities($prod->getFormatedDate()) ?></p>
 					<p>Pour : <?= htmlentities($prod->getClient()) ?></p>
-					<p><a href="<?= htmlentities($prod->getUrl()) ?>" target="_blank" ><i class="fa fa-external-link" aria-hidden="true"></i> <?= htmlentities($prod->getUrl()) ?></a></p>
+					<p><a href="<?= htmlentities($prod->getUrl()) ?>" ><i class="fa fa-external-link" aria-hidden="true"></i> <?= htmlentities($prod->getUrl()) ?></a></p>
 				</div>
 			</div>
 		</div>
