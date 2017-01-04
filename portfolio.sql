@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  db655083596.db.1and1.com
--- Généré le :  Mer 28 Décembre 2016 à 13:38
+-- Généré le :  Mar 03 Janvier 2017 à 18:04
 -- Version du serveur :  5.5.52-0+deb7u1-log
 -- Version de PHP :  5.4.45-0+deb7u6
 
