@@ -1,6 +1,8 @@
 @facebook: rgb(59,89,152);
 @twitter: rgb(29,161,242);
 @github: rgb(23,21,21);
+@orange: rgb(191,60,24);
+@orangeDark: rgb(127,40,16);
 @bright: rgb(240,240,240);
 @lightBright: rgb(220,220,220);
 @lightDark: rgb(67,67,67);
@@ -305,7 +307,7 @@
 		.right
 		{
 			bottom: 0;
-			background-color: @bright;
+			background: url('../images/right.png') center center no-repeat;
 			color: @dark;
 			h2
 			{
@@ -499,6 +501,7 @@
 		}
 		.home_title
 		{
+			font-family: 'Overpass Mono', "Lucida Console", Monaco, monospace;
 			background-color: @transpLightDark;
 			top: 0;
 			left: 50%;
@@ -551,7 +554,7 @@
 			text-align: center;
 			padding: @paddingPhoneLittle 0;
 			color: @lightBright;
-			background-color: @lightDark;
+			background-color: @transpLightDark;
 		}
 	}
 	.home_prods
@@ -783,6 +786,7 @@
 	.single
 	{
 		height: 100%;
+		background-color: @bright;
 	}
 	.prod, .project
 	{
