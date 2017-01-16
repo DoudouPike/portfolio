@@ -596,24 +596,45 @@
 	{
 		.flex;
 		.flexWrap;
-	}	
+	}
 
 	.preview
 	{
 		width: @previewSizePhoneLittle;
 		height: @previewSizePhoneLittle;
-		margin: 10px;
 		font-weight: bold;
 		text-align: center;
 		border: 2px solid @dark;
 		background-color: @white;
 		overflow: hidden;
+		
 		.previewImage
 		{
+			position: relative;
+			background-color: @bright;
 			background-size: contain;
 			background-position: center center;
 			background-repeat: no-repeat;
 			height: 100%;
+			&:before{
+				content:"";
+			    position:absolute;
+			    bottom:0;
+			    right:0;
+			    border-width:10px 10px 0px 0px;
+			    border-style:solid;
+			    border-color:transparent @white @white transparent;
+			}
+			&:after{
+				content:"";
+			    position:absolute;
+			    bottom:0;
+			    right:0;
+			    border-width:10px 10px 0px 0px;
+			    border-style:solid;
+			    animation: colorSwitchBg 1.5s infinite;
+			    border-color:@white transparent transparent @white;
+			}
 			a
 			{
 				font-size: 0.6rem;
@@ -1424,9 +1445,30 @@
 	{
 		width: @previewSizePad;
 		height: @previewSizePad;
-		.previewImage a
-		{
-			font-size: 1.5rem;
+		.previewImage{
+			&:before{
+				content:"";
+			    position:absolute;
+			    bottom:0;
+			    right:0;
+			    border-width:30px 30px 0px 0px;
+			    border-style:solid;
+			    border-color:transparent @white @white transparent;
+			}
+			&:after{
+				content:"";
+			    position:absolute;
+			    bottom:0;
+			    right:0;
+			    border-width:30px 30px 0px 0px;
+			    border-style:solid;
+			    animation: colorSwitchBg 1.5s infinite;
+			    border-color:@white transparent transparent @white;
+			}
+			a
+			{
+				font-size: 1.5rem;
+			}
 		}
 	}
 	.skill .skillBox .specific
@@ -1650,7 +1692,6 @@
 		height: @previewSize;
 		animation: bubblebg 0.5s linear;
 		animation: colorSwitchBg 1.5s infinite;
-		padding: 10px;
 		.previewImage
 		{
 			.default_transition;
