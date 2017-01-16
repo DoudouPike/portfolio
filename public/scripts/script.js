@@ -298,4 +298,9 @@ $(document).ready(function()
 		    }, 750);
 		}
 	}
+
+//PopUp
+	if($(location).attr('href').indexOf('?') == -1){
+		alert("L'apparence du site est en cours de modification. Merci de votre compréhension.");
+	}
 });

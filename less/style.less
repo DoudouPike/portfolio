@@ -41,6 +41,12 @@
 	50% {color: @lime;}
 	100% {color: @purple;}
 }
+@keyframes colorSwitchBg
+{
+	0% {background-color: @purple;}
+	50% {background-color: @lime;}
+	100% {background-color: @purple;}
+}
 
 /* Variables & Mixins */
 	@menuSizePhoneLittle: 50px;
@@ -550,7 +556,7 @@
 					line-height: 1;
 					padding-left: 10px;
 					color: @lime;
-					border-left: 1px solid @lime;
+					border-left: 1px solid @purple;
 					
 				}
 			}
@@ -1643,6 +1649,7 @@
 		width: @previewSize;
 		height: @previewSize;
 		animation: bubblebg 0.5s linear;
+		animation: colorSwitchBg 1.5s infinite;
 		padding: 10px;
 		.previewImage
 		{
