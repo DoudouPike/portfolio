@@ -1447,23 +1447,10 @@
 		height: @previewSizePad;
 		.previewImage{
 			&:before{
-				content:"";
-			    position:absolute;
-			    bottom:0;
-			    right:0;
 			    border-width:30px 30px 0px 0px;
-			    border-style:solid;
-			    border-color:transparent @white @white transparent;
 			}
 			&:after{
-				content:"";
-			    position:absolute;
-			    bottom:0;
-			    right:0;
 			    border-width:30px 30px 0px 0px;
-			    border-style:solid;
-			    animation: colorSwitchBg 1.5s infinite;
-			    border-color:@white transparent transparent @white;
 			}
 			a
 			{
@@ -1681,9 +1668,6 @@
 			{
 				animation: bubble 0.5s linear;
 			}
-			h2{
-				animation: colorSwitch 1.5s infinite;
-			}
 		}
 	}
 	.preview
@@ -1691,7 +1675,6 @@
 		width: @previewSize;
 		height: @previewSize;
 		animation: bubblebg 0.5s linear;
-		animation: colorSwitchBg 1.5s infinite;
 		.previewImage
 		{
 			.default_transition;
