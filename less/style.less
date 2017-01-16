@@ -1,8 +1,9 @@
 @facebook: rgb(59,89,152);
 @twitter: rgb(29,161,242);
 @github: rgb(23,21,21);
-@bright: rgb(240,240,240);
-@lightBright: rgb(220,220,220);
+
+@bright: rgb(127,0,127);
+@lightBright: rgb(14,226,14);
 @lightDark: rgb(67,67,67);
 @transpLightDark: rgba(67,67,67,0.6);
 @dark: rgb(26,26,26);
@@ -293,7 +294,7 @@
 		.left
 		{
 			top: 0;
-			background: url(../images/left.png) center center no-repeat;
+			background: url(../images/coloredleft.png) center center no-repeat;
 			background-size: cover;
 			color: @lightBright;
 			h2
@@ -305,7 +306,8 @@
 		.right
 		{
 			bottom: 0;
-			background: url('../images/right.png') center center no-repeat;
+			background: url('../images/coloredright.png') center center no-repeat;
+			background-size: cover;
 			color: @dark;
 			h2
 			{
@@ -516,7 +518,7 @@
 			.transform(translateY(-50%));
 			text-align: center;
 			color: @dark;
-			background-color: rgba(220,220,220,1);
+			background-color: @lightBright;
 		}
 		.notes
 		{
@@ -1497,6 +1499,7 @@
 	}
 	.button
 	{
+		.default_transition;
 		&:hover
 		{
 			color: gray !important;
