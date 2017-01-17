@@ -166,10 +166,6 @@ $(document).ready(function()
 			});
 		
 		//Titles
-
-			
-
-
 			$('.menu_page').mouseenter(function()
 			{
 				if(this.id == "link_home")
@@ -300,7 +296,7 @@ $(document).ready(function()
 	}
 
 //PopUp
-	if($(location).attr('href').indexOf('?') == -1){
-		alert("L'apparence du site est en cours de modification. Merci de votre compréhension.");
-	}
+	// if($(location).attr('href').indexOf('?') == -1){
+	// 	alert("L'apparence du site est en cours de modification. Merci de votre compréhension.");
+	// }
 });
