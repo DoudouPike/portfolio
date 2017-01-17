@@ -179,11 +179,14 @@ $(document).ready(function()
 				else if(this.id == "link_contact")
 					var page = "Me contacter";
 
-				var title = $("<p></p>");
-				title.text(page);
-				title.css('position', 'absolute');
-				title.offset({ top: $( this ).offset().top, left: 60});
+				var title = $("<div></div>");
 				title.addClass('menu_title');
+				title.offset({ top: $( this ).offset().top});
+
+				var title_text = $("<p></p>");
+				title_text.text(page);
+
+				title.append(title_text);
 
 				$('body').append(title);
 			});
