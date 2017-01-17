@@ -3,7 +3,8 @@
 @github: rgb(23,21,21);
 
 @white: rgb(255,255,255);
-@orange: rgb(255,83,13);
+@pink: rgb(251,0,172);
+@darkPink: rgb(97,0,66);
 @lightWhite: rgb(200,200,200);
 
 @vLightBright: rgb(81,81,81);
@@ -15,31 +16,26 @@
 @transpLightDark: rgba(35,35,35,0.6);
 @dark: rgb(26,26,26);
 
-@html: rgb(236,102,43);
-@css: rgb(34,119,255);
-@php: rgb(118,122,178);
-@js: rgb(246,232,43);
+@html: rgb(173,69,131);
+@css: rgb(255,45,234);
+@php: rgb(235,0,255);
+@mysql: rgb(158,56,255);
+@js: rgb(84,0,255);
 
-@input: rgba(120,120,120,0.4);
-@inputHover: rgba(120,120,120,0.8);
+@input: rgb(26,26,26);
+@inputHover: rgb(35,35,35);
 
 @keyframes bubble
 {
 	0%   {transform: scale(1);}
-	50%  {transform: scale(1.05); color: @orange;}
+	50%  {transform: scale(1.05)}
 	100% {transform: scale(1);}
 }
-@keyframes bubblebg
+@keyframes bubbleshadow
 {
 	0%   {transform: scale(1);}
-	50%  {transform: scale(1.05);}
+	50%  {transform: scale(1.05); box-shadow: 0 0 10px @pink;}
 	100% {transform: scale(1);}
-}
-@keyframes colorSwitch
-{
-	0% {color: @white;}
-	50% {color: @orange;}
-	100% {color: @white;}
 }
 
 /* Variables & Mixins */
@@ -175,7 +171,7 @@
 	{
 		border: 1px solid;
 		background-color: @input !important;
-		color: @orange !important;
+		color: @pink !important;
 		&:focus
 		{
 			background-color: @inputHover !important;
@@ -248,7 +244,7 @@
 		font-size: 0.6rem;
 		padding: 5px;
 		text-align: right;
-		border: 2px solid @orange;
+		border: 2px solid @pink;
 		span
 		{
 			display: inline-block;
@@ -285,7 +281,7 @@
 	{
 		padding: @paddingPhoneLittle;
 		text-align: center;
-		background-color: @orange;
+		background-color: @pink;
 		margin: 0;
 	}
 
@@ -373,7 +369,7 @@
 					text-align: center;
 					img
 					{
-						background-image: linear-gradient(135deg, @orange, @white, @orange);
+						background-image: linear-gradient(135deg, @darkPink, @white, @darkPink);
 						background-size: auto 200%;
 						background-position: 0 100%;
 
@@ -391,7 +387,7 @@
 					margin: 0;
 					z-index: 999;
 					background-color: @dark;
-					color: @orange;
+					color: @pink;
 					font-size: 1rem;
 				}
 			}
@@ -408,7 +404,7 @@
 			position: absolute;
 			top: 0;
 			bottom: 0;
-			background-color: orange;
+			background-color: pink;
 			.submenu
 			{
 				&:hover
@@ -472,7 +468,7 @@
 		padding: @paddingPhoneLittle;
 		p
 		{
-			color: @orange;
+			color: @pink;
 			margin: 0;
 		}
 	}
@@ -527,7 +523,9 @@
 			text-align: center;
 			h2
 			{
-				color: @white;
+				color: @pink;
+				text-shadow: 0px 0px 7px #FFFFFF;
+				font-weight: bold;
 			}
 		}
 		.home_description
@@ -552,7 +550,7 @@
 				{
 					line-height: 1;
 					padding-left: 10px;
-					color: @orange;
+					color: @pink;
 					border-left: 1px solid @white;
 					
 				}
@@ -597,8 +595,7 @@
 
 	.preview
 	{
-		padding: 10px;
-		animation: colorSwitchBg 1.5s infinite;
+		position: relative;
 		width: @previewSizePhoneLittle;
 		height: @previewSizePhoneLittle;
 		font-weight: bold;
@@ -606,33 +603,26 @@
 		border: 2px solid @dark;
 		background-color: @lightWhite;
 		overflow: hidden;
+		margin: 10px;
+		&:after{
+			.default_transition;
+			content: "";
+		    position: absolute;
+		    bottom: 0;
+		    right: 0;
+		    border-width: 10px 10px 0px 0px;
+		    border-style: solid;
+		    border-color: transparent @pink;
+		}
 		
 		.previewImage
 		{
-			position: relative;
+    		filter: grayscale(1);
 			background-color: @bright;
 			background-size: contain;
 			background-position: center center;
 			background-repeat: no-repeat;
 			height: 100%;
-			&:before{
-				content:"";
-			    position:absolute;
-			    bottom:0;
-			    right:0;
-				border-width:10px 10px 0px 0px;
-			 	border-style:solid;
-				border-color:transparent @lightWhite @lightWhite transparent;
-			}
-			&:after{
-				content:"";
-			    position:absolute;
-			    bottom:0;
-			    right:0;
-			    border-width:10px 10px 0px 0px;
-			    border-style:solid;
-			    border-color:@lightWhite @orange @orange @lightWhite;
-			}
 			a
 			{
 				font-size: 0.6rem;
@@ -645,8 +635,8 @@
 					.previewContent
 					{
 						.column;
-						height: 100%;
 						color: @dark;
+						height: 100%;						
 						h3
 						{
 							margin: auto !important;
@@ -679,7 +669,7 @@
 		}
 		.toggle_desktop
 		{
-			color: @orange;
+			color: @pink;
 			opacity: 0.3;
 			margin: 0;
 			background-color: @dark;
@@ -734,8 +724,8 @@
 				}
 				.mysql
 				{
-					fill: @lightWhite;
-					border-color: @lightWhite !important;
+					fill: @mysql;
+					border-color: @mysql !important;
 
 				}
 				.js
@@ -781,7 +771,7 @@
 				text
 				{
 					font-size: 3800px;
-					fill: @orange;
+					fill: @pink;
 				}
 			}
 			.information
@@ -875,13 +865,13 @@
 			.prod_description
 			{
 				color: @white;
-				background-color: @orange;
+				background-color: @pink;
 				border-bottom: 1px solid @dark;
 			}
 			.prod_informations
 			{
 				background-color:@lightDark;
-				color: @orange;
+				color: @pink;
 				border-top: 1px solid @dark;
 			}
 		}
@@ -907,7 +897,7 @@
 			.project_content
 			{
 				background-color:@lightDark;
-				color: @orange;
+				color: @pink;
 				.flex;
 				.project_description
 				{
@@ -944,8 +934,8 @@
 					font-size: 1rem;
 					padding: 5px;
 					margin: 0;
-					background-color: @orange;
-					color: @lightDark;
+					background-color: @darkPink;
+					color: @white;
 					text-align: center;
 				}
 				.reviews_list
@@ -1084,7 +1074,7 @@
 		{
 			flex: 1;
 			.column;
-			background-color: @orange;
+			background-color: @pink;
 			p
 			{
 				margin: auto;
@@ -1133,7 +1123,7 @@
 		.admin
 		{
 			font-size: 1.5rem;
-			background-color: @orange;
+			background-color: @pink;
 			color: @dark;
 			padding: @paddingPhoneLittle;
 			text-align: center;
@@ -1161,7 +1151,7 @@
 			}
 			.comments
 			{
-				overflow: scroll;
+				overflow: auto;
 				display: block;
 				flex: 1;
 				.column;
@@ -1172,8 +1162,8 @@
 					font-size: 1rem;
 					padding: 5px;
 					margin: 0;
-					background-color: @orange;
-					color: @lightDark;
+					background-color: @darkPink;
+					color: @white;
 					text-align: center;
 				}
 
@@ -1225,7 +1215,7 @@
 					.buttonOk
 					{
 						background-color: @lightDark !important;
-						color: @orange !important;
+						color: @pink !important;
 					}
 					.wrongCount
 					{
@@ -1301,7 +1291,7 @@
 		{
 			display: block;
 			flex: 1;
-			background-color: @orange;
+			background-color: @pink;
 			color: @dark;
 			h3
 			{
@@ -1342,7 +1332,7 @@
 				}
 				&.mysql
 				{
-					border-color: @lightWhite !important;
+					border-color: @mysql !important;
 				}
 				&.js
 				{
@@ -1443,15 +1433,13 @@
 	}
 	.preview
 	{
+		box-shadow: 0 0 5px white;
 		width: @previewSizePad;
 		height: @previewSizePad;
+		&:after{
+		    border-width:30px 30px 0px 0px;
+		}
 		.previewImage{
-			&:before{
-			    border-width:30px 30px 0px 0px;
-			}
-			&:after{
-			    border-width:30px 30px 0px 0px;
-			}
 			a
 			{
 				font-size: 1.5rem;
@@ -1531,7 +1519,7 @@
 	a{
 		.default_transition;
 		&:hover{
-			color: @white;
+			color: @pink;
 			text-decoration: none;
 		}
 		&:active
@@ -1609,7 +1597,7 @@
 		padding: 10px;
 		text-align: center;
 		background-color: @dark;
-		color: @lightWhite;
+		color: @pink;
 		margin-left: 10px;
 		&:before
 		{
@@ -1636,7 +1624,7 @@
 			{
 				&:hover img
 				{
-					animation: bubblebg 0.5s linear;
+					animation: bubble 0.5s linear;
 					background-position: 0 0;
 				}
 				img
@@ -1656,6 +1644,7 @@
 			cursor: pointer;
 			.default_transition;
 			&:hover{
+				color: @pink;
 				animation: bubble 0.5s linear;
 			}
 		}	
@@ -1674,7 +1663,7 @@
 	{
 		width: @previewSize;
 		height: @previewSize;
-		animation: bubblebg 0.5s linear;
+		animation: bubbleshadow 0.5s linear;
 		.previewImage
 		{
 			.default_transition;
@@ -1684,7 +1673,7 @@
 				.previewContent
 				{
 					transition: 0;
-					color: @white;
+					color: @pink;
 					visibility: hidden;
 					h3
 					{
@@ -1693,9 +1682,16 @@
 				}
 			}
 		}
+		&:hover{
+			box-shadow: 0 0 10px @pink;
+			&:after{
+				opacity: 0.3;
+			}
+		}
 		&:hover .previewImage
 		{
 			transform: scale(1.1);
+			filter: grayscale(0);
 		}
 		&:hover .previewFilm
 		{
@@ -1703,6 +1699,8 @@
 		}
 		&:hover .previewContent
 		{
+			text-overflow: clip;
+			word-wrap: break-word;
 			visibility: visible !important;
 		}
 	}
@@ -1717,7 +1715,7 @@
 		{
 			display: none;
 			text-align: center;
-			color: @orange;
+			color: @pink;
 			opacity: 0.6;
 			margin: 0;
 			padding: 10px;
@@ -1775,7 +1773,7 @@
 					&:not(.show)
 					{
 						background-color: @dark;
-						color: @orange;
+						color: @pink;
 					}
 				}
 			}
@@ -1855,7 +1853,7 @@
 	input[type="submit"]
 	{
 		&:hover, &:focus{
-			color: @orange;
+			color: @pink;
 			background-color: @lightDark;
 		}
 	}		
