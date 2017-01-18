@@ -251,7 +251,6 @@
 
 	.user_info
 	{
-		text-shadow: 0px 0px 5px @color1;
 		font-size: 0.6rem;
 		padding: 5px;
 		text-align: right;
@@ -616,40 +615,8 @@
 		text-align: center;
 		overflow: hidden;
 		margin: 10px;
-		
-		box-shadow: 0 0 2px @white;
-		padding: 2px;
-		&:before, &:after {
-			.default_transition;
-			content: "";
-			position: absolute;
-			top: 0; bottom: 0; left: 0; right: 0;
-		}
-		&:before {
-			background-position: 0 0, 0 100% ;
-			background-repeat: no-repeat;
-			-webkit-background-size: 100% 2px;
-			-moz-background-size: 100% 2px;
-			background-size: 100% 2px;
-			background-image: -webkit-linear-gradient(to right, @color1 20%, @white 100%), -webkit-linear-gradient(right, @color1 20%, @white 100%);
-			background-image: -moz-linear-gradient(to right, @color1 20%, @white 100%), -moz-linear-gradient(right, @color1 20%, @white 100%);
-			background-image: -o-linear-gradient(to right, @color1 20%, @white 100%), -o-linear-gradient(right, @color1 20%, @white 100%);
-			background-image: linear-gradient(to right, @color1 20%, @white 100%), linear-gradient(to left, @color1 20%, @white 100%);
-
-			transform: rotate(180deg);
-		}
-		&:after {
-			background-position: 0 0, 100% 0;
-			background-repeat: no-repeat;
-			-webkit-background-size: 2px 100%;
-			-moz-background-size: 2px 100%;
-			background-size: 2px 100%;
-			background-image: -webkit-linear-gradient(to top, @color1 20%, @white 100%), -webkit-linear-gradient(to top, @color1 20%, @white 100%);
-			background-image: -moz-linear-gradient(to top, @color1 20%, @white 100%), -moz-linear-gradient(to top, @color1 20%, @white 100%);
-			background-image: -o-linear-gradient(to top, @color1 20%, @white 100%), -o-linear-gradient(to top, @color1 20%, @white 100%);
-			background-image: linear-gradient(to bottom, @color1 20%, @white 100%), linear-gradient(to top, @color1 20%, @white 100%);
-		}
-		
+		border: 3px solid @color1;
+		box-shadow: 0 0 5px @white;		
 		.previewImage
 		{
     		filter: grayscale(1);
@@ -670,7 +637,7 @@
 					.previewContent
 					{
 						.column;
-						color: @dark;
+						color: @color1;
 						height: 100%;						
 						h3
 						{
@@ -1469,17 +1436,6 @@
 	{
 		width: @previewSizePad;
 		height: @previewSizePad;
-		padding: 5px;
-		&:before{
-			-webkit-background-size: 100% 5px;
-			-moz-background-size: 100% 5px;
-			background-size: 100% 5px;
-		}
-		&:after{
-			-webkit-background-size: 5px 100%;
-			-moz-background-size: 5px 100%;
-			background-size: 5px 100%;
-		}
 		.previewImage{
 			a{
 				font-size: 1.5rem;
@@ -1717,7 +1673,6 @@
 				.default_transition;
 				.previewContent
 				{
-					transition: 0;
 					color: @color1;
 					visibility: hidden;
 					h3
@@ -1727,10 +1682,8 @@
 				}
 			}
 		}
-		&:hover{
-			&:before, &:after{
-				display: none;
-			}
+		&:hover, &:active, &:focus{
+		
 		}
 		&:hover .previewImage
 		{
