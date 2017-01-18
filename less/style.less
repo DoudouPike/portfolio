@@ -2,9 +2,9 @@
 @twitter: rgb(29,161,242);
 @github: rgb(23,21,21);
 
+@color1: rgb(0,255,0);
+@color2: rgb(97,0,66);
 @white: rgb(255,255,255);
-@pink: rgb(251,0,172);
-@darkPink: rgb(97,0,66);
 @lightWhite: rgb(200,200,200);
 
 @vLightBright: rgb(81,81,81);
@@ -15,6 +15,15 @@
 @lightDark: rgb(35,35,35);
 @transpLightDark: rgba(35,35,35,0.6);
 @dark: rgb(26,26,26);
+
+
+.lgColor1{
+	background: linear-gradient(135deg, @color1, @white, @color1);
+	-webkit-background-clip: text;
+	color: transparent;
+	text-shadow: 0px 0px 5px @color1;
+}
+
 
 @html: rgb(173,69,131);
 @css: rgb(255,45,234);
@@ -32,12 +41,6 @@
 {
 	0%   {transform: scale(1);}
 	50%  {transform: scale(1.05)}
-	100% {transform: scale(1);}
-}
-@keyframes bubbleshadow
-{
-	0%   {transform: scale(1);}
-	50%  {transform: scale(1.05); box-shadow: 0 0 10px @pink;}
 	100% {transform: scale(1);}
 }
 
@@ -149,6 +152,10 @@
 	{
 		font-weight: inherit;
 	}
+	em{
+		.lgColor1;
+		font-style: normal;
+	}
 	img
 	{
 		max-width: 100%;
@@ -174,7 +181,7 @@
 	{
 		border: 1px solid;
 		background-color: @input !important;
-		color: @pink !important;
+		color: @color1 !important;
 		&:focus
 		{
 			background-color: @inputHover !important;
@@ -244,10 +251,11 @@
 
 	.user_info
 	{
+		text-shadow: 0px 0px 5px @color1;
 		font-size: 0.6rem;
 		padding: 5px;
 		text-align: right;
-		border: 2px solid @pink;
+		border: 2px solid @color1;
 		span
 		{
 			display: inline-block;
@@ -284,7 +292,7 @@
 	{
 		padding: @paddingPhoneLittle;
 		text-align: center;
-		background-color: @pink;
+		background-color: @color1;
 		margin: 0;
 	}
 
@@ -372,7 +380,7 @@
 					text-align: center;
 					img
 					{
-						background-image: linear-gradient(135deg, @pink, @white, @pink);
+						background-image: linear-gradient(135deg, @white, @color1);
 						background-size: auto 200%;
 						background-position: 0 100%;
 
@@ -390,7 +398,7 @@
 					margin: 0;
 					z-index: 999;
 					background-color: @dark;
-					color: @pink;
+					color: @color1;
 					font-size: 1rem;
 				}
 			}
@@ -407,7 +415,7 @@
 			position: absolute;
 			top: 0;
 			bottom: 0;
-			background-color: pink;
+			background-color: color1;
 			.submenu
 			{
 				&:hover
@@ -439,10 +447,10 @@
 			padding: 10px;
 			cursor: pointer;
 			vertical-align: middle;
-			background: linear-gradient(135deg, @pink, @white, @pink);
+			background: linear-gradient(135deg, @white, @color1);
 			background-size: auto 200%;
 			background-position: 0 100%;
-			background-clip: text;
+			-webkit-background-clip: text;
 			color: transparent;
 		}
 		.panel_links
@@ -476,7 +484,7 @@
 		padding: @paddingPhoneLittle;
 		p
 		{
-			color: @pink;
+			color: @color1;
 			margin: 0;
 		}
 	}
@@ -531,7 +539,6 @@
 			text-align: center;
 			h2
 			{
-				color: @pink;
 				font-weight: normal;
 			}
 		}
@@ -557,7 +564,7 @@
 				{
 					line-height: 1;
 					padding-left: 10px;
-					color: @pink;
+					color: @color1;
 					border-left: 1px solid @white;
 					
 				}
@@ -607,19 +614,40 @@
 		height: @previewSizePhoneLittle;
 		font-weight: bold;
 		text-align: center;
-		border: 2px solid @dark;
-		background-color: @lightWhite;
 		overflow: hidden;
 		margin: 10px;
-		&:after{
+		
+		box-shadow: 0 0 2px @white;
+		padding: 2px;
+		&:before, &:after {
 			.default_transition;
 			content: "";
-		    position: absolute;
-		    bottom: 0;
-		    right: 0;
-		    border-width: 10px 10px 0px 0px;
-		    border-style: solid;
-		    border-color: transparent @pink;
+			position: absolute;
+			top: 0; bottom: 0; left: 0; right: 0;
+		}
+		&:before {
+			background-position: 0 0, 0 100% ;
+			background-repeat: no-repeat;
+			-webkit-background-size: 100% 2px;
+			-moz-background-size: 100% 2px;
+			background-size: 100% 2px;
+			background-image: -webkit-linear-gradient(to right, @color1 20%, @white 100%), -webkit-linear-gradient(right, @color1 20%, @white 100%);
+			background-image: -moz-linear-gradient(to right, @color1 20%, @white 100%), -moz-linear-gradient(right, @color1 20%, @white 100%);
+			background-image: -o-linear-gradient(to right, @color1 20%, @white 100%), -o-linear-gradient(right, @color1 20%, @white 100%);
+			background-image: linear-gradient(to right, @color1 20%, @white 100%), linear-gradient(to left, @color1 20%, @white 100%);
+
+			transform: rotate(180deg);
+		}
+		&:after {
+			background-position: 0 0, 100% 0;
+			background-repeat: no-repeat;
+			-webkit-background-size: 2px 100%;
+			-moz-background-size: 2px 100%;
+			background-size: 2px 100%;
+			background-image: -webkit-linear-gradient(to top, @color1 20%, @white 100%), -webkit-linear-gradient(to top, @color1 20%, @white 100%);
+			background-image: -moz-linear-gradient(to top, @color1 20%, @white 100%), -moz-linear-gradient(to top, @color1 20%, @white 100%);
+			background-image: -o-linear-gradient(to top, @color1 20%, @white 100%), -o-linear-gradient(to top, @color1 20%, @white 100%);
+			background-image: linear-gradient(to bottom, @color1 20%, @white 100%), linear-gradient(to top, @color1 20%, @white 100%);
 		}
 		
 		.previewImage
@@ -676,7 +704,7 @@
 		}
 		.toggle_desktop
 		{
-			color: @pink;
+			color: @color1;
 			opacity: 0.3;
 			margin: 0;
 			background-color: @dark;
@@ -778,7 +806,7 @@
 				text
 				{
 					font-size: 3800px;
-					fill: @pink;
+					fill: @color1;
 				}
 			}
 			.information
@@ -878,7 +906,7 @@
 			.prod_informations
 			{
 				background-color:@vLightDark;
-				color: @pink;
+				color: @color1;
 				border-top: 1px solid @dark;
 			}
 		}
@@ -904,7 +932,7 @@
 			.project_content
 			{
 				background-color:@lightDark;
-				color: @pink;
+				color: @color1;
 				.flex;
 				.project_description
 				{
@@ -941,8 +969,7 @@
 					font-size: 1rem;
 					padding: 5px;
 					margin: 0;
-					background-color: @darkPink;
-					color: @white;
+					background-color: @lightBright;
 					text-align: center;
 				}
 				.reviews_list
@@ -968,6 +995,7 @@
 								margin: 0;
 								&:nth-child(1)
 								{
+									color: @color1;
 									font-weight: bold;
 									font-size: 1rem;
 									width: 70%;
@@ -1081,7 +1109,7 @@
 		{
 			flex: 1;
 			.column;
-			background-color: @pink;
+			background-color: @color1;
 			p
 			{
 				margin: auto;
@@ -1130,7 +1158,7 @@
 		.admin
 		{
 			font-size: 1.5rem;
-			background-color: @pink;
+			background-color: @color1;
 			color: @dark;
 			padding: @paddingPhoneLittle;
 			text-align: center;
@@ -1169,8 +1197,7 @@
 					font-size: 1rem;
 					padding: 5px;
 					margin: 0;
-					background-color: @darkPink;
-					color: @white;
+					background-color: @lightBright;
 					text-align: center;
 				}
 
@@ -1222,7 +1249,7 @@
 					.buttonOk
 					{
 						background-color: @lightDark !important;
-						color: @pink !important;
+						color: @color1 !important;
 					}
 					.wrongCount
 					{
@@ -1298,7 +1325,7 @@
 		{
 			display: block;
 			flex: 1;
-			background-color: @pink;
+			background-color: @color1;
 			color: @dark;
 			h3
 			{
@@ -1440,15 +1467,21 @@
 	}
 	.preview
 	{
-		box-shadow: 0 0 5px white;
 		width: @previewSizePad;
 		height: @previewSizePad;
+		padding: 5px;
+		&:before{
+			-webkit-background-size: 100% 5px;
+			-moz-background-size: 100% 5px;
+			background-size: 100% 5px;
+		}
 		&:after{
-		    border-width:30px 30px 0px 0px;
+			-webkit-background-size: 5px 100%;
+			-moz-background-size: 5px 100%;
+			background-size: 5px 100%;
 		}
 		.previewImage{
-			a
-			{
+			a{
 				font-size: 1.5rem;
 			}
 		}
@@ -1526,7 +1559,7 @@
 	a{
 		.default_transition;
 		&:hover{
-			color: @pink;
+			color: @color1;
 			text-decoration: none;
 		}
 		&:active
@@ -1608,10 +1641,8 @@
 		background-color: @dark;
 		margin-left: 10px;
 		p{
+			.lgColor1;
 			margin: 0;
-			background: linear-gradient(to right, @pink, @white);
-			background-clip: text;
-			color: transparent;
 		}
 		&:before
 		{
@@ -1677,7 +1708,7 @@
 	{
 		width: @previewSize;
 		height: @previewSize;
-		animation: bubbleshadow 0.5s linear;
+		animation: bubble 0.5s linear;
 		.previewImage
 		{
 			.default_transition;
@@ -1687,7 +1718,7 @@
 				.previewContent
 				{
 					transition: 0;
-					color: @pink;
+					color: @color1;
 					visibility: hidden;
 					h3
 					{
@@ -1697,9 +1728,8 @@
 			}
 		}
 		&:hover{
-			box-shadow: 0 0 10px @pink;
-			&:after{
-				opacity: 0.3;
+			&:before, &:after{
+				display: none;
 			}
 		}
 		&:hover .previewImage
@@ -1729,7 +1759,7 @@
 		{
 			display: none;
 			text-align: center;
-			color: @pink;
+			color: @color1;
 			opacity: 0.6;
 			margin: 0;
 			padding: 10px;
@@ -1787,7 +1817,7 @@
 					&:not(.show)
 					{
 						background-color: @dark;
-						color: @pink;
+						color: @color1;
 					}
 				}
 			}
@@ -1867,7 +1897,7 @@
 	input[type="submit"]
 	{
 		&:hover, &:focus{
-			color: @pink;
+			color: @color1;
 			background-color: @lightDark;
 		}
 	}		
