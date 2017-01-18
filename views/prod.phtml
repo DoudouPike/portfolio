@@ -2,7 +2,7 @@
 	<article class="prod">
 		<h3 class="single_title"><?= htmlentities($prod->getTitle()) ?></h3>
 		<figure class="single_image prod_image">
-			<a href="<?= htmlentities($prod->getUrl()) ?>" >
+			<a class="fa" href="<?= htmlentities($prod->getUrl()) ?>" >
 				<img src="public/images/prods/<?= htmlentities($prod->getImage()) ?>" alt='illustration du projet'>
 			</a>
 		</figure>

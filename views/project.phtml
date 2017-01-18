@@ -3,7 +3,7 @@
 		<h3 class="single_title"><?= htmlentities($project->getTitle()) ?><span class="project_lastDate">Dernière modif: <?=htmlentities($project->getLastDate()) ?></span></h3>
 		<div class="project_presentation">
 			<figure class="single_image project_image">
-				<a href="<?= htmlentities($project->getUrl()) ?>">
+				<a class="fa" href="<?= htmlentities($project->getUrl()) ?>">
 					<img src="public/images/projects/<?= htmlentities($project->getImage()) ?>" alt='illustration du projet'>
 				</a>
 			</figure>
