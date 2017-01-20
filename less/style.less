@@ -148,11 +148,12 @@
 	}
 	strong
 	{
+		.lgColor1;
 		font-weight: inherit;
 	}
 	em{
-		.lgColor1;
-		font-style: normal;
+		font-style: italic;
+		color: black;
 	}
 	img
 	{
@@ -676,7 +677,54 @@
 			background-color: @dark;
 		}
 	}
-	.skill
+	.skill{
+		overflow: auto;
+		>p{
+			margin: 0;
+			text-align: center;
+		}
+		.skills{
+			padding: 0 10px;
+			p{
+				margin: 0;
+			}
+			.singleSkill{
+				margin: 2px 0;
+				.pourcentBar{
+					background-color: @vLightDark;
+					.pourcentValue{
+						padding: 5px;
+						color: @white;
+						background: linear-gradient(to right, @lightDark 20%, @color1, @vLightDark);
+						span{
+							float: right;
+							padding-right: 5px;
+						}
+					}
+				}
+				.specific{
+					background-color: @lightBright;
+					border: 2px dashed @lightDark;
+					border-top: 0;
+					text-align: right;
+					padding-right: 2px;
+				}
+				.html, .css{
+					width: 80%;
+				}
+				.php, .mysql{
+					width: 70%;
+				}
+				.js{
+					width: 50%;
+				}
+			}
+			.otherSkill{
+
+			}
+		}
+	}
+	/* .skill
 	{
 		.halfTop;
 		.skillBox
@@ -685,7 +733,7 @@
 			overflow: auto;
 			flex: 1;
 			.column;
-
+	
 			.chart
 			{
 				height: 100%;
@@ -698,7 +746,7 @@
 					{
 						stroke: black;
 						stroke-width: 30;
-
+	
 					}
 					text
 					{
@@ -715,25 +763,25 @@
 				{
 					fill: @css;
 					border-color: @css !important;
-
+	
 				}
 				.php
 				{
 					fill: @php;
 					border-color: @php !important;
-
+	
 				}
 				.mysql
 				{
 					fill: @mysql;
 					border-color: @mysql !important;
-
+	
 				}
 				.js
 				{
 					fill: @js;
 					border-color: @js !important;
-
+	
 				}
 				.other
 				{
@@ -745,7 +793,7 @@
 				display: none;
 			}
 		}
-	}
+	} */
 	.career
 	{
 		.halfBottom;
@@ -1315,12 +1363,12 @@
 			}
 		}
 	}
-	.skill .skillBox .specific
+	/* .skill .skillBox .specific
 	{
 		display: block;
 		font-size: 1rem;
-	}
-	.skill .skillBox
+	} */
+	/* .skill .skillBox
 	{
 		.column;
 		font-size: 0;
@@ -1360,7 +1408,7 @@
 				}	
 			}
 		}
-	}
+	} */
 }
 
 @media screen and (min-width: 720px)
@@ -1464,7 +1512,7 @@
 			}
 		}
 	}
-	.skill .skillBox .specific
+	/* .skill .skillBox .specific
 	{
 		display: block;
 		font-size: 1rem;
@@ -1480,7 +1528,7 @@
 			width: 50%;
 			height: unset;
 		}
-	}
+	} */
 	.career .schema .information
 	{
 
@@ -1742,7 +1790,7 @@
 			background-color: @dark;
 		}
 	}
-	.skill .skillBox
+	/* .skill .skillBox
 	{
 		.chart, .specific
 		{
@@ -1761,7 +1809,7 @@
 			font-size: 0.9rem;
 			border-left: 8px solid;
 		}
-	}
+	} */
 	.career
 	{
 		.show
@@ -1933,7 +1981,7 @@
 		height: @previewSizeLarge;
 	}
 
-	.skill
+	/* .skill
 	{
 		.skillBox
 		{
@@ -1949,7 +1997,7 @@
 				}
 			}
 		}
-	}
+	} */
 	.career
 	{
 		.schema
