@@ -297,9 +297,31 @@ $(document).ready(function()
 		    }, 750);
 		}
 	}
+//Active Menu
+if($(location).attr('href').indexOf('?page') != -1){
+	if($(location).attr('href').indexOf('=home') != -1){
+		$('#logo').css('color', 'transparent');
+	}
+	if($(location).attr('href').indexOf('=about') != -1){
+		$('#about').css('color', 'transparent');
+	}
+	if($(location).attr('href').indexOf('=portfolio') != -1){
+		$('#prods').css('color', 'transparent');
+	}
+	if($(location).attr('href').indexOf('=mine') != -1){
+		$('#projects').css('color', 'transparent');
+	}
+	if($(location).attr('href').indexOf('=contact') != -1){
+		$('#contact').css('color', 'transparent');
+	}
+	if(($(location).attr('href').indexOf('=connection') != -1) || ($(location).attr('href').indexOf('=dashboard') != -1)){
+		$('#panel_icone').css('color', 'transparent');
+	}
+
+}
 
 //PopUp
 	// if($(location).attr('href').indexOf('?') == -1){
 	// 	alert("L'apparence du site est en cours de modification. Merci de votre compréhension.");
 	// }
-});
+})
