@@ -189,7 +189,8 @@
 	input[type="submit"]
 	{
 		background-color: @input;
-		border: 1px solid;
+		color: @color1;
+		border: 0;
 	}
 	.form
 	{
@@ -372,19 +373,18 @@
 				}
 				a
 				{
-					margin: 5px 0;
 					.flex;
 					justify-content: center;
 					align-items: center;
 					text-decoration: none;
-					height: @menuSizePhoneLittle;
+					height: @menuSizePhoneLittle + 10px;
 					width: @menuSizePhoneLittle;
 					text-align: center;
 					i{
 						text-align: center;
 						font-size: 1.8rem;
 						color: @color1;
-						text-shadow: 0px 0px 1px @dark, 0 0 5px @color1;
+						text-shadow: 0px 0px 1px @dark, 0 0 3px @color1;
 					}
 				}
 				.title
@@ -648,15 +648,18 @@
 	}
 
 /*About*/
-	.sheet
+	.sheet, .cv
 	{
 		padding: @paddingPhoneLittle;
-		background-color: @transpLightDark;
+		background-color: @transpLightDark; 
 	}
 	.about
 	{
 		padding: @paddingPhoneLittle;
 		background-color: @vLightDark;
+	}
+	.cv{
+		text-align: center;
 	}
 
 	.skill, .career
@@ -686,18 +689,23 @@
 			p{
 				margin: 0;
 			}
-			.singleSkill{
+			li{
 				margin: 2px 0;
+				div{
+					
+					span{
+						float: right;
+						padding-right: 5px;
+					}
+				}
+			}
+			.singleSkill{
 				.pourcentBar{
 					background-color: @vLightDark;
 					.pourcentValue{
 						padding: 5px;
 						color: @white;
 						background: linear-gradient(to right, @lightDark 20%, @color1);
-						span{
-							float: right;
-							padding-right: 5px;
-						}
 					}
 				}
 				.specific{
@@ -718,7 +726,12 @@
 				}
 			}
 			.otherSkill{
-
+				div{
+					background-color: @lightBright;
+					border: 2px dashed @lightDark;
+					margin: 5px 0;
+					padding: 5px;
+				}
 			}
 		}
 	}
@@ -1430,13 +1443,8 @@
 		{
 			a
 			{
-				margin: 10px 0;
 				width: @menuSizePad;
-				height: @menuSizePad;
-				/*img
-				{
-					width: @menuSizePad / 1.5;
-				}	*/
+				height: @menuSizePad + 20px;
 			}
 		}
 	}
@@ -1696,14 +1704,14 @@
 				a
 				{
 					width: @menuSize;
-					height: @menuSize;
+					height: @menuSize + 20px;
 					i{
 						.default_transition;
 					}
 					&:hover i
 					{
-						color: transparent;
 						animation: bubble 0.5s linear;
+						color: transparent;
 					}
 				}
 			}
@@ -1931,15 +1939,19 @@
 		margin-right: 55px;
 	}
 
-	.form form label,.form form input
-	{
+	.form form label, .form form input{
 		font-size: 1rem;
+	}
+	.form form input, .form form textarea{
+		&:hover, &:focus{
+			border: 1px solid @color1;
+			background-color: @inputHover;
+		}
 	}
 	input[type="submit"]
 	{
 		&:hover, &:focus{
-			color: @color1;
-			background-color: @lightDark;
+			border: 1px solid;
 		}
 	}		
 }

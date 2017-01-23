@@ -54,7 +54,6 @@ class UserManager
 
 		}
 	}
-
 	public function updateAdmin(User $user)
 	{
 		$admin = intval($user->getAdmin());
@@ -93,7 +92,6 @@ class UserManager
 
 		}
 	}
-
 	public function create($login, $email, $pwd, $pwd2)
 	{
 		$user = new User($this->db);
