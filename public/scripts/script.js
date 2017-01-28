@@ -181,7 +181,9 @@ $(document).ready(function()
 
 				var title = $("<div></div>");
 				title.addClass('menu_title');
-				title.offset({ top: $( this ).offset().top});
+				var offset = $(this).offset().top + ($(this).height() / 4);
+				
+				title.offset({ top: offset});
 
 				var title_text = $("<p></p>");
 				title_text.text(page);
