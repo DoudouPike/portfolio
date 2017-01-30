@@ -1,6 +1,7 @@
 @facebook: rgb(59,89,152);
 @twitter: rgb(29,161,242);
 @github: rgb(23,21,21);
+@linkedin: rgb(28,135,189);
 
 @color1: rgb(0,255,0);
 @color2: rgb(97,0,66);
@@ -1141,12 +1142,12 @@
 		{
 			flex: 1;
 			.column;
-			background-color: @color1;
+			background-color: @lightDark;
 			p
 			{
 				margin: auto;
 				text-align: center;
-				color: @dark;
+				color: @white;
 			}
 		}
 	}
@@ -1190,7 +1191,7 @@
 		.admin
 		{
 			font-size: 1.5rem;
-			background-color: @color1;
+			background-color: @transpLightDark;
 			color: @dark;
 			padding: @paddingPhoneLittle;
 			text-align: center;
@@ -1609,7 +1610,7 @@
 		.default_transition;
 		&:hover
 		{
-			color: inherit;
+			color: black;
 			background-color: @vLightDark;
 		}
 		&:hover .fa-facebook
@@ -1623,6 +1624,10 @@
 		&:hover .fa-github
 		{
 			color: @github;
+		}
+		&:hover .fa-linkedin
+		{
+			color: @linkedin;
 		}
 	}
 	.layout
