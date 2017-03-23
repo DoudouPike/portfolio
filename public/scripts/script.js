@@ -299,6 +299,21 @@ $(document).ready(function()
 		    }, 750);
 		}
 	}
+//Animation Arrow Scrool
+	var $scrollArrow = $('.scrollArrow');
+
+    function runIt() {
+        $scrollArrow.animate({
+            opacity:"0"
+        }, 1500, function() {
+            $scrollArrow.animate({
+            	opacity:"1"
+            }, 1500);
+            runIt();
+        });
+    }
+
+    runIt();
 //Active Menu
 if($(location).attr('href').indexOf('?page') != -1){
 	if($(location).attr('href').indexOf('=home') != -1){

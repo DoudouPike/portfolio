@@ -155,6 +155,26 @@ if(isset($_POST['action']))
 			$user->setAdmin($_POST['admin']);
 			$userManager->updateAdmin($user);
 			header('Location: index.php?admin&page=users#'.$user->getId());
+			exit;
+		}
+		catch (Exception $exception)
+		{
+			$error = $exception->getMessage();
+		}
+	}
+	elseif($action == "editActive" && isset($_POST['id'], $_POST['active'], $_SESSION['admin']))
+	{
+		$userManager = new UserManager($db);
+		try
+		{
+			$user = $userManager->findById($_POST['id']);
+			if(!$user)
+				throw new Exception("L'utilisateur n'existe pas");
+
+			$user->setActive($_POST['active']);
+			$userManager->updateActive($user);
+			header('Location: index.php?admin&page=users#'.$user->getId());
+			exit;
 		}
 		catch (Exception $exception)
 		{
