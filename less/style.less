@@ -297,8 +297,10 @@
 	}
 	.scrollArrow{
 		position: absolute;
-		bottom: 10px;
+		bottom: 5px;
 		left: 50%;
+		transform: translateX(-50%);
+
 		text-decoration: none;
 		color: @color1;
 		font-size: 1.5rem;
@@ -658,13 +660,22 @@
 /*About*/
 	.sheet, .cv
 	{
-		padding: @paddingPhoneLittle;
+		padding: 2px;
 		background-color: @transpLightDark; 
 	}
 	.about
 	{
-		padding: @paddingPhoneLittle;
+		padding: 5px @paddingPhoneLittle;
 		background-color: @vLightDark;
+		.freelance{
+			background-color: @color1;
+			color: @dark;
+			padding: 5px;
+			margin-bottom: 0;
+			a:hover{
+				color: @bright;
+			}
+		}
 	}
 	.cv{
 		text-align: center;
@@ -743,76 +754,6 @@
 			}
 		}
 	}
-	/* .skill
-	{
-		.halfTop;
-		.skillBox
-		{
-			font-size: 0;
-			overflow: auto;
-			flex: 1;
-			.column;
-	
-			.chart
-			{
-				height: 100%;
-				text-align: center;
-				svg
-				{
-					max-width: 100%;
-					max-height: 100%;
-					path
-					{
-						stroke: black;
-						stroke-width: 30;
-	
-					}
-					text
-					{
-						font-size: 3800px;
-						fill: @dark !important;
-					}
-				}
-				.html
-				{
-					fill: @html;
-					border-color: @html !important;
-				}
-				.css
-				{
-					fill: @css;
-					border-color: @css !important;
-	
-				}
-				.php
-				{
-					fill: @php;
-					border-color: @php !important;
-	
-				}
-				.mysql
-				{
-					fill: @mysql;
-					border-color: @mysql !important;
-	
-				}
-				.js
-				{
-					fill: @js;
-					border-color: @js !important;
-	
-				}
-				.other
-				{
-					border-color: rgb(180,180,180);
-				}
-			}
-			.specific
-			{
-				display: none;
-			}
-		}
-	} */
 	.career
 	{
 		.halfBottom;

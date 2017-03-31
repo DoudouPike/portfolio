@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  db655083596.db.1and1.com
--- Généré le :  Mar 03 Janvier 2017 à 18:04
--- Version du serveur :  5.5.52-0+deb7u1-log
--- Version de PHP :  5.4.45-0+deb7u6
+-- Généré le :  Mer 29 Mars 2017 à 17:16
+-- Version du serveur :  5.5.54-0+deb7u2-log
+-- Version de PHP :  5.4.45-0+deb7u7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -35,7 +35,14 @@ CREATE TABLE IF NOT EXISTS `comments` (
   PRIMARY KEY (`id`),
   KEY `id_project` (`id_project`),
   KEY `id_author` (`id_author`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5 ;
+
+--
+-- Contenu de la table `comments`
+--
+
+INSERT INTO `comments` (`id`, `id_project`, `id_author`, `content`, `date`) VALUES
+(2, 4, 23, 'Hello ', '2017-03-01 14:53:15');
 
 -- --------------------------------------------------------
 
@@ -48,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `notes` (
   `content` varchar(512) COLLATE utf8_bin NOT NULL,
   `active` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=20 ;
 
 --
 -- Contenu de la table `notes`
@@ -56,7 +63,9 @@ CREATE TABLE IF NOT EXISTS `notes` (
 
 INSERT INTO `notes` (`id`, `content`, `active`) VALUES
 (16, '"Les notes", c''est quoi ?\r\nUne note est une information d''actualité me concernant, pouvant vous intéresser.', 0),
-(17, 'Vous recrutez ?\r\nContactez-moi, je cherche un emploi !', 1);
+(17, 'Vous recrutez ?\r\nContactez-moi, je cherche un emploi !', 1),
+(18, 'L''apparence du site évolue beaucoup ces derniers temps, quelques problèmes visuels peuvent survenir. N''hésitez pas à m''en faire part.', 0),
+(19, 'A partir du 15 avril 2017, je serai mon propre patron ! En tant que Freelance, je pourrais réaliser vos projets web. Contactez-moi !', 1);
 
 -- --------------------------------------------------------
 
@@ -73,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `prods` (
   `url` varchar(255) COLLATE utf8_bin NOT NULL,
   `client` varchar(63) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=13 ;
 
 --
 -- Contenu de la table `prods`
@@ -81,7 +90,8 @@ CREATE TABLE IF NOT EXISTS `prods` (
 
 INSERT INTO `prods` (`id`, `title`, `description`, `image`, `date`, `url`, `client`) VALUES
 (9, 'Puzzle', 'Puzzle en JavaScript Natif (sans jQuery ou autre bibliothèque) réalisé au cours de ma formation. Ma priorité pour ce projet était la légèreté ; je n''ai donc qu''une seule image en Background, et je joue avec sa position (background-position) pour le placer dans chaque pièce. Spécificités : Drag & Drop.', 'puzzle.png', '2016-08-22', 'http://doudoupike.fr/public/prods/puzzle/index.html', 'Perso'),
-(10, 'Carrousel', 'Carrousel en JavaScript Natif (sans jQuery ou autre bibliothèque) réalisé au cours de ma formation. Il s''agit de ma première réalisation dans ce langage.', 'carousel.png', '2016-08-11', 'http://doudoupike.fr/public/prods/carousel/index.html', 'Perso');
+(10, 'Carrousel', 'Carrousel en JavaScript Natif (sans jQuery ou autre bibliothèque) réalisé au cours de ma formation. Il s''agit de ma première réalisation dans ce langage.', 'carousel.png', '2016-08-11', 'http://doudoupike.fr/public/prods/carousel/index.html', 'Perso'),
+(12, 'Portfolio', 'Il s''agit du site que vous visitez actuellement.\r\nJe l''ai réalisé sans CMS ni Framework (à part jQuery).\r\nEn tant qu''administrateur, je peux accéder au Backoffice pour ajouter/modifier/supprimer des Réalisations, Projets et Notes.\r\nLangages utilisés : HTML, CSS, PHP, MySQL, JavaScript.', 'portfolio.png', '2016-12-25', 'https://doudoupike.fr', 'Moi');
 
 -- --------------------------------------------------------
 
@@ -98,14 +108,17 @@ CREATE TABLE IF NOT EXISTS `projects` (
   `date` date NOT NULL,
   `last_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=8 ;
 
 --
 -- Contenu de la table `projects`
 --
 
 INSERT INTO `projects` (`id`, `title`, `content`, `image`, `url`, `date`, `last_date`) VALUES
-(4, 'Réseau Social Débat', 'Plateforme adaptée aux débats : Mix entre un réseau social et un forum. 1/Créer un débat, 2/Intégrer les sources, des graphiques et autres fichiers joints, 3/Inviter des contacts à le rejoindre, 4/Administrer le débat.', 'debat.png', '', '2016-12-28', '2016-12-28 06:10:30');
+(4, 'Réseau Social Débat', 'Plateforme adaptée aux débats : Mix entre un réseau social et un forum. 1/Créer un débat, 2/Intégrer les sources, des graphiques et autres fichiers joints, 3/Inviter des contacts à le rejoindre, 4/Administrer le débat.', 'debat.png', '', '2016-12-28', '2016-12-28 06:10:30'),
+(5, 'Let Me Think', 'Let Me Think (LMT) est un blog communautaire, philosophique et sociale, anonyme et ouvert à tous.', 'default.png', '', '2017-03-14', '2017-03-14 05:17:21'),
+(6, 'Maintenance informatique', 'La maintenance informatique (software) fait partit de mes centres d''intérêts. Ce projet présentera sur quels problèmes je peux intervenir, tout ça bénévolement.', 'default.png', '', '2017-03-16', '2017-03-16 05:53:58'),
+(7, 'Comportement animal', 'Passionné de biologie, de philosophie, et de psychologie sociale, je souhaite créer un site qui réunis tout ça. Un petit coin d''Ethologie !', 'default.png', '', '2017-03-16', '2017-03-16 05:55:23');
 
 -- --------------------------------------------------------
 
@@ -121,14 +134,17 @@ CREATE TABLE IF NOT EXISTS `reviews` (
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `id_project` (`id_project`) USING BTREE
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=8 ;
 
 --
 -- Contenu de la table `reviews`
 --
 
 INSERT INTO `reviews` (`id`, `id_project`, `title`, `content`, `date`) VALUES
-(4, 4, 'Phase de réflexion', 'Pour le moment je réfléchis au projet dans son ensemble.', '2016-12-28 06:07:59');
+(4, 4, 'Phase de réflexion', 'Pour le moment je réfléchis au projet dans son ensemble.', '2016-12-28 06:07:59'),
+(5, 5, 'Phase de test', 'Ce projet est avant tout un prétexte pour pratiquer sur WordPress. Je suis donc en phase de test de différents plugins, tout en concrétisant l''idée première du site.', '2017-03-14 05:15:32'),
+(6, 6, 'Simple idée', 'L''idée mûrit !', '2017-03-16 05:56:32'),
+(7, 7, 'Partenaire, es-tu là ?', 'Je cherche d''autres personnes passionnées pour m''aider dans la construction de ce projet.', '2017-03-16 05:57:40');
 
 -- --------------------------------------------------------
 
@@ -146,16 +162,18 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `login` (`login`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=28 ;
 
 --
 -- Contenu de la table `users`
 --
 
 INSERT INTO `users` (`id`, `login`, `email`, `password`, `admin`, `active`) VALUES
-(5, 'Chowsurique', 'alienor.plantard@gmail.com', '$2y$12$4EOMJybU1Ei9Yo1uKUBOb.cwIvoipx7ksj.s3AAl1EVATV7gE5Ime', 0, 1),
+(5, 'Chowsurique', 'alienor.plantard@gmail.com', '$2y$12$4EOMJybU1Ei9Yo1uKUBOb.cwIvoipx7ksj.s3AAl1EVATV7gE5Ime', 1, 1),
 (7, 'DoudouPike', 'doudoupike@hotmail.fr', '$2y$10$QfSbCFtpL43Os9CaOFqyZ.UR.D5d3dZjXPeZ5x7L15aL18AEoVGBa', 1, 1),
-(22, 'Monsieur Test', 'keke.doudoupike@gmail.com', '$2y$10$vplmChqh3.PEG8mDdb560eZ1rZBHyAKZUmS21UvERg6TMVfzbmJry', 0, 1);
+(23, '3waAdmin', 'contact@doudoupike.fr', '$2y$10$6HjxCi2ywwxNDFuxpVYkVOOVACwpTWW4d3hSSiMdjBLoXnyn/r7TK', 1, 1),
+(26, 'Namae', 'namaenonai.so@gmail.com', '$2y$10$wQZphHkwP882UI.CBfbYteeuisv0jpa10Ezz34hferYTpVfOI3Hqy', 1, 1),
+(27, 'Okusama', 'david.naud75@live.fr', '$2y$10$CwsOfsuD1ReciIHoj4PemeMiuNJeR0lyhnVatpxPY75O5N2sCuKfe', 0, 1);
 
 --
 -- Contraintes pour les tables exportées
